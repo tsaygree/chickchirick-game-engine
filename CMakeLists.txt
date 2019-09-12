@@ -29,8 +29,8 @@ find_package(SDL2_ttf REQUIRED)
 include_directories(${SDL2_TTF_INCLUDE_DIR})
 
 # Look up TMXLITE and add the include directory to our include path
-find_package(TMXLITE REQUIRED)
-include_directories(${TMXLITE_INCLUDE_DIR})
+# find_package(TMXLITE REQUIRED)
+# include_directories(${TMXLITE_INCLUDE_DIR})
 
 # Look in the subdirectories to find its CMakeLists.txt so we can build the executable
 add_subdirectory(core)
