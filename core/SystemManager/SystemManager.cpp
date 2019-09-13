@@ -1,5 +1,12 @@
 #include "SystemManager.hpp"
 
+SystemManager::SystemManager() {}
+
+SystemManager& SystemManager::getInstance() {
+    static SystemManager instance;
+    return instance;
+}
+
 int SystemManager::BigInit() {
     if (SDL_Init(SDL_INIT_VIDEO)) {
         std::cerr << SDL_GetError() << std::endl;

@@ -14,7 +14,9 @@ class SystemManager {
 private:
     SDL_Window*     window;
     SDL_Renderer*   renderer;
+    SystemManager();
 public:
+    static SystemManager& getInstance();
     int BigInit();
     int BigShutDown();
 };
