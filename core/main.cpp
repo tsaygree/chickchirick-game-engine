@@ -1,4 +1,4 @@
-// #include "SystemManager.hpp"
+#include "SystemManager.hpp"
 
 int  main(int argc, char const *argv[]) {
     return 0;

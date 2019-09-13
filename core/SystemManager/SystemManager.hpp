@@ -8,11 +8,12 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
+#include <iostream>
 
 class SystemManager {
 private:
-    SDL_Window* window;
-    SDL_Renderer* renderer;
+    SDL_Window*     window;
+    SDL_Renderer*   renderer;
 public:
     int BigInit();
     int BigShutDown();
