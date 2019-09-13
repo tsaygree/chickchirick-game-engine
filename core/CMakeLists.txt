@@ -1,7 +1,10 @@
 project(core)
 
-add_executable(core
+add_executable(
+			core
             main.cpp
+			SystemManager/SystemManager.hpp
+			SystemManager/SystemManager.cpp
             )
 
 target_link_libraries(core
@@ -12,3 +15,7 @@ target_link_libraries(core
             )
 
 install(TARGETS core RUNTIME DESTINATION ${BIN_DIR})
+
+include_directories(
+	SystemManager
+)
