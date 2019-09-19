@@ -31,6 +31,7 @@ private:
     uint32_t        id;                         /*  crc32b string id        */
     const char*     ptr;                        /*  ptr to actual string instance in gStringTable   */
 public:
+    StringID() = default;
     StringID(uint32_t sid, const char* str);
     uint32_t getID();
     const char* getPtr();
