@@ -1,3 +1,12 @@
+/*
+
+    SystemManager.hpp
+    chickchirick-game-engine
+
+    Created by <chickchirik> on 13/09/2019.
+
+*/
+
 #include "SystemManager.hpp"
 
 SystemManager::SystemManager() {}

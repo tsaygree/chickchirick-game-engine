@@ -1,10 +1,18 @@
 /*
+
+    StringID.hpp
+    chickchirick-game-engine
+
+    Created by <chickchirik> on 17/09/2019.
+
+    DESCRIPTION:
     StringID module interns character literals to
     it's hash value by running a crc32B hash function
     on it. All happens at compile time, therefore no
     overhead at runtime.
     This way StringID allows to abstract form using
     strings gaining perfomance boost.
+
 */
 
 #pragma once
