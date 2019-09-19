@@ -43,6 +43,8 @@ int SystemManager::BigInit() {
         return 1;
     }
     SDL_SetRenderDrawColor(renderer, 0xAA, 0xFF, 0xFF, 0xFF);
+
+    fs.startUP();
     return 0;
 }
 

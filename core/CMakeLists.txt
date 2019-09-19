@@ -4,6 +4,7 @@ add_executable(
 	core
     main.cpp
 	SystemManager/SystemManager.cpp
+	FileSystem/FileSystem.cpp
 )
 
 target_link_libraries(
@@ -19,4 +20,5 @@ install(TARGETS core RUNTIME DESTINATION ${BIN_DIR})
 include_directories(
 	SystemManager
 	StringID
+	FileSystem
 )

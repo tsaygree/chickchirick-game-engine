@@ -16,11 +16,13 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "StringID.hpp"
+#include "FileSystem.hpp"
 #include <iostream>
 #include <cstdio>
 
 class SystemManager {
 private:
+    FileSystem      fs = FileSystem::getInstance();
     SDL_Window*     window;
     SDL_Renderer*   renderer;
     SystemManager();

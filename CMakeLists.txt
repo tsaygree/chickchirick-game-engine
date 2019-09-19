@@ -32,5 +32,10 @@ include_directories(${SDL2_TTF_INCLUDE_DIR})
 # find_package(TMXLITE REQUIRED)
 # include_directories(${TMXLITE_INCLUDE_DIR})
 
+# Look up Boost C++ Libraries
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
+
 # Look in the subdirectories to find its CMakeLists.txt so we can build the executable
 add_subdirectory(core)
