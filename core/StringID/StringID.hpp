@@ -28,12 +28,22 @@ using std::string;
 
 class StringID {
 private:
-    uint32_t    id;                             /*  crc32b string id    */
-    char*       ptr;                            /*  ptr to actual string instance in gStringTable   */
+    uint32_t        id;                         /*  crc32b string id        */
+    const char*     ptr;                        /*  ptr to actual string instance in gStringTable   */
 public:
-    StringID(uint32_t id, char* name);
+    StringID(uint32_t sid, const char* str);
+    uint32_t getID();
+    const char* getPtr();
 };
 
+/*  cimpile time function that calculates crc32b                            */
+extern constexpr uint32_t crc32(const uint8_t* data, size_t length, uint32_t remainder);
+/*  user string literal to calculate hash on a string at compile time       */
+extern constexpr uint32_t operator"" _sid(const char* str, size_t length);
+/*  macro to create StringID instance from a simple string literal          */
+#define SID(str) StringID(str##_sid, str)
+
+/*  lookup table for crc32b hash calculation                                */
 const uint32_t crc32Table[256] = {
     0x00000000U, 0x77073096U, 0xEE0E612CU, 0x990951BAU, 0x076DC419U,
     0x706AF48FU, 0xE963A535U, 0x9E6495A3U, 0x0EDB8832U, 0x79DCB8A4U,

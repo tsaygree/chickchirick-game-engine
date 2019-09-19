@@ -5,6 +5,7 @@ add_executable(
     main.cpp
 	SystemManager/SystemManager.cpp
 	FileSystem/FileSystem.cpp
+	StringID/StringID.cpp
 )
 
 target_link_libraries(
