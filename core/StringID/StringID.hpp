@@ -12,13 +12,29 @@
     overhead at runtime.
     This way StringID allows to abstract form using
     strings gaining perfomance boost.
+    StringID also registers every string to special
+    lookup table, so it is possible to retrieve a
+    string later.
 
 */
 
 #pragma once
+#include <unordered_map>
+#include <string>
 
-using StringID = uint32_t;
-const StringID crc32Table[256] = {
+template<typename K, typename V>
+using HashTable = std::unordered_map<K,V>;
+using std::string;
+
+class StringID {
+private:
+    uint32_t    id;                             /*  crc32b string id    */
+    char*       ptr;                            /*  ptr to actual string instance in gStringTable   */
+public:
+    StringID(uint32_t id, char* name);
+};
+
+const uint32_t crc32Table[256] = {
     0x00000000U, 0x77073096U, 0xEE0E612CU, 0x990951BAU, 0x076DC419U,
     0x706AF48FU, 0xE963A535U, 0x9E6495A3U, 0x0EDB8832U, 0x79DCB8A4U,
     0xE0D5E91EU, 0x97D2D988U, 0x09B64C2BU, 0x7EB17CBDU, 0xE7B82D07U,
@@ -73,7 +89,7 @@ const StringID crc32Table[256] = {
     0x2D02EF8DU
 };
 
-constexpr StringID crc32(const uint8_t* data, size_t length, uint32_t remainder) {
+constexpr uint32_t crc32(const uint8_t* data, size_t length, uint32_t remainder) {
     return
         length ?
             crc32(
@@ -83,7 +99,7 @@ constexpr StringID crc32(const uint8_t* data, size_t length, uint32_t remainder)
         : remainder;
 }
 
-constexpr StringID operator"" _sid(const char* str, size_t length) {
+constexpr uint32_t operator"" _sid(const char* str, size_t length) {
     return ~crc32((uint8_t*)str, length, ~0);
 }
 
@@ -91,7 +107,7 @@ constexpr StringID operator"" _sid(const char* str, size_t length) {
     lookup table can be generated to stdout using this function:
 
 void printCRC32Table() {
-    StringID remainder = 0;
+    uint32_t remainder = 0;
     for (size_t byte = 0; byte != 256; byte++) {
         remainder = byte;
         for (size_t bit = 0; bit != 8; bit++) {
