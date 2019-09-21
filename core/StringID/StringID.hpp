@@ -21,6 +21,7 @@
 #pragma once
 #include <unordered_map>
 #include <string>
+#include <cstring>
 
 template<typename K, typename V>
 using HashTable = std::unordered_map<K,V>;
@@ -37,15 +38,17 @@ public:
     const char* getPtr();
 };
 
+/*  runtime crc32b hash function                                            */
+uint32_t hashCrc32(const char* str);
 /*  cimpile time function that calculates crc32b                            */
-extern constexpr uint32_t crc32(const uint8_t* data, size_t length, uint32_t remainder);
+constexpr uint32_t crc32(const char* data, size_t length, uint32_t remainder);
 /*  user string literal to calculate hash on a string at compile time       */
-extern constexpr uint32_t operator"" _sid(const char* str, size_t length);
+constexpr uint32_t operator"" _sid(const char* str, size_t length);
 /*  macro to create StringID instance from a simple string literal          */
 #define SID(str) StringID(str##_sid, str)
 
 /*  lookup table for crc32b hash calculation                                */
-const uint32_t crc32Table[256] = {
+const constexpr uint32_t crc32Table[256] = {
     0x00000000U, 0x77073096U, 0xEE0E612CU, 0x990951BAU, 0x076DC419U,
     0x706AF48FU, 0xE963A535U, 0x9E6495A3U, 0x0EDB8832U, 0x79DCB8A4U,
     0xE0D5E91EU, 0x97D2D988U, 0x09B64C2BU, 0x7EB17CBDU, 0xE7B82D07U,
@@ -100,7 +103,7 @@ const uint32_t crc32Table[256] = {
     0x2D02EF8DU
 };
 
-constexpr uint32_t crc32(const uint8_t* data, size_t length, uint32_t remainder) {
+constexpr uint32_t crc32(const char* data, size_t length, uint32_t remainder) {
     return
         length ?
             crc32(
@@ -111,7 +114,7 @@ constexpr uint32_t crc32(const uint8_t* data, size_t length, uint32_t remainder)
 }
 
 constexpr uint32_t operator"" _sid(const char* str, size_t length) {
-    return ~crc32((uint8_t*)str, length, ~0);
+    return ~crc32(str, length, ~0);
 }
 
 /*
