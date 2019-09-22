@@ -38,6 +38,6 @@ public:
     int startUP();                                          /*  start up the subsystem                      */
     int shutDown();                                         /*  shut down the subsystem                     */
     bpt::ptree& parseJSON(const char* filename);            /*  load and parse JSON file                    */
-    StringID& getBasePath();                                /*  get engine base dir path                    */
-    // StringID getPrefPath();                                 /*  get hidden appdata dir path                 */
+    const StringID& getBasePath() const;                    /*  get engine base dir path                    */
+    // const StringID& getPrefPath() const;                    /*  get hidden appdata dir path                 */
 };

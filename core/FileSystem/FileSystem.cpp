@@ -37,6 +37,6 @@ bpt::ptree& FileSystem::parseJSON(const char* filename) {
     return pt;
 }
 
-StringID& FileSystem::getBasePath() {   return basePath;    }
+const StringID& FileSystem::getBasePath() const {   return basePath;    }
 
-// StringID& FileSystem::getPrefPath() {}
+// const StringID& FileSystem::getPrefPath() const {}
