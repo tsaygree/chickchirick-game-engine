@@ -29,7 +29,7 @@ using std::string;
 
 class StringID {
 private:
-    uint32_t        id;                         /*  crc32b string id        */
+    uint32_t        id;                         /*  crc32b string id                                */
     const char*     ptr;                        /*  ptr to actual string instance in gStringTable   */
 public:
     StringID() = default;
