@@ -18,11 +18,11 @@ FileSystem& FileSystem::getInstance() {
 
 int FileSystem::startUP() {
     /*  find engine base directory path */
-    std::string PathStr = SDL_GetBasePath();
-    size_t pos = PathStr.rfind("bin");
-    PathStr = PathStr.substr(0, pos);
-    const char* PathPtr = PathStr.c_str();
-    basePath = StringID(hashCrc32(PathPtr), PathPtr);
+    std::string pathStr = SDL_GetBasePath();
+    size_t pos = pathStr.rfind("bin");
+    pathStr = pathStr.substr(0, pos);
+    const char* pathPtr = pathStr.c_str();
+    basePath = StringID(hashCrc32(pathPtr), pathPtr);
 
     /*  find hidden appdata directory path */
     // PathStr = SDL_GetPrefPath("", "");
@@ -30,7 +30,7 @@ int FileSystem::startUP() {
     return 0;
 }
 
-int FileSystem::shutDown() {}
+int FileSystem::shutDown() {    return 0;   }
 
 bpt::ptree& FileSystem::parseJSON(const char* filename) {
     bpt::read_json(filename, pt);
