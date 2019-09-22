@@ -41,11 +41,12 @@ public:
 /*  runtime crc32b hash function                                            */
 uint32_t hashCrc32(const char* str);
 /*  cimpile time function that calculates crc32b                            */
-constexpr uint32_t crc32(const char* data, size_t length, uint32_t remainder);
+constexpr uint32_t crc32(const char* data, size_t length);
 /*  user string literal to calculate hash on a string at compile time       */
 constexpr uint32_t operator"" _sid(const char* str, size_t length);
 /*  macro to create StringID instance from a simple string literal          */
 #define SID(str) StringID(str##_sid, str)
+#define STRINGHASH(str) StringID(hashCrc32(str.c_str()), str.c_str())
 
 /*  lookup table for crc32b hash calculation                                */
 const constexpr uint32_t crc32Table[256] = {
@@ -103,18 +104,17 @@ const constexpr uint32_t crc32Table[256] = {
     0x2D02EF8DU
 };
 
-constexpr uint32_t crc32(const char* data, size_t length, uint32_t remainder) {
-    return
-        length ?
-            crc32(
-                data + 1,
-                length - 1,
-                crc32Table[(remainder & 0xFF) ^ *data] ^ (remainder >> 8))
-        : remainder;
+constexpr uint32_t crc32(const char* data, size_t length) {
+    uint32_t remainder = 0xFFFFFFFFU;
+    while (length) {
+        remainder = crc32Table[(remainder & 0xFF) ^ *data++] ^ (remainder >> 8);
+        length--;
+    }
+    return remainder;
 }
 
 constexpr uint32_t operator"" _sid(const char* str, size_t length) {
-    return ~crc32(str, length, ~0);
+    return ~crc32(str, length);
 }
 
 /*

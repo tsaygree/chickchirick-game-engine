@@ -33,5 +33,5 @@ uint32_t    StringID::getID()       {   return id;      }
 const char* StringID::getPtr()      {   return ptr;     }
 
 uint32_t hashCrc32(const char* str) {
-    return ~crc32(str, std::strlen(str), ~0);
+    return ~crc32(str, std::strlen(str));
 }
