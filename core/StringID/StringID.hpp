@@ -34,8 +34,8 @@ private:
 public:
     StringID() = default;
     StringID(uint32_t sid, const char* str);
-    uint32_t getID();
-    const char* getPtr();
+    uint32_t getID() const;
+    const char* getPtr() const;
 };
 
 /*  runtime crc32b hash function                                            */
