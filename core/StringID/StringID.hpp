@@ -36,6 +36,7 @@ public:
     StringID(uint32_t sid, const char* str);
     uint32_t getID() const;
     const char* getPtr() const;
+    const string& getStr() const;
 };
 
 /*  runtime crc32b hash function                                            */
