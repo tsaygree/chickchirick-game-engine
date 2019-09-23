@@ -32,7 +32,7 @@ uint32_t FileSystem::startUP() {
 
 uint32_t FileSystem::shutDown() {    return 0;   }
 
-bpt::ptree& FileSystem::parseJSON(const char* filename) {
+const bpt::ptree& FileSystem::parseJSON(const char* filename) {
     bpt::read_json(filename, pt);
     return pt;
 }

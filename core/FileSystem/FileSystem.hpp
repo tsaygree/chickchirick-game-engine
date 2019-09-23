@@ -37,7 +37,7 @@ public:
     static FileSystem& getInstance();                       /*  get singleton getInstance                   */
     uint32_t startUP();                                          /*  start up the subsystem                      */
     uint32_t shutDown();                                         /*  shut down the subsystem                     */
-    bpt::ptree& parseJSON(const char* filename);            /*  load and parse JSON file                    */
+    const bpt::ptree& parseJSON(const char* filename);            /*  load and parse JSON file                    */
     const StringID& getBasePath() const;                    /*  get engine base dir path                    */
     // const StringID& getPrefPath() const;                    /*  get hidden appdata dir path                 */
 };
