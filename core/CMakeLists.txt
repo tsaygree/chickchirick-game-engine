@@ -6,6 +6,7 @@ add_executable(
 	SystemManager/SystemManager.cpp
 	FileSystem/FileSystem.cpp
 	StringID/StringID.cpp
+	ConfigManager/ConfigManager.cpp
 )
 
 target_link_libraries(
@@ -22,4 +23,5 @@ include_directories(
 	SystemManager
 	StringID
 	FileSystem
+	ConfigManager
 )
