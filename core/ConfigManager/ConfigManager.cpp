@@ -16,7 +16,7 @@ ConfigManager& ConfigManager::getInstance() {
     return instance;
 }
 
-int ConfigManager::startUP() {
+uint32_t ConfigManager::startUP() {
     /* find global config path  */
     FileSystem& fileSys = FileSystem::getInstance();
     const StringID& path = fileSys.getBasePath();

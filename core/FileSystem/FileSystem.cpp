@@ -16,7 +16,7 @@ FileSystem& FileSystem::getInstance() {
     return instance;
 }
 
-int FileSystem::startUP() {
+uint32_t FileSystem::startUP() {
     /*  find engine base directory path */
     std::string pathStr = SDL_GetBasePath();
     size_t pos = pathStr.rfind("bin");
@@ -30,7 +30,7 @@ int FileSystem::startUP() {
     return 0;
 }
 
-int FileSystem::shutDown() {    return 0;   }
+uint32_t FileSystem::shutDown() {    return 0;   }
 
 bpt::ptree& FileSystem::parseJSON(const char* filename) {
     bpt::read_json(filename, pt);

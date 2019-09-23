@@ -1,0 +1,53 @@
+{
+    "sdl_init":{
+        "SDL_INIT_TIMER"                                        :0,
+        "SDL_INIT_AUDIO"                                        :0,
+        "SDL_INIT_VIDEO"                                        :1,
+        "SDL_INIT_JOYSTIC"                                      :0,
+        "SDL_INIT_HAPTIC"                                       :0,
+        "SDL_INIT_GAMECONTROLLER"                               :0,
+        "SDL_INIT_EVENTS"                                       :0,
+        "SDL_INIT_EVERYTHING"                                   :0,
+        "SDL_INIT_NOPARACHUTE"                                  :0
+    },
+    "img_init":{
+        "IMG_INIT_JPG"                                          :1,
+        "IMG_INIT_PNG"                                          :1,
+        "IMG_INIT_TIF"                                          :1
+    },
+    "window":{
+        "title"                                                 :"CHANGE ME PLEASE",
+        "xpos"                                                  :100,
+        "ypos"                                                  :100,
+        "width"                                                 :1920,
+        "height"                                                :1080,
+        "flags":{
+            "SDL_WINDOW_FULLSCREEN"                             :1,
+            "SDL_WINDOW_FULLSCREEN_DESKTOP"                     :0,
+            "SDL_WINDOW_OPENGL"                                 :0,
+            "SDL_WINDOW_VULKAN"                                 :0,
+            "SDL_WINDOW_HIDDEN"                                 :0,
+            "SDL_WINDOW_BORDERLESS"                             :0,
+            "SDL_WINDOW_RESIZABLE"                              :0,
+            "SDL_WINDOW_MINIMIZED"                              :0,
+            "SDL_WINDOW_MAXIMIZED"                              :0,
+            "SDL_WINDOW_INPUT_GRABBED"                          :0,
+            "SDL_WINDOW_ALLOW_HIGHDPI"                          :0
+        }
+    },
+    "renderer":{
+        "index"                                                 :-1,
+        "flags":{
+            "SDL_RENDERER_SOFTWARE"                             :0,
+            "SDL_RENDERER_ACCELERATED"                          :0,
+            "SDL_RENDERER_PRESENTVSYNC"                         :0,
+            "SDL_RENDERER_TARGETTEXTURE"                        :0
+        }
+    },
+    "setrendererdrawcolor":{
+        "red"                                                   :170,
+        "green"                                                 :255,
+        "blue"                                                  :255,
+        "alpha"                                                 :255
+    }
+}

@@ -7,6 +7,8 @@
 
     DESCRIPTION:
     Tiny singleton module to operate on configuration files.
+    It uses FileSystem module to load files and then applies
+    changes to different systems in the engine.
 */
 
 #pragma once
@@ -32,6 +34,6 @@ private:
     ConfigManager();
 public:
     static ConfigManager& getInstance();
-    int startUP();
+    uint32_t startUP();
     const StringID& getGlobalConfPath() const;
 };

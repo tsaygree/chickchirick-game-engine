@@ -17,17 +17,19 @@
 #include <SDL_image.h>
 #include "StringID.hpp"
 #include "FileSystem.hpp"
+#include "ConfigManager.hpp"
 #include <iostream>
 #include <cstdio>
 
 class SystemManager {
 private:
-    FileSystem      fs = FileSystem::getInstance();
+    FileSystem&     fileSys = FileSystem::getInstance();
+    ConfigManager&  configMan = ConfigManager::getInstance();
     SDL_Window*     window;
     SDL_Renderer*   renderer;
     SystemManager();
 public:
     static SystemManager& getInstance();
-    int BigInit();
-    int BigShutDown();
+    uint32_t BigInit();
+    uint32_t BigShutDown();
 };

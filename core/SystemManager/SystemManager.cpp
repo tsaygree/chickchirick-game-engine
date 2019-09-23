@@ -16,7 +16,10 @@ SystemManager& SystemManager::getInstance() {
     return instance;
 }
 
-int SystemManager::BigInit() {
+uint32_t SystemManager::BigInit() {
+    fileSys.startUP();
+    configMan.startUP();
+
     if (SDL_Init(SDL_INIT_VIDEO)) {
         std::cerr << SDL_GetError() << std::endl;
     }
@@ -43,12 +46,10 @@ int SystemManager::BigInit() {
         return 1;
     }
     SDL_SetRenderDrawColor(renderer, 0xAA, 0xFF, 0xFF, 0xFF);
-
-    fs.startUP();
     return 0;
 }
 
-int SystemManager::BigShutDown() {
+uint32_t SystemManager::BigShutDown() {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     IMG_Quit();
