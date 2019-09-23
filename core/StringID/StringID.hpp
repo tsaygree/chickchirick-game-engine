@@ -39,15 +39,13 @@ public:
     const string& getStr() const;
 };
 
-/*  runtime crc32b hash function                                            */
-uint32_t hashCrc32(const char* str);
 /*  cimpile time function that calculates crc32b                            */
 constexpr uint32_t crc32(const char* data, size_t length);
 /*  user string literal to calculate hash on a string at compile time       */
 constexpr uint32_t operator"" _sid(const char* str, size_t length);
 /*  macro to create StringID instance from a simple string literal          */
 #define SID(str) StringID(str##_sid, str)
-#define STRINGHASH(str) StringID(hashCrc32(str.c_str()), str.c_str())
+#define SHID(sptr) StringID(~crc32(sptr, std::strlen(sptr)), sptr)
 
 /*  lookup table for crc32b hash calculation                                */
 const constexpr uint32_t crc32Table[256] = {

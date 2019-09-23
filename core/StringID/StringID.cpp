@@ -32,7 +32,3 @@ StringID::StringID(uint32_t sid, const char* str) {
 uint32_t        StringID::getID()   const   {   return id;                  }
 const char*     StringID::getPtr()  const   {   return ptr;                 }
 const string&   StringID::getStr()  const   {   return gStringTable[id];    }
-
-uint32_t hashCrc32(const char* str) {
-    return ~crc32(str, std::strlen(str));
-}
