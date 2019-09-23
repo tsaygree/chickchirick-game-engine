@@ -12,28 +12,14 @@
 */
 
 #pragma once
+#include <SDL.h>
 #include "FileSystem.hpp"
 #include "StringID.hpp"
 
 class ConfigManager {
 private:
-    /*
-        path to global configuration JSON file.
-        it includes, but not limited to:
-        core engine configuration (SDL & subsystems),
-        gameplay configuration (player stats, game design, etc.)
-        default game options
-    */
-    StringID globalConfPath;
-    /*
-        path to local configuration JSON file.
-        it includes, but not limited to:
-        user-defined game options
-    */
-    // StringID localConfPath;
     ConfigManager();
 public:
     static ConfigManager& getInstance();
     uint32_t startUP();
-    const StringID& getGlobalConfPath() const;
 };

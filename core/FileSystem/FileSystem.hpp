@@ -30,7 +30,9 @@ namespace bpt = boost::property_tree;
 class FileSystem {
 private:
     StringID        basePath;                               /*  engine base dir path                        */
-    // StringID        prefPath;                            /*  hidden appdata dir path                     */
+    // StringID        localPath;                           /*  hidden appdata dir path                     */
+    StringID        globalConfPath;                         /*  global engine configuration files folder    */
+    StringID        assetsPath;                             /*  game assets path                            */
     bpt::ptree      pt;                                     /*  boost property tree to load and parse files */
     FileSystem();
 public:
@@ -39,5 +41,7 @@ public:
     uint32_t shutDown();                                    /*  shut down the subsystem                     */
     const bpt::ptree& parseJSON(const char* filename);      /*  load and parse JSON file                    */
     const StringID& getBasePath() const;                    /*  get engine base dir path                    */
-    // const StringID& getPrefPath() const;                 /*  get hidden appdata dir path                 */
+    // const StringID& getLocalPath() const;                /*  get hidden appdata filepath                 */
+    const StringID& getGlobalConfPath() const;              /*  get global config filepath                  */
+    // const StringID& getLocalConfPath() const;            /*  get local config filepath                   */
 };

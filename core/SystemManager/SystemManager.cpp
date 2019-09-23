@@ -18,7 +18,6 @@ SystemManager& SystemManager::getInstance() {
 
 uint32_t SystemManager::BigInit() {
     fileSys.startUP();
-    configMan.startUP();
 
     if (SDL_Init(SDL_INIT_VIDEO)) {
         std::cerr << SDL_GetError() << std::endl;

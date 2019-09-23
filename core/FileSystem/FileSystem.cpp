@@ -17,26 +17,33 @@ FileSystem& FileSystem::getInstance() {
 }
 
 uint32_t FileSystem::startUP() {
-    /*  find engine base directory path */
-    std::string pathStr = SDL_GetBasePath();
+    std::string pathStr = SDL_GetBasePath();                        /*  save engine base directory path             */
     size_t pos = pathStr.rfind("bin");
     pathStr = pathStr.substr(0, pos);
-    const char* pathPtr = pathStr.c_str();
-    basePath = StringID(hashCrc32(pathPtr), pathPtr);
+    basePath = SHID(pathStr.c_str());
+
+    globalConfPath = SHID((pathStr + "configs/").c_str());          /*  save engine config files directory path     */
+    assetsPath = SHID((pathStr + "assets/").c_str());               /*  save game assets directory path             */
 
     /*  find hidden appdata directory path */
-    // PathStr = SDL_GetPrefPath("", "");
-    // prefPath = StringID(hashCrc32(PathStr), PathStr);
+    // pathStr = SDL_GetLocalPath("", "");
+    // localPath = SHID(pathStr.c_str());
+
+    // localConfPath = SHID((pathStr + "configs/").c_str());        /*  save local config path                      */
     return 0;
 }
 
-uint32_t FileSystem::shutDown() {    return 0;   }
+uint32_t FileSystem::shutDown() {   return 0;  }
 
 const bpt::ptree& FileSystem::parseJSON(const char* filename) {
     bpt::read_json(filename, pt);
     return pt;
 }
 
-const StringID& FileSystem::getBasePath() const {   return basePath;    }
+const StringID& FileSystem::getBasePath()       const   {   return basePath;        }
 
-// const StringID& FileSystem::getPrefPath() const {}
+// const StringID& FileSystem::getLocalPath()      const   {   return localPath;       }
+
+const StringID& FileSystem::getGlobalConfPath() const   {   return globalConfPath;  }
+
+// const StringID& FileSystem::getLocalConfPath()  const   {   return localConfPath;   }
