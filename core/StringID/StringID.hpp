@@ -34,9 +34,16 @@ private:
 public:
     StringID() = default;
     StringID(uint32_t sid, const char* str);
+    inline bool operator==(const StringID& other) const { return id == other.getID(); }
+    inline bool operator!=(const StringID& other) const { return id != other.getID(); }
     uint32_t getID() const;
     const char* getPtr() const;
     const string& getStr() const;
+};
+
+class SIDHashFunc {
+public:
+    size_t operator()(const StringID& sid) const { return sid.getID();  }
 };
 
 /*  cimpile time function that calculates crc32b                            */
