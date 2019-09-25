@@ -9,8 +9,8 @@
 
 #include "StringID.hpp"
 
-/*  global string lookup table  */
-HashTable<uint32_t, string> gStringTable;
+/*  static string lookup table  */
+static HashTable<uint32_t, string> gStringTable;
 
 StringID::StringID(uint32_t sid, const char* str) {
     if (gStringTable.count(sid) == 0) {
