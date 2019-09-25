@@ -1,19 +1,23 @@
 {
     "sdl_init":{
-        "SDL_INIT_TIMER"                                        :0,
-        "SDL_INIT_AUDIO"                                        :0,
-        "SDL_INIT_VIDEO"                                        :1,
-        "SDL_INIT_JOYSTIC"                                      :0,
-        "SDL_INIT_HAPTIC"                                       :0,
-        "SDL_INIT_GAMECONTROLLER"                               :0,
-        "SDL_INIT_EVENTS"                                       :0,
-        "SDL_INIT_EVERYTHING"                                   :0,
-        "SDL_INIT_NOPARACHUTE"                                  :0
+        "flags":{
+            "SDL_INIT_TIMER"                                    :0,
+            "SDL_INIT_AUDIO"                                    :0,
+            "SDL_INIT_VIDEO"                                    :1,
+            "SDL_INIT_JOYSTICK"                                 :0,
+            "SDL_INIT_HAPTIC"                                   :0,
+            "SDL_INIT_GAMECONTROLLER"                           :0,
+            "SDL_INIT_EVENTS"                                   :0,
+            "SDL_INIT_EVERYTHING"                               :0,
+            "SDL_INIT_NOPARACHUTE"                              :0
+        }
     },
     "img_init":{
-        "IMG_INIT_JPG"                                          :1,
-        "IMG_INIT_PNG"                                          :1,
-        "IMG_INIT_TIF"                                          :1
+        "flags":{
+            "IMG_INIT_JPG"                                      :1,
+            "IMG_INIT_PNG"                                      :1,
+            "IMG_INIT_TIF"                                      :1
+        }
     },
     "window":{
         "title"                                                 :"CHANGE ME PLEASE",
@@ -44,7 +48,7 @@
             "SDL_RENDERER_TARGETTEXTURE"                        :0
         }
     },
-    "setrendererdrawcolor":{
+    "rendererdrawcolor":{
         "red"                                                   :170,
         "green"                                                 :255,
         "blue"                                                  :255,
