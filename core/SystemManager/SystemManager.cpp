@@ -59,10 +59,10 @@ uint32_t SystemManager::SDLInit(const char* filename) {
     bpt::ptree& sdlSubSysFlags = sdlFlags.get_child("window");
     window = SDL_CreateWindow(
         sdlSubSysFlags.get<std::string>("title").c_str(),
-        sdlSubSysFlags.get<uint32_t>("xpos"),
-        sdlSubSysFlags.get<uint32_t>("ypos"),
-        sdlSubSysFlags.get<uint32_t>("width"),
-        sdlSubSysFlags.get<uint32_t>("height"),
+        sdlSubSysFlags.get<int32_t>("xpos"),
+        sdlSubSysFlags.get<int32_t>("ypos"),
+        sdlSubSysFlags.get<int32_t>("width"),
+        sdlSubSysFlags.get<int32_t>("height"),
         getFlags(sdlSubSysFlags.get_child("flags"))
     );
     if (window == nullptr) {
@@ -75,7 +75,7 @@ uint32_t SystemManager::SDLInit(const char* filename) {
     sdlSubSysFlags = sdlFlags.get_child("renderer");
     renderer = SDL_CreateRenderer(
         window,
-        sdlSubSysFlags.get<uint32_t>("index"),
+        sdlSubSysFlags.get<int32_t>("index"),
         getFlags(sdlSubSysFlags.get_child("flags"))
     );
     if (renderer == nullptr) {
