@@ -3,7 +3,7 @@
     SystemManager.hpp
     chickchirick-game-engine
 
-    Created by <chickchirik> on 03/09/2009.
+    Created by <chickchirik> on 13/09/2019.
 
     DESCRIPTION:
     System Manager is a singleton object that
@@ -67,4 +67,6 @@ public:
     static SystemManager& getInstance();
     uint32_t BigInit();
     uint32_t BigShutDown();
+    uint32_t SDLInit(const char* filename);
+    uint32_t SDLShutDown();
 };
