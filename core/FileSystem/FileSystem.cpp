@@ -17,25 +17,15 @@ FileSystem& FileSystem::getInstance() {
 }
 
 uint32_t FileSystem::startUP() {
-    std::string pathStr = SDL_GetBasePath();                        /*  save engine base directory path             */
-    size_t pos = pathStr.rfind("bin");
-    pathStr = pathStr.substr(0, pos);
-    basePath = SHID(pathStr.c_str());
-
-    globalConfPath = SHID((pathStr + "configs/").c_str());          /*  save engine config files directory path     */
-    assetsPath = SHID((pathStr + "assets/").c_str());               /*  save game assets directory path             */
-
     /*  find hidden appdata directory path */
-    // pathStr = SDL_GetLocalPath("", "");
+    // string pathStr = SDL_GetLocalPath("", "");
     // localPath = SHID(pathStr.c_str());
-
-    // localConfPath = SHID((pathStr + "configs/").c_str());        /*  save local config path                      */
     return 0;
 }
 
 uint32_t FileSystem::shutDown() {   return 0;  }
 
-const bpt::ptree& FileSystem::parseJSON(const char* filename) {
+const bpt::ptree& FileSystem::readJSON(const char* filename) {
     bpt::read_json(filename, pt);
     return pt;
 }

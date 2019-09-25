@@ -29,17 +29,17 @@ namespace bpt = boost::property_tree;
 
 class FileSystem {
 private:
-    StringID        basePath;                               /*  engine base dir path                        */
-    // StringID        localPath;                           /*  hidden appdata dir path                     */
-    StringID        globalConfPath;                         /*  global engine configuration files folder    */
-    StringID        assetsPath;                             /*  game assets path                            */
-    bpt::ptree      pt;                                     /*  boost property tree to load and parse files */
+    StringID        basePath = SHID(__SOURCEPATH__);            /*  engine base dir path                        */
+    // StringID        localPath;                                  /*  hidden appdata dir path                     */
+    StringID        globalConfPath = SHID(__CONFIGPATH__);      /*  global engine configuration files folder    */
+    StringID        assetsPath = SHID(__ASSETSPATH__);          /*  game assets path                            */
+    bpt::ptree      pt;                                         /*  boost property tree to load and parse files */
     FileSystem();
 public:
     static FileSystem& getInstance();                       /*  get singleton getInstance                   */
     uint32_t startUP();                                     /*  start up the subsystem                      */
     uint32_t shutDown();                                    /*  shut down the subsystem                     */
-    const bpt::ptree& parseJSON(const char* filename);      /*  load and parse JSON file                    */
+    const bpt::ptree& readJSON(const char* filename);      /*  load and parse JSON file                    */
     const StringID& getBasePath() const;                    /*  get engine base dir path                    */
     // const StringID& getLocalPath() const;                /*  get hidden appdata filepath                 */
     const StringID& getGlobalConfPath() const;              /*  get global config filepath                  */

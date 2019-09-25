@@ -20,6 +20,14 @@ elseif (${CMAKE_CXX_COMPILER_ID} STREQUAL "MSVC")
     endif()
 endif()
 
+# Set preprocessor definition MACROS
+	# set project source path macro
+add_compile_definitions(__SOURCEPATH__="${chickchirik-game-engine_SOURCE_DIR}/")
+ 	# set project config path macro
+add_compile_definitions(__CONFIGPATH__="${chickchirik-game-engine_SOURCE_DIR}/configs/")
+	# set project assets path macro
+add_compile_definitions(__ASSETSPATH__="${chickchirik-game-engine_SOURCE_DIR}/assets/")
+
 # Look up SDL2 and add the include directory to our include path
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
