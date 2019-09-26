@@ -17,12 +17,15 @@ SystemManager& SystemManager::getInstance() {
 }
 
 uint32_t SystemManager::BigInit() {
+    /*  brute force start up ordering */
     fileSys.startUP();
     this->SDLInit("sdlconfig.json");
     return 0;
 }
 
 uint32_t SystemManager::BigShutDown() {
+    /*  brute force start down ordering is strictly */
+    /*  the reverse of BigInit ordering             */
     this->SDLShutDown();
     fileSys.shutDown();
     return 0;
@@ -32,6 +35,7 @@ uint32_t SystemManager::SDLInit(const char* filename) {
     string filepath = fileSys.getGlobalConfPath().getStr() + filename;
     bpt::ptree sdlFlags = fileSys.readJSON(filepath.c_str());
 
+    /*  lambda to retrieve SDL flags from property tree data structure  */
     auto getFlags = [&](const auto& flags) {
         uint32_t result = 0;
         for (const auto& flag : flags) {

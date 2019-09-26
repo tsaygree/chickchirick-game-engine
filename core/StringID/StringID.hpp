@@ -41,8 +41,10 @@ public:
     const string& getStr() const;
 };
 
+/*  user defined StringID hash function for HashTable   */
 class SIDHashFunc {
 public:
+    /*  just return string id because it is a hash of string    */
     size_t operator()(const StringID& sid) const { return sid.getID();  }
 };
 
@@ -51,7 +53,9 @@ constexpr uint32_t crc32(const char* data, size_t length);
 /*  user string literal to calculate hash on a string at compile time       */
 constexpr uint32_t operator"" _sid(const char* str, size_t length);
 /*  macro to create StringID instance from a simple string literal          */
+    /*  compile time    */
 #define SID(str) StringID(str##_sid, str)
+    /*  runtime         */
 #define SHID(sptr) StringID(~crc32(sptr, std::strlen(sptr)), sptr)
 
 /*  lookup table for crc32b hash calculation                                */
@@ -110,6 +114,7 @@ const constexpr uint32_t crc32Table[256] = {
     0x2D02EF8DU
 };
 
+/*  cimpile time function that calculates crc32b                            */
 constexpr uint32_t crc32(const char* data, size_t length) {
     uint32_t remainder = 0xFFFFFFFFU;
     while (length) {
@@ -119,29 +124,7 @@ constexpr uint32_t crc32(const char* data, size_t length) {
     return remainder;
 }
 
+/*  user string literal to calculate hash on a string at compile time       */
 constexpr uint32_t operator"" _sid(const char* str, size_t length) {
     return ~crc32(str, length);
 }
-
-/*
-    lookup table can be generated to stdout using this function:
-
-void printCRC32Table() {
-    uint32_t remainder = 0;
-    for (size_t byte = 0; byte != 256; byte++) {
-        remainder = byte;
-        for (size_t bit = 0; bit != 8; bit++) {
-            if (remainder & 1) {
-                remainder >>= 1;
-                remainder ^= 0xEDB88320U;
-            } else {
-                remainder >>= 1;
-            }
-        }
-        if (byte % 5 == 0) {
-            std::cout << std::endl;
-        }
-        printf("0x%XU, ", remainder);
-    }
-}
-*/

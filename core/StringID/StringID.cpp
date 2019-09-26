@@ -13,8 +13,8 @@
 static HashTable<uint32_t, string> gStringTable;
 
 StringID::StringID(uint32_t sid, const char* str) {
-    if (gStringTable.count(sid) == 0) {
-        gStringTable[sid] = std::string(str);
+    if (gStringTable.count(sid) == 0) {                 /*  StringID checks whether global string       */
+        gStringTable[sid] = std::string(str);           /*  table contains the entry and adds if not    */
     }
     id = sid;
     ptr = gStringTable[sid].c_str();

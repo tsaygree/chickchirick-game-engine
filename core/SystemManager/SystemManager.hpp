@@ -22,9 +22,12 @@
 #include <cstdio>
 #include <unordered_map>
 
+/*  SIDTable is a hash table where StringID is a key and    */
+/*  template type is a value                                */
 template <typename V>
 using SIDTable = std::unordered_map<StringID, V, SIDHashFunc>;
 
+/*  macro to initialize SDL flags lookup table  */
 #define SDLFLG {\
     {SID("SDL_INIT_TIMER")                          ,SDL_INIT_TIMER},\
     {SID("SDL_INIT_AUDIO")                          ,SDL_INIT_AUDIO},\
@@ -59,14 +62,14 @@ class SystemManager {
 private:
     FileSystem&     fileSys = FileSystem::getInstance();
     ConfigManager&  configMan = ConfigManager::getInstance();
-    const SIDTable<uint32_t> SDLFlagLookUp = SDLFLG;                /*  SDL flags lookup table      */
+    const SIDTable<uint32_t> SDLFlagLookUp = SDLFLG;                /*  SDL flags lookup table          */
     SDL_Window*     window;
     SDL_Renderer*   renderer;
     SystemManager();
 public:
     static SystemManager& getInstance();
-    uint32_t BigInit();
-    uint32_t BigShutDown();
-    uint32_t SDLInit(const char* filename);
-    uint32_t SDLShutDown();
+    uint32_t BigInit();                                             /*  All subsystems are started here     */
+    uint32_t BigShutDown();                                         /*  All subsystems are shutted here     */
+    uint32_t SDLInit(const char* filename);                         /*  SDL initialization routine          */
+    uint32_t SDLShutDown();                                         /*  SDL clearing routine                */
 };
