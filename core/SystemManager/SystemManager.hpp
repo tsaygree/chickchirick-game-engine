@@ -17,7 +17,6 @@
 #include <SDL_image.h>
 #include "StringID.hpp"
 #include "FileSystem.hpp"
-#include "ConfigManager.hpp"
 #include <iostream>
 #include <cstdio>
 #include <unordered_map>
@@ -61,7 +60,6 @@ using SIDTable = std::unordered_map<StringID, V, SIDHashFunc>;
 class SystemManager {
 private:
     FileSystem&     fileSys = FileSystem::getInstance();
-    ConfigManager&  configMan = ConfigManager::getInstance();
     const SIDTable<uint32_t> SDLFlagLookUp = SDLFLG;                /*  SDL flags lookup table          */
     SDL_Window*     window;
     SDL_Renderer*   renderer;

@@ -51,6 +51,7 @@ uint32_t SystemManager::SDLInit(const char* filename) {
     uint32_t flags = getFlags(sdlFlags.get_child("sdl_init.flags"));
     if (SDL_Init(flags)) {
         std::cerr << SDL_GetError() << std::endl;
+        return 1;
     }
 
     flags = getFlags(sdlFlags.get_child("img_init.flags"));
