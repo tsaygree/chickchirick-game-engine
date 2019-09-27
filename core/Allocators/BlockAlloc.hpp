@@ -42,5 +42,5 @@ namespace BlockAlloc {
     void poolInit();                                /*  pool initialization                     */
     void *balloc();                                 /*  block allocation                        */
     void free(void *blockptr);                      /*  free allocated block                    */
-    #define freeAll() pool_init();                  /*  free all allocated blocks               */
+    #define freeAll() poolInit();                  /*  free all allocated blocks               */
 }
