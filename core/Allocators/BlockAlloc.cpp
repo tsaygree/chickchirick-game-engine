@@ -30,3 +30,9 @@ void* BlockAlloc::balloc() {
     freeBlockPtr = CAST(char*, addr);
     return result;
 }
+
+void BlockAlloc::free(void* blockptr) {
+    uintptr_t addr = freeBlockPtr ? CAST(uintptr_t, freeBlockPtr) : 0;
+    cpyptr(blockptr, &addr);
+    freeBlockPtr = CAST(char*, blockptr);
+}
