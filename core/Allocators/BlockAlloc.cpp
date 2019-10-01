@@ -22,3 +22,11 @@ void poolInit() {
     }
     freeBlockPtr = Pool;
 }
+
+void* BlockAlloc::balloc() {
+    void* result = freeBlockPtr;
+    uintptr_t addr = 0;
+    if (freeBlockPtr) cpyptr(&addr, freeBlockPtr);
+    freeBlockPtr = CAST(char*, addr);
+    return result;
+}
