@@ -10,3 +10,15 @@
 
 static char blockPool[POOLSIZE];            /*  pool of static memory                   */
 static char *freeBlockPtr;                  /*  pointer to current free memory block    */
+
+void poolInit() {
+    char *cur = Pool;
+    char *end = Pool + POOLSIZE - BLOCKSIZE;
+    uintptr_t addr = 0;
+    while (cur < end) {
+        addr = CAST(uintptr_t, (cur + BLOCKSIZE));
+        cpyptr(cur, &addr);
+        cur += BLOCKSIZE;
+    }
+    freeBlockPtr = Pool;
+}
