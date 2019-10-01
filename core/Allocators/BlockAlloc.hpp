@@ -21,6 +21,8 @@
 */
 
 #pragma once
+#include <cstring>
+
 /*
     size of pool in bytes
     should not be less than BLOCKSIZE and
@@ -36,6 +38,9 @@
 static_assert(BLOCKSIZE >= sizeof(char*), "Memory block size (bytes) should be more or equal to size of pointer");
 static_assert(POOLSIZE >= BLOCKSIZE, "Pool size (bytes) should not be less than size of memory block");
 static_assert(POOLSIZE % BLOCKSIZE == 0, "Pool size (bytes) should be multiple of memory block size");
+
+#define CAST(type, expr) reinterpret_cast<type>(expr)
+#define cpyptr(dest, src) std::memcpy(dest, src, sizeof(uintptr_t))
 
 namespace BlockAlloc {
     void poolInit();                                /*  pool initialization                     */
