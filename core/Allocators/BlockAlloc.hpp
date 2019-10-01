@@ -21,7 +21,6 @@
 */
 
 #pragma once
-
 /*
     size of pool in bytes
     should not be less than BLOCKSIZE and
@@ -40,7 +39,7 @@ static_assert(POOLSIZE % BLOCKSIZE == 0, "Pool size (bytes) should be multiple o
 
 namespace BlockAlloc {
     void poolInit();                                /*  pool initialization                     */
-    void *balloc();                                 /*  block allocation                        */
-    void free(void *blockptr);                      /*  free allocated block                    */
-    #define freeAll() poolInit();                  /*  free all allocated blocks               */
+    void* balloc();                                 /*  block allocation                        */
+    void free(void* blockptr);                      /*  free allocated block                    */
+    #define freeAll() poolInit();                   /*  free all allocated blocks               */
 }
