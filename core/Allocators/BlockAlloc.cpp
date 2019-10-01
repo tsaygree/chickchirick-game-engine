@@ -20,6 +20,8 @@ void poolInit() {
         cpyptr(cur, &addr);
         cur += BLOCKSIZE;
     }
+    addr = CAST(uintptr_t, nullptr);
+    cpyptr(cur, &addr);
     freeBlockPtr = blockPool;
 }
 
