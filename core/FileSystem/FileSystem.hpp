@@ -45,4 +45,5 @@ public:
     // const StringID& getLocalPath() const;                    /*  get hidden appdata filepath                 */
     const StringID& getGlobalConfPath() const;                  /*  get global config filepath                  */
     // const StringID& getLocalConfPath() const;                /*  get local config filepath                   */
+    const StringID& getAssetsPath() const;                      /*  get assets path                             */
 };

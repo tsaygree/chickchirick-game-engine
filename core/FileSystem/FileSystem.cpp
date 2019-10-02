@@ -42,3 +42,5 @@ const StringID& FileSystem::getBasePath()       const   {   return basePath;    
 const StringID& FileSystem::getGlobalConfPath() const   {   return globalConfPath;  }
 
 // const StringID& FileSystem::getLocalConfPath()  const   {   return localConfPath;   }
+
+const StringID& FileSystem::getAssetsPath()     const   {   return assetsPath;      }
