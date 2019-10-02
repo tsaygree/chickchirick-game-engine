@@ -31,8 +31,7 @@ const bpt::ptree& FileSystem::readJSON(const char* filename) {
 }
 
 const SDL_Surface* FileSystem::loadIMG(const char* filename) {
-    std::string filepath = assetsPath.getStr() + filename;
-    SDL_Surface* result = IMG_Load(filepath.c_str());
+    SDL_Surface* result = IMG_Load(filename);
     return result;
 }
 
