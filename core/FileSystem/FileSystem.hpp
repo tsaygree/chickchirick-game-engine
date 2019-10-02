@@ -42,8 +42,8 @@ public:
     const bpt::ptree& readJSON(const char* filepath);           /*  load and parse JSON file                    */
     const SDL_Surface* loadIMG(const char* filepath);           /*  load image and return sdl surface           */
     const StringID& getBasePath() const;                        /*  get engine base dir path                    */
-    // const StringID& getLocalPath() const;                    /*  get hidden appdata filepath                 */
-    const StringID& getGlobalConfPath() const;                  /*  get global config filepath                  */
-    // const StringID& getLocalConfPath() const;                /*  get local config filepath                   */
+    // const StringID& getLocalPath() const;                       /*  get hidden appdata path                     */
+    const StringID& getGlobalConfPath() const;                  /*  get global config path                      */
+    // const StringID& getLocalConfPath() const;                   /*  get local config path                       */
     const StringID& getAssetsPath() const;                      /*  get assets path                             */
 };
