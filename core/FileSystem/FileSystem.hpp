@@ -39,8 +39,8 @@ public:
     static FileSystem& getInstance();                           /*  get singleton getInstance                   */
     uint32_t startUP();                                         /*  start up the subsystem                      */
     uint32_t shutDown();                                        /*  shut down the subsystem                     */
-    const bpt::ptree& readJSON(const char* filename);           /*  load and parse JSON file                    */
-    const SDL_Surface* loadIMG(const char* filename);           /*  load image and return sdl surface           */
+    const bpt::ptree& readJSON(const char* filepath);           /*  load and parse JSON file                    */
+    const SDL_Surface* loadIMG(const char* filepath);           /*  load image and return sdl surface           */
     const StringID& getBasePath() const;                        /*  get engine base dir path                    */
     // const StringID& getLocalPath() const;                    /*  get hidden appdata filepath                 */
     const StringID& getGlobalConfPath() const;                  /*  get global config filepath                  */

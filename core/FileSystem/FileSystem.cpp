@@ -25,13 +25,13 @@ uint32_t FileSystem::startUP() {
 
 uint32_t FileSystem::shutDown() {   return 0;  }
 
-const bpt::ptree& FileSystem::readJSON(const char* filename) {
-    bpt::read_json(filename, pt);
+const bpt::ptree& FileSystem::readJSON(const char* filepath) {
+    bpt::read_json(filepath, pt);
     return pt;
 }
 
-const SDL_Surface* FileSystem::loadIMG(const char* filename) {
-    SDL_Surface* result = IMG_Load(filename);
+const SDL_Surface* FileSystem::loadIMG(const char* filepath) {
+    SDL_Surface* result = IMG_Load(filepath);
     return result;
 }
 
