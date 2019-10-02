@@ -20,12 +20,14 @@ uint32_t SystemManager::BigInit() {
     /*  brute force start up ordering */
     fileSys.startUP();
     this->SDLInit("sdlconfig.json");
+    assMan.startUP(fileSys.getAssetsPath());
     return 0;
 }
 
 uint32_t SystemManager::BigShutDown() {
     /*  brute force start down ordering is strictly */
     /*  the reverse of BigInit ordering             */
+    assMan.shutDown();
     this->SDLShutDown();
     fileSys.shutDown();
     return 0;
