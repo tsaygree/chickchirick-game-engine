@@ -8,6 +8,7 @@ add_executable(
 	StringID/StringID.cpp
 	ConfigManager/ConfigManager.cpp
 	Allocators/BlockAlloc.cpp
+	AssetManager/AssetManager.cpp
 )
 
 target_link_libraries(
@@ -22,6 +23,7 @@ install(TARGETS core RUNTIME DESTINATION ${BIN_DIR})
 
 include_directories(
 	Allocators
+	AssetManager
 	SystemManager
 	StringID
 	FileSystem
