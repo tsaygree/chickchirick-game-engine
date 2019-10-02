@@ -15,3 +15,10 @@ AssetManager& AssetManager::getInstance() {
     static AssetManager instance;
     return instance;
 }
+
+int AssetManager::startUP(const StringID& assetsPath_) {
+    this->assetsPath = assetsPath_;
+    return 0;
+}
+
+int AssetManager::shutDown() {  return 0;  }

@@ -18,11 +18,14 @@
 */
 
 #pragma once
-
+#include "StringID.hpp"
 
 class AssetManager {
 private:
+    StringID assetsPath;
     AssetManager();
 public:
     static AssetManager& getInstance();
+    int startUP(const StringID& assetsPath_);
+    int shutDown();
 };
