@@ -28,4 +28,6 @@ include_directories(
 	StringID
 	FileSystem
 	ConfigManager
+	Includes
+	Containers/HashTable
 )
