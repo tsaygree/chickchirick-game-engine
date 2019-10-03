@@ -9,6 +9,7 @@ add_executable(
 	ConfigManager/ConfigManager.cpp
 	Allocators/BlockAlloc.cpp
 	AssetManager/AssetManager.cpp
+	StackAlloc/StackAlloc.cpp
 )
 
 target_link_libraries(
