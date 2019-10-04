@@ -13,6 +13,8 @@
 #pragma once
 #include <cstdint>
 
+#define CAST(type, expr) reinterpret_cast<type>(expr)
+
 class StackAlloc {
 private:
     char*       pool;                                   /*  ptr to begining of the pool                             */
@@ -25,4 +27,6 @@ public:
     static StackAlloc& getInstance();
     int startUP(uint32_t LSRSize_, uint32_t poolSize_); /*  start up routine                                        */
     int shutDown();                                     /*  shut down routine                                       */
+    void* stalloc(uint32_t size);                       /*  allocate size bytes on stack                            */
+    void* LSRalloc(uint32_t size);                      /*  allocate size bytes on LSR stack                        */
 };

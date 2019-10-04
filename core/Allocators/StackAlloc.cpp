@@ -29,3 +29,11 @@ int StackAlloc::shutDown() {
     delete[] pool;
     return 0;
 }
+
+void* StackAlloc::stalloc(uint32_t size) {
+    return (marker + size < realSize) ? CAST(void*, pool + marker) : nullptr;
+}
+
+void* StackAlloc::LSRalloc(uint32_t size) {
+    return (LSRMarker + size < LSRSize) ? CAST(void*, pool + LSRMarker) : nullptr;
+}
