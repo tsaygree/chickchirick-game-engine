@@ -31,9 +31,19 @@ int StackAlloc::shutDown() {
 }
 
 void* StackAlloc::stalloc(uint32_t size) {
-    return (marker + size < realSize) ? CAST(void*, pool + marker) : nullptr;
+    void* result = nullptr;
+    if (marker + size < realSize) {
+        result = CAST(void*, pool + marker);
+        marker += size;
+    }
+    return result;
 }
 
 void* StackAlloc::LSRalloc(uint32_t size) {
-    return (LSRMarker + size < LSRSize) ? CAST(void*, pool + LSRMarker) : nullptr;
+    void* result = nullptr;
+    if (LSRMarker + size < LSRSize) {
+        result = CAST(void*, pool + LSRMarker);
+        LSRMarker += size;
+    }
+    return result;
 }
