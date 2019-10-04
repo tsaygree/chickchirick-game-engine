@@ -8,8 +8,8 @@ add_executable(
 	StringID/StringID.cpp
 	ConfigManager/ConfigManager.cpp
 	Allocators/BlockAlloc.cpp
+	Allocators/StackAlloc.cpp
 	AssetManager/AssetManager.cpp
-	StackAlloc/StackAlloc.cpp
 )
 
 target_link_libraries(
