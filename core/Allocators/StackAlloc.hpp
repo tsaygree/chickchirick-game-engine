@@ -29,4 +29,5 @@ public:
     int shutDown();                                     /*  shut down routine                                       */
     void* stalloc(uint32_t size);                       /*  allocate size bytes on stack                            */
     void* LSRalloc(uint32_t size);                      /*  allocate size bytes on LSR stack                        */
+    inline uint32_t getMarker() const { return marker; }/*  get top marker                                          */
 };
