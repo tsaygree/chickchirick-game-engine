@@ -60,13 +60,18 @@ void BlockAlloc::free(void* blockptr) {
         Address of current free block is written
         to new free block. Address of new free block
         is written to freeBlockPtr.
-        NOTE: If blockptr is out of bounds or somehow changed - behavior
-        is undefined.
+        NOTE: If blockptr is out of bounds or somehow changed -
+        runtime assertions will happen.
 
         Complexity: O(n), where n = sizeof(uintptr_t)
         NOTE: implementation using only ptrs may be considered later
         if BlockAlloc will become a bottleneck.
     */
+    assert(blockptr != nullptr);
+    assert(blockPool <= blockptr);
+    assert(blockptr <= blockPool + poolSize - blockSize);
+    assert(CAST(uintptr_t, blockptr) % blockSize == 0);
+
     uintptr_t addr = freeBlockPtr ? CAST(uintptr_t, freeBlockPtr) : 0;
     cpyptr(blockptr, &addr);
     freeBlockPtr = CAST(char*, blockptr);
