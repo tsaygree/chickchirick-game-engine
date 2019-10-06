@@ -8,10 +8,7 @@
 */
 #include "BlockAlloc.hpp"
 
-static char blockPool[POOLSIZE];            /*  pool of static memory                   */
-static char *freeBlockPtr;                  /*  pointer to current free memory block    */
-
-void poolInit() {
+void BlockAlloc::poolInit(uint32_t pSize, uint32_t bSize) {
     /*
         Initialization process:
         Contigious memory blocks are initialized in such way that
@@ -26,17 +23,16 @@ void poolInit() {
         NOTE: implementation using only ptrs may be considered later
         if BlockAlloc will become a bottleneck.
     */
-    char *cur = blockPool;
-    char *end = blockPool + POOLSIZE - BLOCKSIZE;
-    uintptr_t addr = 0;
-    while (cur < end) {
-        addr = CAST(uintptr_t, (cur + BLOCKSIZE));
-        cpyptr(cur, &addr);
-        cur += BLOCKSIZE;
-    }
-    addr = CAST(uintptr_t, nullptr);
-    cpyptr(cur, &addr);
-    freeBlockPtr = blockPool;
+    assert(isInit == false);
+    assert(bSize >= sizeof(char*));
+    assert(pSize >= bSize);
+    assert(pSize % bSize == 0);
+
+    poolSize  = pSize;
+    blockSize = bSize;
+    blockPool = new char[pSize];
+    this->init();
+    isInit = true;
 }
 
 void* BlockAlloc::balloc() {
