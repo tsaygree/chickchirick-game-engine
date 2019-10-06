@@ -8,8 +8,10 @@
 */
 
 #include "SystemManager.hpp"
+#include "tests.hpp"
 
 int main(int argc, char const *argv[]) {
+    runAllTests();
     SystemManager systemManager = SystemManager::getInstance();
     systemManager.BigInit();
     systemManager.BigShutDown();
