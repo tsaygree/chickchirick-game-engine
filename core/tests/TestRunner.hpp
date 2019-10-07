@@ -1,5 +1,18 @@
-#pragma once
+/*
 
+    TestRunner.hpp
+    chickchirick-game-engine
+
+    Created by <chickchirik> on 06/10/2019.
+
+    DESCRIPTION:
+    TestRunner class runs custom tests, catches
+    exceptions, gives convinient error messages.
+    NOTE: This class is not thread safe.
+
+*/
+
+#pragma once
 #include <sstream>
 #include <stdexcept>
 #include <iostream>

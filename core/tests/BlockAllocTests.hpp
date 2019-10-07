@@ -1,3 +1,15 @@
+/*
+
+    BlockAllocTests.hpp
+    chickchirick-game-engine
+
+    Created by <chickchirik> on 06/10/2019.
+
+    DESCRIPTION:
+    Tests for BlockAlloc module.
+
+*/
+
 #pragma once
 #include <iostream>
 #include <cstdio>
