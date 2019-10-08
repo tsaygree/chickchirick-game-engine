@@ -10,5 +10,5 @@
 
 */
 
-#pragma once
+#include "Catch2.hpp"
 #include "Allocators/StackAlloc.hpp"

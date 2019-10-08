@@ -3,7 +3,10 @@ project(tests)
 add_executable(
 	tests
     tests.cpp
+	cases/BlockAllocTests.cpp
+	cases/StackAllocTests.cpp
 	${CORE_DIR}/Allocators/BlockAlloc.cpp
+	${CORE_DIR}/Allocators/StackAlloc.cpp
 )
 
 target_link_libraries(

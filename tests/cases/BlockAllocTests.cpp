@@ -10,7 +10,7 @@
 
 */
 
-#pragma once
+#include "Catch2.hpp"
 #include "Allocators/BlockAlloc.hpp"
 
 #define POOLSIZE 32
