@@ -17,3 +17,4 @@
 
 /*  include tests below     */
 #include "BlockAllocTests.hpp"
+#include "StackAllocTests.hpp"
