@@ -11,9 +11,5 @@
 
 #define CATCH_CONFIG_MAIN
 #include "Catch2.hpp"
-#include <cstdio>
 
-TEST_CASE("SIMPLE", "TEST") {
-    REQUIRE(1 == 1);
-    printf("JOPA\n");
-}
+#include "BlockAllocTests.hpp"
