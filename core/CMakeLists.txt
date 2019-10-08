@@ -31,5 +31,4 @@ include_directories(
 	ConfigManager
 	Includes
 	Containers/HashTable
-	tests
 )
