@@ -45,10 +45,10 @@ find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
-# Look in the subdirectories to find its CMakeLists.txt so we can build the executable
-add_subdirectory(core)
-add_subdirectory(tests)
-
 # Set variables to hold paths to project directories
 set(CORE_DIR ${chickchirik-game-engine_SOURCE_DIR}/core)
 set(TEST_DIR ${chickchirik-game-engine_SOURCE_DIR}/tests)
+
+# Look in the subdirectories to find its CMakeLists.txt so we can build the executable
+add_subdirectory(core)
+add_subdirectory(tests)
