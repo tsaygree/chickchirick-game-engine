@@ -47,3 +47,4 @@ link_directories(${Boost_LIBRARY_DIR})
 
 # Look in the subdirectories to find its CMakeLists.txt so we can build the executable
 add_subdirectory(core)
+add_subdirectory(tests)
