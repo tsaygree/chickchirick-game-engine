@@ -11,7 +11,7 @@
 */
 
 #include "Catch2.hpp"
-#include "Allocators/BlockAlloc.hpp"
+#include "BlockAlloc.hpp"
 
 #define POOLSIZE 32
 #define BLOCKSIZE 8
