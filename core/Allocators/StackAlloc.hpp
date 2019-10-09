@@ -30,4 +30,6 @@ public:
     void* stalloc(uint32_t size);                       /*  allocate size bytes on stack                            */
     void* LSRalloc(uint32_t size);                      /*  allocate size bytes on LSR stack                        */
     inline uint32_t getMarker() const { return marker; }/*  get top marker                                          */
+    void freeToMarker(uint32_t newMarker);              /*  free stack to the new marker position                   */
+    void free();                                        /*  free all stack / NOTE: this doesn't free LSR data       */
 };

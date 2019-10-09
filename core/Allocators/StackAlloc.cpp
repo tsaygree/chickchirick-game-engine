@@ -47,3 +47,13 @@ void* StackAlloc::LSRalloc(uint32_t size) {
     }
     return result;
 }
+
+void StackAlloc::freeToMarker(uint32_t newMarker) {
+    if (newMarker >= LSRSize && newMarker < marker) {
+        marker = newMarker;
+    }
+}
+
+void StackAlloc::free() {
+    marker = LSRSize;
+}
