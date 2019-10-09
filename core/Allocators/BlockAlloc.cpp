@@ -8,7 +8,7 @@
 */
 #include "BlockAlloc.hpp"
 
-void BlockAlloc::poolInit(uint32_t pSize, uint32_t bSize) {
+void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
     /*
         Initialization process:
         Contigious memory blocks are initialized in such way that
