@@ -6,8 +6,8 @@
     Created by <chickchirik> on 03/10/2019.
 
     DESCRIPTION:
-    Big file of engine defines, c++ aliases and includes.
-    Custom implementation may be implemented later.
+    HashTable definition.
+
 */
 
 #pragma once
