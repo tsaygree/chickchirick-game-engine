@@ -18,7 +18,7 @@
 
 TEST_CASE("type test", "[BlockAlloc]") {
     BlockAlloc blockPool;
-    blockPool.poolInit(POOLSIZE, BLOCKSIZE);
+    blockPool.startUP(POOLSIZE, BLOCKSIZE);
     int *intptr = (int*)blockPool.balloc();
     *intptr = INT_MAX;
     char *charptr = (char*)blockPool.balloc();
@@ -41,7 +41,7 @@ TEST_CASE("type test", "[BlockAlloc]") {
 
 TEST_CASE("overflow test", "[BlockAlloc]") {
     BlockAlloc blockPool;
-    blockPool.poolInit(POOLSIZE, BLOCKSIZE);
+    blockPool.startUP(POOLSIZE, BLOCKSIZE);
     char *ptr1 = (char*)blockPool.balloc();
     char *ptr2 = (char*)blockPool.balloc();
     char *ptr3 = (char*)blockPool.balloc();
