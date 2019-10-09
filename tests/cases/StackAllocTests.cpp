@@ -23,4 +23,17 @@ TEST_CASE("StackAlloc tests", "[StackAlloc]") {
         REQUIRE(ptr1 == nullptr);
         REQUIRE(ptr2 == nullptr);
     }
+    SECTION("Marker tests") {
+        uint32_t marker = stackPool.getMarker();
+        REQUIRE(marker == 100_MiB);
+        int* ptr = (int*)stackPool.stalloc(sizeof(int));
+        REQUIRE(stackPool.getMarker() - marker == sizeof(int));
+        stackPool.freeToMarker(marker);
+        REQUIRE(stackPool.getMarker() == marker);
+        for (uint8_t it = 1; it != 11; it++) {
+            stackPool.stalloc(it * sizeof(int));
+        }
+        uint32_t newMarker = stackPool.getMarker();
+        REQUIRE(newMarker - marker == 220);
+    }
 }
