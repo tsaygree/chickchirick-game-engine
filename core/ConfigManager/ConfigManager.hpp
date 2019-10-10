@@ -7,8 +7,9 @@
 
     DESCRIPTION:
     Tiny singleton module to operate on configuration files.
-    It uses FileSystem module to load files and then applies
-    changes to different systems in the engine.
+    It uses FileSystem module to resolve a full filepath,
+    load config file and parse it.
+
 */
 
 #pragma once
