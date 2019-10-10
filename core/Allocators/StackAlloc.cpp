@@ -17,6 +17,7 @@ StackAlloc& StackAlloc::getInstance() {
 }
 
 int StackAlloc::startUP(uint32_t LSRSize_, uint32_t poolSize_) {
+    assert(LSRSize_ + poolSize_ > 0);
     this->LSRSize = LSRSize_;
     realSize = LSRSize_ + poolSize_;
     marker = LSRSize_;

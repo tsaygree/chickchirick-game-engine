@@ -12,6 +12,7 @@
 
 #pragma once
 #include <cstdint>
+#include <cassert>
 
 #define CAST(type, expr) reinterpret_cast<type>(expr)
 
