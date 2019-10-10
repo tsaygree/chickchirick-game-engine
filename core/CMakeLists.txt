@@ -10,6 +10,7 @@ add_executable(
 	Allocators/BlockAlloc.cpp
 	Allocators/StackAlloc.cpp
 	AssetManager/AssetManager.cpp
+	MemorySystem/MemorySystem.cpp
 )
 
 target_link_libraries(
@@ -31,4 +32,5 @@ include_directories(
 	ConfigManager
 	Includes
 	Containers/HashTable
+	MemorySystem
 )

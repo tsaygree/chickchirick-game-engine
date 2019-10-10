@@ -13,6 +13,7 @@ add_executable(
 	${CORE_DIR}/FileSystem/FileSystem.cpp
 	${CORE_DIR}/StringID/StringID.cpp
 	${CORE_DIR}/SystemManager/SystemManager.cpp
+	${CORE_DIR}/MemorySystem/MemorySystem.cpp
 )
 
 target_link_libraries(
@@ -36,5 +37,6 @@ include_directories(
 	${CORE_DIR}/MemoryUnits
 	${CORE_DIR}/StringID
 	${CORE_DIR}/SystemManager
+	${CORE_DIR}/MemorySystem
 	cases
 )
