@@ -18,6 +18,8 @@
 
 class ConfigManager {
 private:
+    FileSystem& fileSys = FileSystem::getInstance();
+    StringID globalConfPath;
     ConfigManager();
 public:
     static ConfigManager& getInstance();

@@ -17,5 +17,6 @@ ConfigManager& ConfigManager::getInstance() {
 }
 
 uint32_t ConfigManager::startUP() {
+    globalConfPath = fileSys.getGlobalConfPath();
     return 0;
 }
