@@ -23,5 +23,6 @@ private:
     ConfigManager();
 public:
     static ConfigManager& getInstance();
+    const bpt::ptree& getGlobalConfig(const char* filename);
     uint32_t startUP();
 };
