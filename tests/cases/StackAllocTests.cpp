@@ -35,5 +35,8 @@ TEST_CASE("StackAlloc tests", "[StackAlloc]") {
         }
         uint32_t newMarker = stackPool.getMarker();
         REQUIRE(newMarker - marker == 220);
+        stackPool.free();
+        newMarker = stackPool.getMarker();
+        REQUIRE(newMarker == marker);
     }
 }
