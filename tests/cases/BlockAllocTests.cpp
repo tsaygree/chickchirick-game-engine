@@ -36,7 +36,7 @@ TEST_CASE("type test", "[BlockAlloc]") {
     bool *boolptr = (bool*)blockPool.balloc();
     REQUIRE((void*)boolptr == (void*)floatptr);
     blockPool.free(boolptr);
-    blockPool.poolShutDown();
+    blockPool.shutDown();
 }
 
 TEST_CASE("overflow test", "[BlockAlloc]") {
@@ -53,5 +53,5 @@ TEST_CASE("overflow test", "[BlockAlloc]") {
     char *nptr = (char*)blockPool.balloc();
     REQUIRE(nptr == nullptr);
     blockPool.freeAll();
-    blockPool.poolShutDown();
+    blockPool.shutDown();
 }

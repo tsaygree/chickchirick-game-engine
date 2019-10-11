@@ -51,7 +51,7 @@ public:
     void* balloc();                                         /*  block allocation                            */
     void  free(void* blockptr);                             /*  free allocated block                        */
     inline void freeAll() { this->init(); }                 /*  free all allocated blocks                   */
-    inline void poolShutDown() {                            /*  free allocated memory                       */
+    inline void shutDown() {                            /*  free allocated memory                       */
         delete[] blockPool;
         isInit = false;
     }
