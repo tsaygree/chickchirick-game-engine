@@ -20,6 +20,7 @@ uint32_t SystemManager::BigInit() {
     /*  brute force start up ordering */
     fileSys.startUP();
     conMan.startUP();
+    memSys.startUP("engineconfig.json");
     this->SDLInit("sdlconfig.json");
     assMan.startUP(fileSys.getAssetsPath());
     return 0;
@@ -30,6 +31,7 @@ uint32_t SystemManager::BigShutDown() {
     /*  the reverse of BigInit ordering             */
     assMan.shutDown();
     this->SDLShutDown();
+    memSys.shutDown();
     fileSys.shutDown();
     return 0;
 }

@@ -18,6 +18,7 @@
 #include "StringID.hpp"
 #include "FileSystem.hpp"
 #include "ConfigManager.hpp"
+#include "MemorySystem.hpp"
 #include "AssetManager.hpp"
 #include "Initializers.hpp"
 #include <iostream>
@@ -28,6 +29,7 @@ class SystemManager {
 private:
     FileSystem&     fileSys = FileSystem::getInstance();
     ConfigManager&  conMan  = ConfigManager::getInstance();
+    MemorySystem&   memSys  = MemorySystem::getInstance();
     AssetManager&   assMan  = AssetManager::getInstance();
     const SIDTable<uint32_t> SDLFlagLookUp = SDLFLG;                /*  SDL flags lookup table          */
     SDL_Window*     window;
