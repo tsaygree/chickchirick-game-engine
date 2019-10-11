@@ -39,6 +39,7 @@ class MemorySystem {
 private:
     MemorySystem();
     StackAlloc& stackPool = StackAlloc::getInstance();
+    HashTable<uint32_t, BlockAlloc> blockPool;                          /*  block pool registry [key-block size]    */
 public:
     static MemorySystem& getInstance();                                 /*  get singleton object            */
     uint32_t startUP(const char* filename);                             /*  start up                        */
