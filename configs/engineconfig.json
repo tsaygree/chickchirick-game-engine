@@ -1,0 +1,6 @@
+{
+    "MemorySystem":{
+        "LSRSize"            :50,
+        "StackPoolSize"      :150
+    }
+}
