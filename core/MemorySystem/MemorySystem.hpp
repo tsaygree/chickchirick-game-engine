@@ -43,4 +43,5 @@ public:
     static MemorySystem& getInstance();
     uint32_t startUP(const char* filename);
     uint32_t shutDown();
+    StackAlloc& getStackAlloc() const;
 };

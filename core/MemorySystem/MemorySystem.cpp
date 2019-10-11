@@ -31,3 +31,7 @@ uint32_t MemorySystem::shutDown() {
     stackPool.shutDown();
     return 0;
 }
+
+StackAlloc& MemorySystem::getStackAlloc() const {
+    return stackPool;
+}
