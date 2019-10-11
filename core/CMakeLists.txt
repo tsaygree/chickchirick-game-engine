@@ -33,4 +33,5 @@ include_directories(
 	Includes
 	Containers/HashTable
 	MemorySystem
+	MemoryUnits
 )
