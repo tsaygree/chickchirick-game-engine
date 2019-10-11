@@ -40,8 +40,8 @@ private:
     MemorySystem();
     StackAlloc& stackPool = StackAlloc::getInstance();
 public:
-    static MemorySystem& getInstance();
-    uint32_t startUP(const char* filename);
-    uint32_t shutDown();
-    StackAlloc& getStackAlloc() const;
+    static MemorySystem& getInstance();                                 /*  get singleton object            */
+    uint32_t startUP(const char* filename);                             /*  start up                        */
+    uint32_t shutDown();                                                /*  shut down                       */
+    StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter          */
 };

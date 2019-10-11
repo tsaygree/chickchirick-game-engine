@@ -36,7 +36,7 @@ private:
     bpt::ptree      pt;                                         /*  boost property tree to load and parse files */
     FileSystem();
 public:
-    static FileSystem& getInstance();                           /*  get singleton getInstance                   */
+    static FileSystem& getInstance();                           /*  get singleton object                        */
     uint32_t startUP();                                         /*  start up the subsystem                      */
     uint32_t shutDown();                                        /*  shut down the subsystem                     */
     const bpt::ptree& readJSON(const char* filepath);           /*  load and parse JSON file                    */

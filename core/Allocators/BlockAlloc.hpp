@@ -47,11 +47,11 @@ private:
         freeBlockPtr = blockPool;
     }
 public:
-    void  startUP(uint32_t poolSize, uint32_t blockSize);  /*  pool initialization                         */
+    void  startUP(uint32_t poolSize, uint32_t blockSize);   /*  pool initialization                         */
     void* balloc();                                         /*  block allocation                            */
     void  free(void* blockptr);                             /*  free allocated block                        */
     inline void freeAll() { this->init(); }                 /*  free all allocated blocks                   */
-    inline void shutDown() {                            /*  free allocated memory                       */
+    inline void shutDown() {                                /*  free allocated memory                       */
         delete[] blockPool;
         isInit = false;
     }

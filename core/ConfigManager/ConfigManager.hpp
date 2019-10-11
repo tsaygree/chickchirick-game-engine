@@ -23,7 +23,7 @@ private:
     StringID globalConfPath;
     ConfigManager();
 public:
-    static ConfigManager& getInstance();
-    const bpt::ptree& getGlobalConfig(const char* filename);
-    uint32_t startUP();
+    static ConfigManager& getInstance();                                    /*  get singleton object            */
+    uint32_t startUP();                                                     /*  start up                        */
+    const bpt::ptree& getGlobalConfig(const char* filename);                /*  load and parse config file      */
 };
