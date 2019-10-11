@@ -28,12 +28,19 @@
 */
 
 #pragma once
+#include "FileSystem.hpp"
+#include "ConfigManager.hpp"
 #include "BlockAlloc.hpp"
 #include "StackAlloc.hpp"
+#include "MemoryUnits.hpp"
+#include <cstdio>
 
 class MemorySystem {
 private:
     MemorySystem();
+    StackAlloc& stackPool = StackAlloc::getInstance();
 public:
     static MemorySystem& getInstance();
+    uint32_t startUP(const char* filename);
+    uint32_t shutDown();
 };
