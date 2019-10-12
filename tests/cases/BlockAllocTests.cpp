@@ -12,9 +12,38 @@
 
 #include "Catch2.hpp"
 #include "BlockAlloc.hpp"
+#include <string>
 
 #define POOLSIZE 32
 #define BLOCKSIZE 8
+
+class Test {
+public:
+    Test() {}
+    ~Test() {}
+    int num = 0;
+    bool isTrue = false;
+    std::string name = "";
+};
+
+TEST_CASE("initialize tests", "[BlockAlloc]") {
+    BlockAlloc bPool;
+    uint32_t bSize = sizeof(Test);
+    uint32_t pSize = 4 * bSize;
+    SECTION("initialize inner pool") {
+        bPool.startUP(pSize, bSize);
+        Test* tptr = CAST(Test*, bPool.balloc());
+        tptr->num = 5;
+        REQUIRE(tptr->num == 5);
+    }
+    SECTION("initialize outer pool") {
+        char* outerPool = new char[pSize];
+        bPool.startUP(outerPool, pSize, bSize);
+        Test* tptr = CAST(Test*, bPool.balloc());
+        tptr->num = 10;
+        REQUIRE(tptr->num == 10);
+    }
+}
 
 TEST_CASE("type test", "[BlockAlloc]") {
     BlockAlloc blockPool;
