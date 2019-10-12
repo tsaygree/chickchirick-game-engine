@@ -53,6 +53,7 @@ private:
     }
 public:
     void  startUP(uint32_t pSize, uint32_t bSize);          /*  pool initialization                         */
+    void  startUP(char* bPool, uint32_t pSize, uint32_t bSize);
     void* balloc();                                         /*  block allocation                            */
     void  free(void* blockptr);                             /*  free allocated block                        */
     inline void freeAll() { this->resetPool(); }            /*  free all allocated blocks                   */

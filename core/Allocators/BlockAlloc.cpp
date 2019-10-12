@@ -33,6 +33,18 @@ void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
     isInit = true;
 }
 
+void BlockAlloc::startUP(char* bPool, uint32_t pSize, uint32_t bSize) {
+    assert(isInit == false);
+    assert(bPool != nullptr);
+    assert(bSize >= sizeof(char*));
+    assert(pSize >= bSize);
+    assert(pSize % bSize == 0);
+
+    this->initVars(bPool, pSize, bSize);
+    this->resetPool();
+    isInit = true;
+}
+
 void* BlockAlloc::balloc() {
     /*
         Allocation process:
