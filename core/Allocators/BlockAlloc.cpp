@@ -34,6 +34,12 @@ void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
 }
 
 void BlockAlloc::startUP(char* bPool, uint32_t pSize, uint32_t bSize) {
+    /*
+        See description in another startUP method.
+        The only difference between them is that here
+        you are able to pass a pre-allocated memory
+        pool and have more control over it.
+    */
     assert(isInit == false);
     assert(bPool != nullptr);
     assert(bSize >= sizeof(char*));
