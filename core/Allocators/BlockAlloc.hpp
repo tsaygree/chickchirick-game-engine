@@ -33,6 +33,11 @@ private:
     uint32_t poolSize     = 0;                              /*  size of allocated pool                      */
     uint32_t blockSize    = 0;                              /*  size of single block                        */
     bool     isInit       = false;                          /*  initialization flag                         */
+    inline void initVars(char* bPool, uint32_t pSize, uint32_t bSize) {
+        blockPool = bPool;
+        poolSize  = pSize;
+        blockSize = bSize;
+    }
     inline void resetPool() {
         char* cur = blockPool;
         char* end = blockPool + poolSize - blockSize;

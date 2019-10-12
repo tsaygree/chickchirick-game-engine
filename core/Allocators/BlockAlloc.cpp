@@ -28,9 +28,7 @@ void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
     assert(pSize >= bSize);
     assert(pSize % bSize == 0);
 
-    poolSize  = pSize;
-    blockSize = bSize;
-    blockPool = new char[pSize];
+    this->initVars(new char[pSize], pSize, bSize);
     this->resetPool();
     isInit = true;
 }
