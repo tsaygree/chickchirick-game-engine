@@ -31,7 +31,7 @@ void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
     poolSize  = pSize;
     blockSize = bSize;
     blockPool = new char[pSize];
-    this->init();
+    this->resetPool();
     isInit = true;
 }
 

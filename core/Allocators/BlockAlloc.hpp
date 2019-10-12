@@ -33,7 +33,7 @@ private:
     uint32_t poolSize     = 0;                              /*  size of allocated pool                      */
     uint32_t blockSize    = 0;                              /*  size of single block                        */
     bool     isInit       = false;                          /*  initialization flag                         */
-    inline void init() {
+    inline void resetPool() {
         char* cur = blockPool;
         char* end = blockPool + poolSize - blockSize;
         uintptr_t addr = 0;
@@ -50,7 +50,7 @@ public:
     void  startUP(uint32_t pSize, uint32_t bSize);          /*  pool initialization                         */
     void* balloc();                                         /*  block allocation                            */
     void  free(void* blockptr);                             /*  free allocated block                        */
-    inline void freeAll() { this->init(); }                 /*  free all allocated blocks                   */
+    inline void freeAll() { this->resetPool(); }            /*  free all allocated blocks                   */
     inline void shutDown() {                                /*  free allocated memory                       */
         delete[] blockPool;
         isInit = false;
