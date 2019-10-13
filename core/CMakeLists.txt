@@ -32,6 +32,7 @@ include_directories(
 	ConfigManager
 	Includes
 	Containers/HashTable
+	Containers/Vector
 	MemorySystem
 	MemoryUnits
 )

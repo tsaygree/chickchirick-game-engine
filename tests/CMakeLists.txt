@@ -33,6 +33,7 @@ include_directories(
 	${CORE_DIR}/Allocators
 	${CORE_DIR}/AssetManager
 	${CORE_DIR}/Containers/HashTable
+	${CORE_DIR}/Containers/Vector
 	${CORE_DIR}/FileSystem
 	${CORE_DIR}/Includes
 	${CORE_DIR}/MemoryUnits
