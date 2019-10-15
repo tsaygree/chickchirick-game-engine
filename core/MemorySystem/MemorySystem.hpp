@@ -60,5 +60,5 @@ public:
     uint32_t startUP(const char* filename);                             /*  start up                                */
     uint32_t shutDown();                                                /*  shut down                               */
     StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter                  */
-    void* alloc(uint32_t size);
+    void* alloc(uint32_t size);                                         /*  allocation from block pools             */
 };

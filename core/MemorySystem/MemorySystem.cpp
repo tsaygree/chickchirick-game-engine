@@ -52,14 +52,14 @@ StackAlloc& MemorySystem::getStackAlloc() const {
 }
 
 void* MemorySystem::alloc(uint32_t size) {
-    void* result = nullptr;
-    for (auto& entry : blockPool) {
+    void* result = nullptr;                             /*  prepare result                          */
+    for (auto& entry : blockPool) {                     /*  search for matching block pool          */
         if (size <= entry.blockSize) {
             result = entry.pool.balloc();
         }
     }
-    if (!result) {
-        result = new char[size];
+    if (!result) {                                      /*  if size request is too big => deligate  */
+        result = new char[size];                        /*  allocation to general purpose allocator */
     }
     return result;
 }
