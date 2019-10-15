@@ -25,14 +25,26 @@ constexpr uint32_t power(int32_t base, uint32_t exp) {
     return result;
 }
 
-constexpr uint32_t operator"" _KiB(unsigned long long val) {
+constexpr uint32_t KiBtoB (unsigned long long val) {
     return val * 1024;
 }
 
-constexpr uint32_t operator"" _MiB(unsigned long long val) {
+constexpr uint32_t MiBtoB(unsigned long long val) {
     return val * power(1024, 2);
 }
 
-constexpr uint32_t operator"" _GiB(unsigned long long val) {
+constexpr uint32_t GiBtoB(unsigned long long val) {
     return val * power(1024, 3);
+}
+
+constexpr uint32_t operator"" _KiB(unsigned long long val) {
+    return KiBtoB(val);
+}
+
+constexpr uint32_t operator"" _MiB(unsigned long long val) {
+    return MiBtoB(val);
+}
+
+constexpr uint32_t operator"" _GiB(unsigned long long val) {
+    return GiBtoB(val);
 }
