@@ -25,6 +25,14 @@
     general-purpose heap allocator.
     NOTE: This class is not thread safe.
 
+    NOTEx2: Current implementation supports loading settings
+    from configuration file. This has its impact on
+    allocation perfomance. However, such design is helpful
+    during development, therefore it's here. Later in the
+    development configuration file will be replaced with
+    much faster (hopefully) hardcoded solutuion. Please,
+    do not stress out if MemorySystem would become
+    a bottleneck :)
 */
 
 #pragma once
@@ -41,8 +49,8 @@ private:
     StackAlloc& stackPool = StackAlloc::getInstance();
     HashTable<uint32_t, BlockAlloc> blockPool;                          /*  block pool registry [key-block size]    */
 public:
-    static MemorySystem& getInstance();                                 /*  get singleton object            */
-    uint32_t startUP(const char* filename);                             /*  start up                        */
-    uint32_t shutDown();                                                /*  shut down                       */
-    StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter          */
+    static MemorySystem& getInstance();                                 /*  get singleton object                    */
+    uint32_t startUP(const char* filename);                             /*  start up                                */
+    uint32_t shutDown();                                                /*  shut down                               */
+    StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter                  */
 };
