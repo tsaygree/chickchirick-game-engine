@@ -50,3 +50,16 @@ uint32_t MemorySystem::shutDown() {
 StackAlloc& MemorySystem::getStackAlloc() const {
     return stackPool;
 }
+
+void* MemorySystem::alloc(uint32_t size) {
+    void* result = nullptr;
+    for (auto& entry : blockPool) {
+        if (size <= entry.blockSize) {
+            result = entry.pool.balloc();
+        }
+    }
+    if (!result) {
+        result = new char[size];
+    }
+    return result;
+}
