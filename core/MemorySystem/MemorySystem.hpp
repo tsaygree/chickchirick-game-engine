@@ -41,13 +41,20 @@
 #include "BlockAlloc.hpp"
 #include "StackAlloc.hpp"
 #include "MemoryUnits.hpp"
+#include "Vector.hpp"
 #include <cstdio>
 
 class MemorySystem {
 private:
+    struct BlockAllocInfo {
+        BlockAlloc  pool;
+        char*       poolPtr;
+        uint32_t    poolSize;
+        uint32_t    blockSize;
+    };
     MemorySystem();
     StackAlloc& stackPool = StackAlloc::getInstance();
-    HashTable<uint32_t, BlockAlloc> blockPool;                          /*  block pool registry [key-block size]    */
+    Vector<BlockAllocInfo> blockPool;                                   /*  block pool registry                     */
 public:
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
     uint32_t startUP(const char* filename);                             /*  start up                                */

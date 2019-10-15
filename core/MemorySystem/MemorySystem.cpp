@@ -22,25 +22,27 @@ uint32_t MemorySystem::startUP(const char* filename) {
 
     /*  StackAlloc initialization   */
     /*  config stores size in MiB, so conversion to bytes needed    */
-    uint32_t LSRSize  = config.get<uint32_t>("LSRSize") * power(1024, 2);
-    uint32_t poolSize = config.get<uint32_t>("StackPoolSize") * power(1024, 2);
+    uint32_t LSRSize  = MiBtoB(config.get<uint32_t>("LSRSize"));
+    uint32_t poolSize = MiBtoB(config.get<uint32_t>("StackPoolSize"));
     stackPool.startUP(LSRSize, poolSize);
     /*  BlockAlloc initializations  */
-    poolSize = config.get<uint32_t>("BlockAllocPoolSize") * power(1024, 2);
+    poolSize = MiBtoB(config.get<uint32_t>("BlockAllocPoolSize"));
     uint32_t blockSize = 0;
     for (const auto& item : config.get_child("BlockAllocBlockSizes")) {
         blockSize = item.second.get_value<uint32_t>();
+        char* poolBgn = new char[poolSize];
         BlockAlloc newPool;
-        newPool.startUP(poolSize, blockSize);
-        blockPool[blockSize] = newPool;
+        newPool.startUP(poolBgn, poolSize, blockSize);
+        blockPool.push_back({newPool, poolBgn, poolSize, blockSize});
     }
     return 0;
 }
 
 uint32_t MemorySystem::shutDown() {
-    for (auto& bpool : blockPool) {
-        bpool.second.shutDown();
+    for (auto& entry : blockPool) {
+        entry.pool.shutDown();
     }
+    blockPool.empty();
     stackPool.shutDown();
     return 0;
 }
