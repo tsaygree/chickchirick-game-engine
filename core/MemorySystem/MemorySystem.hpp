@@ -61,4 +61,5 @@ public:
     uint32_t shutDown();                                                /*  shut down                               */
     StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter                  */
     void* alloc(uint32_t size);                                         /*  allocation from block pools             */
+    void free(void* ptr);
 };

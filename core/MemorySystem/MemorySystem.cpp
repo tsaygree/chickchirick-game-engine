@@ -64,3 +64,17 @@ void* MemorySystem::alloc(uint32_t size) {
     }
     return result;
 }
+
+void MemorySystem::free(void* ptr) {
+    bool blockFound = false;
+    for (auto& entry : blockPool) {
+        char* begin = entry.poolPtr;
+        char* end = begin + entry.poolSize;
+        if (begin <= ptr && ptr < end) {
+            entry.pool.free(ptr);
+            blockFound = true;
+            break;
+        }
+    }
+    if (!blockFound) {  delete ptr; }
+}
