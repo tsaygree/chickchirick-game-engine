@@ -56,6 +56,7 @@ void* MemorySystem::alloc(uint32_t size) {
     for (auto& entry : blockPool) {                     /*  search for matching block pool          */
         if (size <= entry.blockSize) {
             result = entry.pool.balloc();
+            break;
         }
     }
     if (!result) {                                      /*  if size request is too big => deligate  */
