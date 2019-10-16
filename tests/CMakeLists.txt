@@ -7,6 +7,7 @@ add_executable(
 	cases/StackAllocTests.cpp
 	cases/MemoryUnitsTests.cpp
 	cases/StringIDTests.cpp
+	cases/MemorySystemTests.cpp
 	${CORE_DIR}/Allocators/BlockAlloc.cpp
 	${CORE_DIR}/Allocators/StackAlloc.cpp
 	${CORE_DIR}/AssetManager/AssetManager.cpp
