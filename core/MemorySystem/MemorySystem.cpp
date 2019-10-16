@@ -52,22 +52,22 @@ StackAlloc& MemorySystem::getStackAlloc() const {
 }
 
 void* MemorySystem::alloc(uint32_t size) {
-    void* result = nullptr;                             /*  prepare result                          */
-    for (auto& entry : blockPool) {                     /*  search for matching block pool          */
+    void* result = nullptr;                             /*  prepare result                              */
+    for (auto& entry : blockPool) {                     /*  search for matching block pool              */
         if (size <= entry.blockSize) {
             result = entry.pool.balloc();
             break;
         }
     }
-    if (!result) {                                      /*  if size request is too big => deligate  */
-        result = new char[size];                        /*  allocation to general purpose allocator */
+    if (!result) {                                      /*  if size request is too big => deligate      */
+        result = new char[size];                        /*  allocation to general purpose allocator     */
     }
     return result;
 }
 
 void MemorySystem::free(void* ptr) {
     bool blockFound = false;
-    for (auto& entry : blockPool) {
+    for (auto& entry : blockPool) {                     /*  search for matching block pool              */
         char* begin = entry.poolPtr;
         char* end = begin + entry.poolSize;
         if (begin <= ptr && ptr < end) {
@@ -76,5 +76,5 @@ void MemorySystem::free(void* ptr) {
             break;
         }
     }
-    if (!blockFound) {  delete ptr; }
+    if (!blockFound) {  delete ptr; }                   /*  if not found - free from heap               */
 }
