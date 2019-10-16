@@ -13,8 +13,7 @@
 */
 
 #pragma once
-#include <SDL.h>
-#include <SDL_image.h>
+#include "SDLInclude.hpp"
 #include "StringID.hpp"
 #include "FileSystem.hpp"
 #include "ConfigManager.hpp"
