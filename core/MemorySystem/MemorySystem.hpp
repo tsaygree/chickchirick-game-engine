@@ -54,7 +54,7 @@ private:
     };
     MemorySystem();
     StackAlloc& stackPool = StackAlloc::getInstance();
-    Vector<BlockAllocInfo> blockPool;                                   /*  block pool registry                     */
+    Vector<BlockAllocInfo> blockPoolList;                               /*  block pool registry                     */
 public:
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
     uint32_t startUP(const char* filename);                             /*  start up                                */

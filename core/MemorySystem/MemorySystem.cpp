@@ -33,16 +33,16 @@ uint32_t MemorySystem::startUP(const char* filename) {
         char* poolBgn = new char[poolSize];
         BlockAlloc newPool;
         newPool.startUP(poolBgn, poolSize, blockSize);
-        blockPool.push_back({newPool, poolBgn, poolSize, blockSize});
+        blockPoolList.push_back({newPool, poolBgn, poolSize, blockSize});
     }
     return 0;
 }
 
 uint32_t MemorySystem::shutDown() {
-    for (auto& entry : blockPool) {
+    for (auto& entry : blockPoolList) {
         entry.pool.shutDown();
     }
-    blockPool.empty();
+    blockPoolList.empty();
     stackPool.shutDown();
     return 0;
 }
@@ -53,7 +53,7 @@ StackAlloc& MemorySystem::getStackAlloc() const {
 
 void* MemorySystem::alloc(uint32_t size) {
     void* result = nullptr;                             /*  prepare result                              */
-    for (auto& entry : blockPool) {                     /*  search for matching block pool              */
+    for (auto& entry : blockPoolList) {                     /*  search for matching block pool              */
         if (size <= entry.blockSize) {
             result = entry.pool.balloc();
             break;
@@ -67,7 +67,7 @@ void* MemorySystem::alloc(uint32_t size) {
 
 void MemorySystem::free(void* ptr) {
     bool blockFound = false;
-    for (auto& entry : blockPool) {                     /*  search for matching block pool              */
+    for (auto& entry : blockPoolList) {                     /*  search for matching block pool              */
         char* begin = entry.poolPtr;
         char* end = begin + entry.poolSize;
         if (begin <= ptr && ptr < end) {
