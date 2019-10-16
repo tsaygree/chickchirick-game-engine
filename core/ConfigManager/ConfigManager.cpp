@@ -21,7 +21,7 @@ uint32_t ConfigManager::startUP() {
     return 0;
 }
 
-const bpt::ptree& ConfigManager::getGlobalConfig(const char* filename) {
+const bpt::ptree& ConfigManager::loadGlobalConfig(const char* filename) {
     string filepath = globalConfPath.getStr() + filename;
     return fileSys.readJSON(filepath.c_str());
 }

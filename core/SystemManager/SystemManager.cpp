@@ -37,7 +37,7 @@ uint32_t SystemManager::BigShutDown() {
 }
 
 uint32_t SystemManager::SDLInit(const char* filename) {
-    bpt::ptree sdlFlags = conMan.getGlobalConfig(filename);
+    bpt::ptree sdlFlags = conMan.loadGlobalConfig(filename);
 
     /*  lambda to retrieve SDL flags from property tree data structure  */
     auto getFlags = [&](const auto& flags) {

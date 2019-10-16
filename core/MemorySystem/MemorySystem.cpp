@@ -18,7 +18,7 @@ MemorySystem& MemorySystem::getInstance() {
 
 uint32_t MemorySystem::startUP(const char* filename) {
     bpt::ptree config =
-        (ConfigManager::getInstance().getGlobalConfig(filename)).get_child("MemorySystem");
+        (ConfigManager::getInstance().loadGlobalConfig(filename)).get_child("MemorySystem");
 
     /*  StackAlloc initialization   */
     /*  config stores size in MiB, so conversion to bytes needed    */
