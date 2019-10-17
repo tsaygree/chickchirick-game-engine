@@ -30,11 +30,6 @@ const bpt::ptree& FileSystem::readJSON(const char* filepath) {
     return pt;
 }
 
-const SDL_Surface* FileSystem::loadIMG(const char* filepath) {
-    SDL_Surface* result = IMG_Load(filepath);
-    return result;
-}
-
 const StringID& FileSystem::getBasePath()       const   {   return basePath;        }
 
 // const StringID& FileSystem::getLocalPath()      const   {   return localPath;       }

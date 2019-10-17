@@ -40,7 +40,10 @@ public:
     uint32_t startUP();                                         /*  start up the subsystem                      */
     uint32_t shutDown();                                        /*  shut down the subsystem                     */
     const bpt::ptree& readJSON(const char* filepath);           /*  load and parse JSON file                    */
-    const SDL_Surface* loadIMG(const char* filepath);           /*  load image and return sdl surface           */
+    inline const SDL_Surface* loadIMG(const char* filepath) {   /*  load image and return sdl surface           */
+        SDL_Surface* result = IMG_Load(filepath);
+        return result;
+    }
     const StringID& getBasePath() const;                        /*  get engine base dir path                    */
     // const StringID& getLocalPath() const;                       /*  get hidden appdata path                     */
     const StringID& getGlobalConfPath() const;                  /*  get global config path                      */
