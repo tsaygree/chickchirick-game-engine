@@ -22,8 +22,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include "StringID.hpp"
-#include <SDL.h>
-#include <SDL_image.h>
+#include "SDLInclude.hpp"
 namespace bpt = boost::property_tree;
 
 
@@ -44,8 +43,7 @@ public:
         return pt;
     }
     inline SDL_Surface* loadIMG(const char* filepath) {         /*  load image and return sdl surface           */
-        SDL_Surface* result = IMG_Load(filepath);
-        return result;
+        return IMG_Load(filepath);
     }
     const StringID& getBasePath() const;                        /*  get engine base dir path                    */
     // const StringID& getLocalPath() const;                       /*  get hidden appdata path                     */
