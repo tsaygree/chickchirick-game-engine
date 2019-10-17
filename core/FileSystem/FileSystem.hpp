@@ -39,7 +39,10 @@ public:
     static FileSystem& getInstance();                           /*  get singleton object                        */
     uint32_t startUP();                                         /*  start up the subsystem                      */
     uint32_t shutDown();                                        /*  shut down the subsystem                     */
-    const bpt::ptree& readJSON(const char* filepath);           /*  load and parse JSON file                    */
+    inline const bpt::ptree& readJSON(const char* filepath) {   /*  load and parse JSON file                    */
+        bpt::read_json(filepath, pt);
+        return pt;
+    }
     inline SDL_Surface* loadIMG(const char* filepath) {   /*  load image and return sdl surface           */
         SDL_Surface* result = IMG_Load(filepath);
         return result;

@@ -25,11 +25,6 @@ uint32_t FileSystem::startUP() {
 
 uint32_t FileSystem::shutDown() {   return 0;  }
 
-const bpt::ptree& FileSystem::readJSON(const char* filepath) {
-    bpt::read_json(filepath, pt);
-    return pt;
-}
-
 const StringID& FileSystem::getBasePath()       const   {   return basePath;        }
 
 // const StringID& FileSystem::getLocalPath()      const   {   return localPath;       }
