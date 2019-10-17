@@ -30,9 +30,11 @@ class StringID {
 private:
     uint32_t        id;                         /*  crc32b string id                                */
     const char*     ptr;                        /*  ptr to actual string instance in gStringTable   */
+    void registerStr(uint32_t sid, const string& str);
 public:
     StringID() = default;
     StringID(uint32_t sid, const char* str);
+    StringID(const string& str);
     inline bool operator==(const StringID& other) const { return id == other.getID(); }
     inline bool operator!=(const StringID& other) const { return id != other.getID(); }
     uint32_t getID() const;
@@ -60,7 +62,7 @@ constexpr uint32_t operator"" _sid(const char* str, size_t length);
     /*  compile time    */
 #define SID(str) StringID(str##_sid, str)
     /*  runtime         */
-#define SHID(sptr) StringID(~crc32(sptr, std::strlen(sptr)), sptr)
+#define SHID(sptr) StringID(crc32(sptr, std::strlen(sptr)), sptr)
 
 /*  lookup table for crc32b hash calculation                                */
 const constexpr uint32_t crc32Table[256] = CRC32LOOKUPVALUES;
@@ -72,10 +74,10 @@ constexpr uint32_t crc32(const char* data, size_t length) {
         remainder = crc32Table[(remainder & 0xFF) ^ *data++] ^ (remainder >> 8);
         length--;
     }
-    return remainder;
+    return ~remainder;
 }
 
 /*  user string literal to calculate hash on a string at compile time       */
 constexpr uint32_t operator"" _sid(const char* str, size_t length) {
-    return ~crc32(str, length);
+    return crc32(str, length);
 }
