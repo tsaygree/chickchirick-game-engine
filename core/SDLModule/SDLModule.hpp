@@ -13,6 +13,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "Initializers.hpp"
+#include "FileSystem.hpp"
 #include "ConfigManager.hpp"
 #include <iostream>
 
@@ -26,7 +27,7 @@ public:
     static SDLModule& getInstance();
     uint32_t startUP(const char* filename);
     uint32_t shutDown();
-    inline SDL_Window*   getSDLWindow()        const { return window;                       }
-    inline SDL_Renderer* getSDLRenderer()      const { return renderer;                     }
-    inline SDL_Surface*  getSDLWindowSurface() const { return SDL_GetWindowSurface(window); }
+    inline SDL_Window*   getWindow()        const { return window;                       }
+    inline SDL_Renderer* getRenderer()      const { return renderer;                     }
+    inline SDL_Surface*  getWindowSurface() const { return SDL_GetWindowSurface(window); }
 };
