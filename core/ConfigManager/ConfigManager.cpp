@@ -1,6 +1,6 @@
 /*
 
-    ConfigManager.hpp
+    ConfigManager.cpp
     chickchirick-game-engine
 
     Created by <chickchirik> on 21/09/2019.

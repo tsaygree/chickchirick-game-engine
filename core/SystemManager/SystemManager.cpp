@@ -1,6 +1,6 @@
 /*
 
-    SystemManager.hpp
+    SystemManager.cpp
     chickchirick-game-engine
 
     Created by <chickchirik> on 13/09/2019.

@@ -43,7 +43,7 @@ public:
         bpt::read_json(filepath, pt);
         return pt;
     }
-    inline SDL_Surface* loadIMG(const char* filepath) {   /*  load image and return sdl surface           */
+    inline SDL_Surface* loadIMG(const char* filepath) {         /*  load image and return sdl surface           */
         SDL_Surface* result = IMG_Load(filepath);
         return result;
     }

@@ -1,6 +1,6 @@
 /*
 
-    MemorySystem.hpp
+    MemorySystem.cpp
     chickchirick-game-engine
 
     Created by <chickchirik> on 10/10/2019.
@@ -53,7 +53,7 @@ StackAlloc& MemorySystem::getStackAlloc() const {
 
 void* MemorySystem::alloc(uint32_t size) {
     void* result = nullptr;                             /*  prepare result                              */
-    for (auto& entry : blockPoolList) {                     /*  search for matching block pool              */
+    for (auto& entry : blockPoolList) {                 /*  search for matching block pool              */
         if (size <= entry.blockSize) {
             result = entry.pool.balloc();
             break;
@@ -67,7 +67,7 @@ void* MemorySystem::alloc(uint32_t size) {
 
 void MemorySystem::free(void* ptr) {
     bool blockFound = false;
-    for (auto& entry : blockPoolList) {                     /*  search for matching block pool              */
+    for (auto& entry : blockPoolList) {                 /*  search for matching block pool              */
         char* begin = entry.poolPtr;
         char* end = begin + entry.poolSize;
         if (begin <= ptr && ptr < end) {
