@@ -16,6 +16,7 @@ add_executable(
 	${CORE_DIR}/SystemManager/SystemManager.cpp
 	${CORE_DIR}/MemorySystem/MemorySystem.cpp
 	${CORE_DIR}/ConfigManager/ConfigManager.cpp
+	${CORE_DIR}/SDLModule/SDLModule.cpp
 )
 
 target_link_libraries(
@@ -42,5 +43,6 @@ include_directories(
 	${CORE_DIR}/SystemManager
 	${CORE_DIR}/MemorySystem
 	${CORE_DIR}/ConfigManager
+	${CORE_DIR}/SDLModule
 	cases
 )

@@ -11,6 +11,7 @@ add_executable(
 	Allocators/StackAlloc.cpp
 	AssetManager/AssetManager.cpp
 	MemorySystem/MemorySystem.cpp
+	SDLModule/SDLModule.cpp
 )
 
 target_link_libraries(
@@ -35,4 +36,5 @@ include_directories(
 	Containers/Vector
 	MemorySystem
 	MemoryUnits
+	SDLModule
 )
