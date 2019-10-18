@@ -15,7 +15,7 @@
 #include "MemorySystem.hpp"
 
 TEST_CASE("MemorySystem module tests", "[MemorySystem]") {
-    SystemManager systemManager = SystemManager::getInstance();
+    SystemManager& systemManager = SystemManager::getInstance();
     systemManager.BigInit();
     MemorySystem& memSys  = MemorySystem::getInstance();
     int* iptr = (int*)memSys.alloc(sizeof(int));
