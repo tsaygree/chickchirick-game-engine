@@ -17,7 +17,7 @@ add_executable(
 	${CORE_DIR}/MemorySystem/MemorySystem.cpp
 	${CORE_DIR}/ConfigManager/ConfigManager.cpp
 	${CORE_DIR}/SDLModule/SDLModule.cpp
-	${CORE_DIR}/Texture/Texture.cpp
+	${CORE_DIR}/Asset/Texture/Texture.cpp
 )
 
 target_link_libraries(
@@ -45,6 +45,7 @@ include_directories(
 	${CORE_DIR}/MemorySystem
 	${CORE_DIR}/ConfigManager
 	${CORE_DIR}/SDLModule
-	${CORE_DIR}/Texture
+	${CORE_DIR}/Asset/Texture
+	${CORE_DIR}/Asset
 	cases
 )

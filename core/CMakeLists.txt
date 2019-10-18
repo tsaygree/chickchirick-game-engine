@@ -12,7 +12,7 @@ add_executable(
 	AssetManager/AssetManager.cpp
 	MemorySystem/MemorySystem.cpp
 	SDLModule/SDLModule.cpp
-	Texture/Texture.cpp
+	Asset/Texture/Texture.cpp
 )
 
 target_link_libraries(
@@ -38,5 +38,6 @@ include_directories(
 	MemorySystem
 	MemoryUnits
 	SDLModule
-	Texture
+	Asset
+	Asset/Texture
 )
