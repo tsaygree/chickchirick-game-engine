@@ -36,6 +36,8 @@ private:
     FileSystem();
 public:
     static FileSystem& getInstance();                           /*  get singleton object                        */
+    FileSystem(FileSystem const&) = delete;
+    FileSystem& operator=(FileSystem const&) = delete;
     uint32_t startUP();                                         /*  start up the subsystem                      */
     uint32_t shutDown();                                        /*  shut down the subsystem                     */
     inline const bpt::ptree& readJSON(const char* filepath) {   /*  load and parse JSON file                    */

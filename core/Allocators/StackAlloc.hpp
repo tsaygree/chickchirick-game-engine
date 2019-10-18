@@ -26,6 +26,8 @@ private:
     StackAlloc();
 public:
     static StackAlloc& getInstance();
+    StackAlloc(StackAlloc const&) = delete;
+    StackAlloc& operator=(StackAlloc const&) = delete;
     int startUP(uint32_t LSRSize_, uint32_t poolSize_); /*  start up routine                                        */
     int shutDown();                                     /*  shut down routine                                       */
     void* stalloc(uint32_t size);                       /*  allocate size bytes on stack                            */

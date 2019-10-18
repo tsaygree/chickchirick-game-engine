@@ -25,6 +25,8 @@ private:
     SDL_Renderer*   renderer;
 public:
     static SDLModule& getInstance();
+    SDLModule(SDLModule const&) = delete;
+    SDLModule& operator=(SDLModule const&) = delete;
     uint32_t startUP(const char* filename);
     uint32_t shutDown();
     Texture getTextureFromSurface(SDL_Surface* surface, const StringID& id);

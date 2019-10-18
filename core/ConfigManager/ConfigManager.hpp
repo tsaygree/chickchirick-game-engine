@@ -24,6 +24,8 @@ private:
     ConfigManager();
 public:
     static ConfigManager& getInstance();                                    /*  get singleton object            */
+    ConfigManager(ConfigManager const&) = delete;
+    ConfigManager& operator=(ConfigManager const&) = delete;
     uint32_t startUP();                                                     /*  start up                        */
     const bpt::ptree& loadGlobalConfig(const char* filename);               /*  load and parse config file      */
 };

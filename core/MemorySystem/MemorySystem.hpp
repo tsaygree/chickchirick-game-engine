@@ -57,6 +57,8 @@ private:
     Vector<BlockAllocInfo> blockPoolList;                               /*  block pool registry                     */
 public:
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
+    MemorySystem(MemorySystem const&) = delete;
+    MemorySystem& operator=(MemorySystem const&) = delete;
     uint32_t startUP(const char* filename);                             /*  start up                                */
     uint32_t shutDown();                                                /*  shut down                               */
     StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter                  */

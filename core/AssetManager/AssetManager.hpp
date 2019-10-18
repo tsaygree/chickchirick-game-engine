@@ -26,6 +26,8 @@ private:
     AssetManager();
 public:
     static AssetManager& getInstance();
+    AssetManager(AssetManager const&) = delete;
+    AssetManager& operator=(AssetManager const&) = delete;
     int startUP(const StringID& assetsPath_);
     int shutDown();
 };
