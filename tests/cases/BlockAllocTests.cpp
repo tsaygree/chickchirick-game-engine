@@ -35,6 +35,7 @@ TEST_CASE("initialize tests", "[BlockAlloc]") {
         Test* tptr = CAST(Test*, bPool.balloc());
         tptr->num = 5;
         REQUIRE(tptr->num == 5);
+        bPool.shutDown();
     }
     SECTION("initialize outer pool") {
         char* outerPool = new char[pSize];
@@ -42,6 +43,7 @@ TEST_CASE("initialize tests", "[BlockAlloc]") {
         Test* tptr = CAST(Test*, bPool.balloc());
         tptr->num = 10;
         REQUIRE(tptr->num == 10);
+        bPool.shutDown();
     }
 }
 

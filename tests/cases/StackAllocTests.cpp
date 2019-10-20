@@ -41,6 +41,7 @@ TEST_CASE("StackAlloc tests", "[StackAlloc]") {
             newMarker = stackPool.getMarker();
             REQUIRE(newMarker == marker);
         }
+        stackPool.shutDown();
     }
     SECTION("Inner pool tests") {
         stackPool.startUP(100_MiB, 200_MiB);
@@ -66,5 +67,6 @@ TEST_CASE("StackAlloc tests", "[StackAlloc]") {
             newMarker = stackPool.getMarker();
             REQUIRE(newMarker == marker);
         }
+        stackPool.shutDown();
     }
 }
