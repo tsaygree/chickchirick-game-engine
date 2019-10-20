@@ -13,12 +13,22 @@ StackAlloc::StackAlloc()  {}
 
 int StackAlloc::startUP(uint32_t LSRSize_, uint32_t poolSize_) {
     assert(LSRSize_ + poolSize_ > 0);
-    this->LSRSize = LSRSize_;
+    LSRSize = LSRSize_;
     realSize = LSRSize_ + poolSize_;
     marker = LSRSize_;
     LSRMarker = 0;
     pool = new char[realSize];
     return 0;
+}
+
+int StackAlloc::startUP(char* sPool, uint32_t LSRSize_, uint32_t poolSize_) {
+    assert(sPool != nullptr);
+    assert(LSRSize_ + poolSize_ > 0);
+    LSRSize = LSRSize_;
+    realSize = LSRSize_ + poolSize_;
+    marker = LSRSize_;
+    LSRMarker = 0;
+    pool = sPool;
 }
 
 int StackAlloc::shutDown() {

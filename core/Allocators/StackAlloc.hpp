@@ -26,6 +26,7 @@ private:
 public:
     StackAlloc();
     int startUP(uint32_t LSRSize_, uint32_t poolSize_); /*  start up routine                                        */
+    int startUP(char* sPool, uint32_t LSRSize_, uint32_t poolSize_);
     int shutDown();                                     /*  shut down routine                                       */
     void* stalloc(uint32_t size);                       /*  allocate size bytes on stack                            */
     void* LSRalloc(uint32_t size);                      /*  allocate size bytes on LSR stack                        */
