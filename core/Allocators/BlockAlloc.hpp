@@ -52,6 +52,7 @@ private:
         freeBlockPtr = blockPool;
     }
 public:
+    BlockAlloc();
     void  startUP(uint32_t pSize, uint32_t bSize);              /*  inner pool initialization                   */
     void  startUP(char* bPool, uint32_t pSize, uint32_t bSize); /*  outer pool initialization                   */
     void* balloc();                                             /*  block allocation                            */

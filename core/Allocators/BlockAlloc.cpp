@@ -8,6 +8,8 @@
 */
 #include "BlockAlloc.hpp"
 
+BlockAlloc::BlockAlloc() {}
+
 void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
     /*
         Initialization process:
