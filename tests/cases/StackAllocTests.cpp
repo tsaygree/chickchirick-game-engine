@@ -15,7 +15,7 @@
 #include "MemoryUnits.hpp"
 
 TEST_CASE("StackAlloc tests", "[StackAlloc]") {
-    StackAlloc& stackPool = StackAlloc::getInstance();
+    StackAlloc stackPool;
     stackPool.startUP(100_MiB, 200_MiB);
     SECTION("Big size") {
         int*  ptr1 = (int*)stackPool.stalloc(201_MiB);

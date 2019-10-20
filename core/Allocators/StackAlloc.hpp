@@ -23,11 +23,8 @@ private:
     uint32_t    LSRSize   = 0;                          /*  size of Load&StayResident data                          */
     uint32_t    LSRMarker = 0;                          /*  marker to top of LSR data                               */
     uint32_t    realSize  = 0;                          /*  size of LSR + size of pool                              */
-    StackAlloc();
 public:
-    static StackAlloc& getInstance();
-    StackAlloc(StackAlloc const&) = delete;
-    StackAlloc& operator=(StackAlloc const&) = delete;
+    StackAlloc();
     int startUP(uint32_t LSRSize_, uint32_t poolSize_); /*  start up routine                                        */
     int shutDown();                                     /*  shut down routine                                       */
     void* stalloc(uint32_t size);                       /*  allocate size bytes on stack                            */

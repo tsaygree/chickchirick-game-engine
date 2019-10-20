@@ -11,11 +11,6 @@
 
 StackAlloc::StackAlloc()  {}
 
-StackAlloc& StackAlloc::getInstance() {
-    static StackAlloc instance;
-    return instance;
-}
-
 int StackAlloc::startUP(uint32_t LSRSize_, uint32_t poolSize_) {
     assert(LSRSize_ + poolSize_ > 0);
     this->LSRSize = LSRSize_;

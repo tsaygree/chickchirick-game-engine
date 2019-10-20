@@ -47,7 +47,7 @@ uint32_t MemorySystem::shutDown() {
     return 0;
 }
 
-StackAlloc& MemorySystem::getStackAlloc() const {
+const StackAlloc& MemorySystem::getStackAlloc() const {
     return stackPool;
 }
 

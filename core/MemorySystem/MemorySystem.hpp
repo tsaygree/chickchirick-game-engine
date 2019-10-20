@@ -53,7 +53,7 @@ private:
         uint32_t    blockSize;
     };
     MemorySystem();
-    StackAlloc& stackPool = StackAlloc::getInstance();
+    StackAlloc stackPool;
     Vector<BlockAllocInfo> blockPoolList;                               /*  block pool registry                     */
 public:
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
@@ -61,7 +61,7 @@ public:
     MemorySystem& operator=(MemorySystem const&) = delete;
     uint32_t startUP(const char* filename);                             /*  start up                                */
     uint32_t shutDown();                                                /*  shut down                               */
-    StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter                  */
+    const StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter                  */
     void* alloc(uint32_t size);                                         /*  allocation from pool or heap            */
     void free(void* ptr);                                               /*  free memory from pool or heap           */
 };
