@@ -37,8 +37,16 @@ TEST_CASE("initialize tests", "[BlockAlloc]") {
         REQUIRE(tptr->num == 5);
         bPool.shutDown();
     }
-    SECTION("initialize outer pool") {
+    SECTION("initialize outer pool via new operator") {
         char* outerPool = new char[pSize];
+        bPool.startUP(outerPool, pSize, bSize);
+        Test* tptr = CAST(Test*, bPool.balloc());
+        tptr->num = 10;
+        REQUIRE(tptr->num == 10);
+        bPool.shutDown();
+    }
+    SECTION("initialize outer pool of static memory") {
+        char outerPool[pSize];
         bPool.startUP(outerPool, pSize, bSize);
         Test* tptr = CAST(Test*, bPool.balloc());
         tptr->num = 10;
