@@ -34,6 +34,7 @@ private:
     uint32_t    LSRMarker = 0;                          /*  marker to top of LSR data                               */
     uint32_t    realSize  = 0;                          /*  size of LSR + size of pool                              */
     bool        isInit    = false;                      /*  initialization flag                                     */
+    bool        isInnerPool = false;
 public:
     StackAlloc();
     int startUP(uint32_t LSRSize_, uint32_t poolSize_); /*  initialize and allocate pool                            */

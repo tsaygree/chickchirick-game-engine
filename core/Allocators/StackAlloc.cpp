@@ -19,6 +19,7 @@ int StackAlloc::startUP(uint32_t LSRSize_, uint32_t poolSize_) {
     marker = LSRSize_;
     LSRMarker = 0;
     pool = new char[realSize];
+    isInnerPool = true;
     isInit = true;
     return 0;
 }
@@ -36,7 +37,10 @@ int StackAlloc::startUP(char* sPool, uint32_t LSRSize_, uint32_t poolSize_) {
 }
 
 int StackAlloc::shutDown() {
-    delete[] pool;
+    if (isInnerPool) {
+        delete[] pool;
+        isInnerPool = false;
+    }
     isInit = false;
     return 0;
 }
