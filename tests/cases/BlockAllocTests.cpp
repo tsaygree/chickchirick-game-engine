@@ -44,6 +44,7 @@ TEST_CASE("initialize tests", "[BlockAlloc]") {
         tptr->num = 10;
         REQUIRE(tptr->num == 10);
         bPool.shutDown();
+        delete[] outerPool;
     }
     SECTION("initialize outer pool of static memory") {
         char outerPool[pSize];
