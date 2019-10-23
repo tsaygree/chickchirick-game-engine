@@ -67,6 +67,7 @@ public:
     inline void shutDown() {                                    /*  free allocated memory                       */
         if (isInnerPool) {
             delete[] blockPool;
+            isInnerPool = false;
         }
         isInit = false;
     }
