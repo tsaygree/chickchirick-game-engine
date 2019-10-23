@@ -33,6 +33,7 @@ private:
     uint32_t poolSize     = 0;                              /*  size of allocated pool                      */
     uint32_t blockSize    = 0;                              /*  size of single block                        */
     bool     isInit       = false;                          /*  initialization flag                         */
+    bool     isInnerPool  = false;
     inline void initVars(char* bPool, uint32_t pSize, uint32_t bSize) {
         blockPool = bPool;
         poolSize  = pSize;
@@ -59,7 +60,9 @@ public:
     void  free(void* blockptr);                                 /*  free allocated block                        */
     inline void freeAll() { this->resetPool(); }                /*  free all allocated blocks                   */
     inline void shutDown() {                                    /*  free allocated memory                       */
-        delete[] blockPool;
+        if (isInnerPool) {
+            delete[] blockPool;
+        }
         isInit = false;
     }
 };
