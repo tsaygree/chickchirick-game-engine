@@ -10,8 +10,12 @@
     stack does. It allocates memory from top of the pool and
     deallocates it from top to bottom up to special marker (see below)
     StackAlloc has two types of initialization:
-        1) initialize and allocate memory
-        2) initialize with pre-allocated memory
+        1)  initialize and allocate memory
+        2)  initialize with pre-allocated memory
+            Note that deallocation of outer memory pool is completely
+            on the caller. StackAlloc only clears memory that was
+            allocated by itself.
+
     StackAlloc devides memory pool into two sections. The first
     one (LSR - Load and Stay Resident) is used for data that is
     supposed to be in memory during all lifetime of the StackAlloc.
@@ -29,11 +33,11 @@
 class StackAlloc {
 private:
     char*       pool;                                   /*  ptr to begining of the pool                             */
-    uint32_t    marker    = 0;                          /*  shows the top of stack                                  */
-    uint32_t    LSRSize   = 0;                          /*  size of Load&StayResident data                          */
-    uint32_t    LSRMarker = 0;                          /*  marker to top of LSR data                               */
-    uint32_t    realSize  = 0;                          /*  size of LSR + size of pool                              */
-    bool        isInit    = false;                      /*  initialization flag                                     */
+    uint32_t    marker      = 0;                        /*  shows the top of stack                                  */
+    uint32_t    LSRSize     = 0;                        /*  size of Load&StayResident data                          */
+    uint32_t    LSRMarker   = 0;                        /*  marker to top of LSR data                               */
+    uint32_t    realSize    = 0;                        /*  size of LSR + size of pool                              */
+    bool        isInit      = false;                    /*  initialization flag                                     */
     bool        isInnerPool = false;
 public:
     StackAlloc();
