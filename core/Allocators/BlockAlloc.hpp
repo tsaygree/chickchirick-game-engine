@@ -14,6 +14,11 @@
     system. Pool size should be a multiple of memory block
     size. Run-time assertion errors will occure if size
     requirements won't be followed.
+    BlockAlloc also supports outer pool initialization. That
+    means that BlockAlloc can work with pre-allocated memory.
+    Note that deallocation of outer memory pool is completely
+    on the caller. BlockAlloc only clears memory that was
+    allocated by itself.
     It is also not thread safe in its current state.
 
 */
@@ -33,7 +38,7 @@ private:
     uint32_t poolSize     = 0;                              /*  size of allocated pool                      */
     uint32_t blockSize    = 0;                              /*  size of single block                        */
     bool     isInit       = false;                          /*  initialization flag                         */
-    bool     isInnerPool  = false;
+    bool     isInnerPool  = false;                          /*  pool type flag                              */
     inline void initVars(char* bPool, uint32_t pSize, uint32_t bSize) {
         blockPool = bPool;
         poolSize  = pSize;
