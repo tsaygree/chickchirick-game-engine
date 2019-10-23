@@ -87,8 +87,8 @@ void BlockAlloc::free(void* blockptr) {
         if BlockAlloc will become a bottleneck.
     */
     assert(blockptr != nullptr);
-    assert(blockPool <= blockptr);
-    assert(blockptr <= blockPool + poolSize - blockSize);
+    assert(pool <= blockptr);
+    assert(blockptr <= pool + poolSize - blockSize);
     assert(CAST(uintptr_t, blockptr) % blockSize == 0);
 
     uintptr_t addr = freeBlockPtr ? CAST(uintptr_t, freeBlockPtr) : 0;

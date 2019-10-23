@@ -33,20 +33,20 @@
 
 class BlockAlloc {
 private:
-    char*    blockPool    = nullptr;                        /*  pool of static memory                       */
+    char*    pool         = nullptr;                             /*  pool of static memory                       */
     char*    freeBlockPtr = nullptr;                        /*  pointer to current free memory block        */
     uint32_t poolSize     = 0;                              /*  size of allocated pool                      */
     uint32_t blockSize    = 0;                              /*  size of single block                        */
     bool     isInit       = false;                          /*  initialization flag                         */
     bool     isInnerPool  = false;                          /*  pool type flag                              */
     inline void initVars(char* bPool, uint32_t pSize, uint32_t bSize) {
-        blockPool = bPool;
+        pool = bPool;
         poolSize  = pSize;
         blockSize = bSize;
     }
     inline void resetPool() {
-        char* cur = blockPool;
-        char* end = blockPool + poolSize - blockSize;
+        char* cur = pool;
+        char* end = pool + poolSize - blockSize;
         uintptr_t addr = 0;
         while (cur < end) {
             addr = CAST(uintptr_t, (cur + blockSize));
@@ -55,7 +55,7 @@ private:
         }
         addr = CAST(uintptr_t, nullptr);
         cpyptr(cur, &addr);
-        freeBlockPtr = blockPool;
+        freeBlockPtr = pool;
     }
 public:
     BlockAlloc();
@@ -66,7 +66,7 @@ public:
     inline void freeAll() { this->resetPool(); }                /*  free all allocated blocks                   */
     inline void shutDown() {                                    /*  free allocated memory                       */
         if (isInnerPool) {
-            delete[] blockPool;
+            delete[] pool;
             isInnerPool = false;
         }
         isInit = false;
