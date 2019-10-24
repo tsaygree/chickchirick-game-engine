@@ -41,6 +41,7 @@ uint32_t MemorySystem::startUP(const char* filename) {
 uint32_t MemorySystem::shutDown() {
     for (auto& entry : blockPoolList) {
         entry.pool.shutDown();
+        delete[] entry.poolPtr;
     }
     blockPoolList.empty();
     stackPool.shutDown();
