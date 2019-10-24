@@ -9,4 +9,9 @@
 
 #include "Texture.hpp"
 
-Texture::Texture(SDL_Texture* tex, const StringID& texID) : texture(tex), id(texID) {}
+Texture::Texture(SDL_Texture* tex, const StringID& texID) {
+    texture = tex;
+    id = texID;
+}
+
+Texture::~Texture() {}

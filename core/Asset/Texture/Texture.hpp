@@ -10,16 +10,15 @@
 */
 
 #pragma once
-#include "SDLInclude.hpp"
-#include "StringID.hpp"
+#include "SDLModule.hpp"
+#include "Asset.hpp"
 
-class Texture {
+class Texture : public Asset {
 private:
     SDL_Texture* texture;
-    StringID     id;
 public:
     Texture(SDL_Texture* tex, const StringID& id);
+    ~Texture();
     inline void destroy() { SDL_DestroyTexture(texture); }
-    inline const StringID& getID() const { return id; }
     inline const SDL_Texture* getSDLTexture() const { return texture; }
 };
