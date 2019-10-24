@@ -93,8 +93,3 @@ uint32_t SDLModule::shutDown() {
     SDL_Quit();
     return 0;
 }
-
-Texture SDLModule::getTextureFromSurface(SDL_Surface* surface, const StringID& id) {
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-    return Texture(texture, id);
-}
