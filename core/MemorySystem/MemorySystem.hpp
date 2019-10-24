@@ -55,6 +55,7 @@ private:
     MemorySystem();
     StackAlloc stackPool;
     Vector<BlockAllocInfo> blockPoolList;                               /*  block pool registry                     */
+    bool isInit = false;                                                /*  initialization flag                     */
 public:
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
     MemorySystem(MemorySystem const&) = delete;

@@ -17,6 +17,7 @@ MemorySystem& MemorySystem::getInstance() {
 }
 
 uint32_t MemorySystem::startUP(const char* filename) {
+    assert(isInit == false);
     bpt::ptree config =
         (ConfigManager::getInstance().loadGlobalConfig(filename)).get_child("MemorySystem");
 
@@ -35,6 +36,7 @@ uint32_t MemorySystem::startUP(const char* filename) {
         newPool.startUP(poolBgn, poolSize, blockSize);
         blockPoolList.push_back({newPool, poolBgn, poolSize, blockSize});
     }
+    isInit = true;
     return 0;
 }
 
@@ -45,6 +47,7 @@ uint32_t MemorySystem::shutDown() {
     }
     blockPoolList.empty();
     stackPool.shutDown();
+    isInit = false;
     return 0;
 }
 
