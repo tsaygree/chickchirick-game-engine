@@ -31,3 +31,8 @@ StringID::StringID(const string& str) {
 uint32_t        StringID::getID()   const   {   return id;                  }
 const char*     StringID::getPtr()  const   {   return ptr;                 }
 const string&   StringID::getStr()  const   {   return gStringTable[id];    }
+
+StringID operator+(const StringID& lhs, const StringID& rhs) {
+    string concat = lhs.getStr() + rhs.getStr();
+    return StringID(concat);
+}

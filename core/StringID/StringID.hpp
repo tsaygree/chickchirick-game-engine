@@ -42,6 +42,8 @@ public:
     const string& getStr() const;
 };
 
+StringID operator+(const StringID& lhs, const StringID& rhs);
+
 /*  user defined StringID hash function for HashTable   */
 class SIDHashFunc {
 public:
