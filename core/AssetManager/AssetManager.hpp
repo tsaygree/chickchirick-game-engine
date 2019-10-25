@@ -18,12 +18,18 @@
 */
 
 #pragma once
+#include "MemorySystem.hpp"
+#include "FileSystem.hpp"
 #include "StringID.hpp"
+#include "Asset.hpp"
+#include "Texture.hpp"
+#include <cstdint>
 
 class AssetManager {
 private:
     StringID assetsPath;
     AssetManager();
+    SDL_Texture* loadImageToTexture(const char* name);
 public:
     static AssetManager& getInstance();
     AssetManager(AssetManager const&) = delete;

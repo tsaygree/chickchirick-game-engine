@@ -11,6 +11,15 @@
 
 AssetManager::AssetManager()  {}
 
+SDL_Texture* AssetManager::loadImageToTexture(const char* filepath) {
+    auto& fs = FileSystem::getInstance();
+    auto& sdl = SDLModule::getInstance();
+    SDL_Surface* surface = fs.loadIMG(filepath);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(sdl.getRenderer(), surface);
+    SDL_FreeSurface(surface);
+    return texture;
+}
+
 AssetManager& AssetManager::getInstance() {
     static AssetManager instance;
     return instance;
