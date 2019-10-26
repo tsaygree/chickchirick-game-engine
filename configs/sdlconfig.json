@@ -15,8 +15,8 @@
     "img_init":{
         "flags":{
             "IMG_INIT_JPG"                                      :1,
-            "IMG_INIT_PNG"                                      :0,
-            "IMG_INIT_TIF"                                      :0
+            "IMG_INIT_PNG"                                      :1,
+            "IMG_INIT_TIF"                                      :1
         }
     },
     "window":{
