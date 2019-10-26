@@ -20,5 +20,5 @@ public:
     Texture(SDL_Texture* tex, const StringID& id);
     ~Texture();
     inline void destroy() { SDL_DestroyTexture(texture); }
-    inline const SDL_Texture* getSDLTexture() const { return texture; }
+    inline SDL_Texture* getSDLTexture() const { return texture; }
 };
