@@ -51,10 +51,6 @@ uint32_t MemorySystem::shutDown() {
     return 0;
 }
 
-const StackAlloc& MemorySystem::getStackAlloc() const {
-    return stackPool;
-}
-
 void* MemorySystem::alloc(uint32_t size) {
     void* result = nullptr;                             /*  prepare result                              */
     for (auto& entry : blockPoolList) {                 /*  search for matching block pool              */
@@ -81,4 +77,18 @@ void MemorySystem::free(void* ptr) {
         }
     }
     if (!blockFound) {  delete ptr; }                   /*  if not found - free from heap               */
+}
+
+void* MemorySystem::stalloc(uint32_t size) {
+    void* result = stackPool.stalloc(size);
+    stackPoolMarker = stackPool.getMarker();
+    return result;
+}
+
+void MemorySystem::stfree() {
+    stackPool.free();
+}
+
+void* MemorySystem::allocLSR(uint32_t size) {
+    return stackPool.LSRalloc(size);
 }

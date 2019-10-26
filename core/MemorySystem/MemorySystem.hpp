@@ -55,6 +55,7 @@ private:
     MemorySystem();
     StackAlloc stackPool;
     Vector<BlockAllocInfo> blockPoolList;                               /*  block pool registry                     */
+    uint32_t stackPoolMarker = 0;
     bool isInit = false;                                                /*  initialization flag                     */
 public:
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
@@ -62,7 +63,9 @@ public:
     MemorySystem& operator=(MemorySystem const&) = delete;
     uint32_t startUP(const char* filename);                             /*  start up                                */
     uint32_t shutDown();                                                /*  shut down                               */
-    const StackAlloc& getStackAlloc() const;                                  /*  stack allocator getter                  */
     void* alloc(uint32_t size);                                         /*  allocation from pool or heap            */
     void free(void* ptr);                                               /*  free memory from pool or heap           */
+    void* stalloc(uint32_t size);
+    void stfree();
+    void* allocLSR(uint32_t size);
 };
