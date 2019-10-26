@@ -42,4 +42,5 @@ public:
     int startUP(const StringID& assetsPath_);
     int shutDown();
     Texture* loadTexture(const StringID& name);
+    Asset* getAsset(const StringID& name);
 };

@@ -43,3 +43,11 @@ Texture* AssetManager::loadTexture(const StringID& name) {
     }
     return result;
 }
+
+Asset* AssetManager::getAsset(const StringID& name) {
+    Asset* result = nullptr;
+    if (resRegistry.count(name) == 1) {
+        result = resRegistry.at(name);
+    }
+    return result;
+}
