@@ -19,12 +19,12 @@ TEST_CASE("StringID module tests", "[StringID]") {
     }
     SECTION("StringID tests") {
         StringID str = SID("SID TEST");
-        REQUIRE(str.getID() == 0xF5BE303C);
+        REQUIRE(str.getID()  == 0xF5BE303C);
         REQUIRE(str.getStr() == "SID TEST");
     }
     SECTION("concat tests") {
-        StringID lhs = SID("lhs + ");
-        StringID rhs = SID("rhs");
+        StringID lhs    = SID("lhs + ");
+        StringID rhs    = SID("rhs");
         StringID lhsRhs = lhs + rhs;
         REQUIRE(lhsRhs.getStr() == "lhs + rhs");
     }

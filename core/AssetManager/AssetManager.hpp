@@ -30,17 +30,17 @@
 
 class AssetManager {
 private:
-    MemorySystem& mem = MemorySystem::getInstance();
-    StringID assetsPath;
+    MemorySystem&    mem = MemorySystem::getInstance();
+    StringID         assetsPath;
     SIDTable<Asset*> resRegistry;
     AssetManager();
     SDL_Texture* loadImageToTexture(const char* filepath);
 public:
-    static AssetManager& getInstance();
-    AssetManager(AssetManager const&) = delete;
+    AssetManager(AssetManager const&)            = delete;
     AssetManager& operator=(AssetManager const&) = delete;
-    int startUP(const StringID& assetsPath_);
-    int shutDown();
+    static AssetManager& getInstance();
+    int      startUP(const StringID& assetsPath_);
+    int      shutDown();
     Texture* loadTexture(const StringID& name);
-    Asset* getAsset(const StringID& name);
+    Asset*   getAsset(const StringID& name);
 };

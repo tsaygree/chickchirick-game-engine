@@ -19,7 +19,7 @@ TEST_CASE("MemoryUnits tests", "[MemoryUnits]") {
     static_assert(1_MiB == 1048576, "Mibibytes to bytes");
     static_assert(1_GiB == 1073741824, "Gibibytes to bytes");
 
-    REQUIRE(5_KiB == 5120);
+    REQUIRE(5_KiB  == 5120);
     REQUIRE(10_MiB == 10240_KiB);
-    REQUIRE(1_GiB == 1024_MiB);
+    REQUIRE(1_GiB  == 1024_MiB);
 }

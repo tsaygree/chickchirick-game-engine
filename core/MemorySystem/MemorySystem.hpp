@@ -53,19 +53,19 @@ private:
         uint32_t    blockSize;
     };
     MemorySystem();
-    StackAlloc stackPool;
+    StackAlloc             stackPool;
     Vector<BlockAllocInfo> blockPoolList;                               /*  block pool registry                     */
-    uint32_t stackPoolMarker = 0;
-    bool isInit = false;                                                /*  initialization flag                     */
+    uint32_t               stackPoolMarker = 0;
+    bool                   isInit          = false;                     /*  initialization flag                     */
 public:
-    static MemorySystem& getInstance();                                 /*  get singleton object                    */
-    MemorySystem(MemorySystem const&) = delete;
+    MemorySystem(MemorySystem const&)            = delete;
     MemorySystem& operator=(MemorySystem const&) = delete;
+    static MemorySystem& getInstance();                                 /*  get singleton object                    */
     uint32_t startUP(const char* filename);                             /*  start up                                */
     uint32_t shutDown();                                                /*  shut down                               */
-    void* alloc(uint32_t size);                                         /*  allocation from pool or heap            */
-    void free(void* ptr);                                               /*  free memory from pool or heap           */
-    void* stalloc(uint32_t size);
-    void stfree();
-    void* allocLSR(uint32_t size);
+    void*    alloc(uint32_t size);                                      /*  allocation from pool or heap            */
+    void     free(void* ptr);                                           /*  free memory from pool or heap           */
+    void*    stalloc(uint32_t size);                                    /*  allocation from stack pool              */
+    void     stfree();                                                  /*  free memory from stack pool             */
+    void*    allocLSR(uint32_t size);                                   /*  allocation from resident pool           */
 };

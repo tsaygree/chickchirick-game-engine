@@ -20,12 +20,12 @@ class SDLModule {
 private:
     SDLModule();
     const SIDTable<uint32_t> SDLFlagLookUp = SDLFLG;                /*  SDL flags lookup table          */
-    SDL_Window*     window;
-    SDL_Renderer*   renderer;
+    SDL_Window*              window;
+    SDL_Renderer*            renderer;
 public:
-    static SDLModule& getInstance();
-    SDLModule(SDLModule const&) = delete;
+    SDLModule(SDLModule const&)            = delete;
     SDLModule& operator=(SDLModule const&) = delete;
+    static SDLModule& getInstance();
     uint32_t startUP(const char* filename);
     uint32_t shutDown();
     inline SDL_Window*   getWindow()        const { return window;                       }

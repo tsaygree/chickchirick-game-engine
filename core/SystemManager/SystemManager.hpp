@@ -32,9 +32,9 @@ private:
     SDLModule&      sdl     = SDLModule::getInstance();
     SystemManager();
 public:
-    static SystemManager& getInstance();
-    SystemManager(SystemManager const&) = delete;
+    SystemManager(SystemManager const&)            = delete;
     SystemManager& operator=(SystemManager const&) = delete;
+    static SystemManager& getInstance();
     uint32_t BigInit();                                             /*  All subsystems are started here     */
     uint32_t BigShutDown();                                         /*  All subsystems are shutted here     */
 };

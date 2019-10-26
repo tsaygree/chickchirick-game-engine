@@ -12,7 +12,7 @@
 AssetManager::AssetManager()  {}
 
 SDL_Texture* AssetManager::loadImageToTexture(const char* filepath) {
-    auto& fs = FileSystem::getInstance();
+    auto& fs  = FileSystem::getInstance();
     auto& sdl = SDLModule::getInstance();
     SDL_Surface* surface = fs.loadIMG(filepath);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(sdl.getRenderer(), surface);
@@ -37,7 +37,7 @@ Texture* AssetManager::loadTexture(const StringID& name) {
     if (resRegistry.count(name) == 0) {
         string filepath = assetsPath.getStr() + name.getStr();
         SDL_Texture* texture = this->loadImageToTexture(filepath.c_str());
-        result = CAST(Texture*, mem.stalloc(sizeof(Texture)));
+        result  = CAST(Texture*, mem.stalloc(sizeof(Texture)));
         *result = Texture(texture, name);
         resRegistry[name] = STCAST(Asset*, result);
     }

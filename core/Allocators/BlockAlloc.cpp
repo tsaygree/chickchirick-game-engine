@@ -33,7 +33,7 @@ void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
     this->initVars(new char[pSize], pSize, bSize);
     this->resetPool();
     isInnerPool = true;
-    isInit = true;
+    isInit      = true;
 }
 
 void BlockAlloc::startUP(char* bPool, uint32_t pSize, uint32_t bSize) {
@@ -66,7 +66,7 @@ void* BlockAlloc::balloc() {
         NOTE: implementation using only ptrs may be considered later
         if BlockAlloc will become a bottleneck.
     */
-    void* result = freeBlockPtr;
+    void* result   = freeBlockPtr;
     uintptr_t addr = 0;
     if (freeBlockPtr) cpyptr(&addr, freeBlockPtr);
     freeBlockPtr = CAST(char*, addr);

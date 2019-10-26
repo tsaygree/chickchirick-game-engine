@@ -37,8 +37,8 @@ public:
     StringID(const string& str);
     inline bool operator==(const StringID& other) const { return id == other.getID(); }
     inline bool operator!=(const StringID& other) const { return id != other.getID(); }
-    uint32_t getID() const;
-    const char* getPtr() const;
+    uint32_t      getID()  const;
+    const char*   getPtr() const;
     const string& getStr() const;
 };
 

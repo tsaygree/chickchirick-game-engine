@@ -28,16 +28,16 @@ namespace bpt = boost::property_tree;
 
 class FileSystem {
 private:
-    StringID        basePath = SHID(__SOURCEPATH__);            /*  engine base dir path                        */
-    // StringID        localPath;                                  /*  hidden appdata dir path                     */
+    StringID        basePath       = SHID(__SOURCEPATH__);      /*  engine base dir path                        */
+    // StringID        localPath;                               /*  hidden appdata dir path                     */
     StringID        globalConfPath = SHID(__CONFIGPATH__);      /*  global engine configuration files folder    */
-    StringID        assetsPath = SHID(__ASSETSPATH__);          /*  game assets path                            */
+    StringID        assetsPath     = SHID(__ASSETSPATH__);      /*  game assets path                            */
     bpt::ptree      pt;                                         /*  boost property tree to load and parse files */
     FileSystem();
 public:
-    static FileSystem& getInstance();                           /*  get singleton object                        */
-    FileSystem(FileSystem const&) = delete;
+    FileSystem(FileSystem const&)            = delete;
     FileSystem& operator=(FileSystem const&) = delete;
+    static FileSystem& getInstance();                           /*  get singleton object                        */
     uint32_t startUP();                                         /*  start up the subsystem                      */
     uint32_t shutDown();                                        /*  shut down the subsystem                     */
     inline const bpt::ptree& readJSON(const char* filepath) {   /*  load and parse JSON file                    */

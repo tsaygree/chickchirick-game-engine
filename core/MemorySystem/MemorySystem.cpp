@@ -30,8 +30,8 @@ uint32_t MemorySystem::startUP(const char* filename) {
     poolSize = MiBtoB(config.get<uint32_t>("BlockAllocPoolSize"));
     uint32_t blockSize = 0;
     for (const auto& item : config.get_child("BlockAllocBlockSizes")) {
-        blockSize = item.second.get_value<uint32_t>();
-        char* poolBgn = new char[poolSize];
+        blockSize      = item.second.get_value<uint32_t>();
+        char* poolBgn  = new char[poolSize];
         BlockAlloc newPool;
         newPool.startUP(poolBgn, poolSize, blockSize);
         blockPoolList.push_back({newPool, poolBgn, poolSize, blockSize});
@@ -69,7 +69,7 @@ void MemorySystem::free(void* ptr) {
     bool blockFound = false;
     for (auto& entry : blockPoolList) {                 /*  search for matching block pool              */
         char* begin = entry.poolPtr;
-        char* end = begin + entry.poolSize;
+        char* end   = begin + entry.poolSize;
         if (begin <= ptr && ptr < end) {
             entry.pool.free(ptr);
             blockFound = true;
@@ -80,7 +80,7 @@ void MemorySystem::free(void* ptr) {
 }
 
 void* MemorySystem::stalloc(uint32_t size) {
-    void* result = stackPool.stalloc(size);
+    void* result    = stackPool.stalloc(size);
     stackPoolMarker = stackPool.getMarker();
     return result;
 }

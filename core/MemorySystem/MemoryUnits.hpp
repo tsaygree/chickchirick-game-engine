@@ -25,7 +25,7 @@ constexpr uint32_t power(int32_t base, uint32_t exp) {
     return result;
 }
 
-constexpr uint32_t KiBtoB (unsigned long long val) {
+constexpr uint32_t KiBtoB(unsigned long long val) {
     return val * 1024;
 }
 

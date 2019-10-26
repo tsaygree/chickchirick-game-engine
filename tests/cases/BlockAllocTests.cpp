@@ -21,8 +21,8 @@ class Test {
 public:
     Test() {}
     ~Test() {}
-    int num = 0;
-    bool isTrue = false;
+    int  num         = 0;
+    bool isTrue      = false;
     std::string name = "";
 };
 
@@ -33,7 +33,7 @@ TEST_CASE("initialize tests", "[BlockAlloc]") {
     SECTION("initialize inner pool") {
         bPool.startUP(pSize, bSize);
         Test* tptr = CAST(Test*, bPool.balloc());
-        tptr->num = 5;
+        tptr->num  = 5;
         REQUIRE(tptr->num == 5);
         bPool.shutDown();
     }
@@ -59,15 +59,15 @@ TEST_CASE("initialize tests", "[BlockAlloc]") {
 TEST_CASE("type test", "[BlockAlloc]") {
     BlockAlloc blockPool;
     blockPool.startUP(POOLSIZE, BLOCKSIZE);
-    int *intptr = (int*)blockPool.balloc();
-    *intptr = INT_MAX;
-    char *charptr = (char*)blockPool.balloc();
-    *charptr = 'R';
+    int *intptr     = (int*)blockPool.balloc();
+    *intptr         = INT_MAX;
+    char *charptr   = (char*)blockPool.balloc();
+    *charptr        = 'R';
     float *floatptr = (float*)blockPool.balloc();
-    *floatptr = 3.5;
+    *floatptr       = 3.5;
 
-    REQUIRE(*intptr == INT_MAX);
-    REQUIRE(*charptr == 'R');
+    REQUIRE(*intptr   == INT_MAX);
+    REQUIRE(*charptr  == 'R');
     REQUIRE(*floatptr == 3.5);
     blockPool.free(intptr);
     blockPool.free(charptr);
