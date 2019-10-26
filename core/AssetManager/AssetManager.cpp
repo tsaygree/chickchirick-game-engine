@@ -31,3 +31,15 @@ int AssetManager::startUP(const StringID& assetsPath_) {
 }
 
 int AssetManager::shutDown() {  return 0;  }
+
+Texture* AssetManager::loadTexture(const StringID& name) {
+    Texture* result = nullptr;
+    if (resRegistry.count(name) == 0) {
+        string filepath = assetsPath.getStr() + name.getStr();
+        SDL_Texture* texture = this->loadImageToTexture(filepath.c_str());
+        result = CAST(Texture*, mem.stalloc(sizeof(Texture)));
+        *result = Texture(texture, name);
+        resRegistry[name] = STCAST(Asset*, result);
+    }
+    return result;
+}

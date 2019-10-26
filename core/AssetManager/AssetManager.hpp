@@ -23,11 +23,16 @@
 #include "StringID.hpp"
 #include "Asset.hpp"
 #include "Texture.hpp"
+#include "HashTable.hpp"
 #include <cstdint>
+
+#define STCAST(type, expr) static_cast<type>(expr)
 
 class AssetManager {
 private:
+    MemorySystem& mem = MemorySystem::getInstance();
     StringID assetsPath;
+    SIDTable<Asset*> resRegistry;
     AssetManager();
     SDL_Texture* loadImageToTexture(const char* filepath);
 public:
@@ -36,4 +41,5 @@ public:
     AssetManager& operator=(AssetManager const&) = delete;
     int startUP(const StringID& assetsPath_);
     int shutDown();
+    Texture* loadTexture(const StringID& name);
 };
