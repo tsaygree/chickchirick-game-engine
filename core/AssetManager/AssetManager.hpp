@@ -29,7 +29,7 @@ class AssetManager {
 private:
     StringID assetsPath;
     AssetManager();
-    SDL_Texture* loadImageToTexture(const char* name);
+    SDL_Texture* loadImageToTexture(const char* filepath);
 public:
     static AssetManager& getInstance();
     AssetManager(AssetManager const&) = delete;
