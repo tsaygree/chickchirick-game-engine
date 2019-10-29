@@ -23,6 +23,7 @@
 #include "StringID.hpp"
 #include "Asset.hpp"
 #include "Texture.hpp"
+#include "Map.hpp"
 #include "HashTable.hpp"
 #include <cstdint>
 
@@ -34,13 +35,11 @@ private:
     StringID         assetsPath;
     SIDTable<Asset*> resRegistry;
     AssetManager();
-    SDL_Texture* loadImageToTexture(const char* filepath);
 public:
     AssetManager(AssetManager const&)            = delete;
     AssetManager& operator=(AssetManager const&) = delete;
     static AssetManager& getInstance();
     int      startUP(const StringID& assetsPath_);
     int      shutDown();
-    Texture* loadTexture(const StringID& name);
     Asset*   getAsset(const StringID& name);
 };
