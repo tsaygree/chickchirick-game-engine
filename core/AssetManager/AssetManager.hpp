@@ -46,6 +46,6 @@ public:
     template <typename T>
     T*      loadAssetAs(const StringID& name);
     template <typename T>
-    T*      loadConstantAssetAs(const StringID& name);
+    T*      loadGlobalAssetAs(const StringID& name);
     Asset*  getAsset(const StringID& name);
 };
