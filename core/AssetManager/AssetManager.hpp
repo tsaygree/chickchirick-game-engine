@@ -35,6 +35,8 @@ private:
     StringID         assetsPath;
     SIDTable<Asset*> resRegistry;
     AssetManager();
+    template <typename T>
+    void loadAssetAsType(T* asset, const StringID& name);
 public:
     AssetManager(AssetManager const&)            = delete;
     AssetManager& operator=(AssetManager const&) = delete;
