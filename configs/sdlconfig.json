@@ -21,8 +21,8 @@
     },
     "window":{
         "title"                                                 :"chickchirik game engine",
-        "xpos"                                                  :100,
-        "ypos"                                                  :100,
+        "xpos"                                                  :0,
+        "ypos"                                                  :0,
         "width"                                                 :1920,
         "height"                                                :1080,
         "flags":{
@@ -32,9 +32,9 @@
             "SDL_WINDOW_VULKAN"                                 :0,
             "SDL_WINDOW_HIDDEN"                                 :0,
             "SDL_WINDOW_BORDERLESS"                             :0,
-            "SDL_WINDOW_RESIZABLE"                              :0,
+            "SDL_WINDOW_RESIZABLE"                              :1,
             "SDL_WINDOW_MINIMIZED"                              :0,
-            "SDL_WINDOW_MAXIMIZED"                              :0,
+            "SDL_WINDOW_MAXIMIZED"                              :1,
             "SDL_WINDOW_INPUT_GRABBED"                          :0,
             "SDL_WINDOW_ALLOW_HIGHDPI"                          :0
         }
