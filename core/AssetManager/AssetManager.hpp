@@ -41,11 +41,11 @@ public:
     AssetManager(AssetManager const&)            = delete;
     AssetManager& operator=(AssetManager const&) = delete;
     static AssetManager& getInstance();
-    int      startUP(const StringID& assetsPath_);
-    int      shutDown();
+    int     startUP(const StringID& assetsPath_);
+    int     shutDown();
     template <typename T>
     T*      loadAssetAs(const StringID& name);
     template <typename T>
     T*      loadConstantAssetAs(const StringID& name);
-    Asset*   getAsset(const StringID& name);
+    Asset*  getAsset(const StringID& name);
 };
