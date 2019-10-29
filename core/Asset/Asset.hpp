@@ -16,7 +16,12 @@ class Asset {
 protected:
     StringID id;
 public:
+    enum class Type {
+        Texture,
+        Map
+    };
     Asset() {}
     ~Asset() {}
     inline const StringID& getID() { return id; }
+    virtual Type getType() const = 0;
 };

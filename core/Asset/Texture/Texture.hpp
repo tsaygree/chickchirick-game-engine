@@ -21,4 +21,5 @@ public:
     ~Texture();
     inline void destroy() { SDL_DestroyTexture(texture); }
     inline SDL_Texture* getSDLTexture() const { return texture; }
+    inline Type getType() const override { return Asset::Type::Texture; }
 };

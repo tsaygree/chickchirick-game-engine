@@ -18,4 +18,5 @@ private:
 public:
     Map();
     ~Map();
+    inline Type getType() const override { return Asset::Type::Map; }
 };
