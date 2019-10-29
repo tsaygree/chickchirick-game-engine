@@ -33,7 +33,6 @@ Asset* AssetManager::getAsset(const StringID& name) {
 
 template <>
 void AssetManager::loadAssetAsType<Texture>(Texture* asset, const StringID& name) {
-    printf("loadAssetAsType<Texture>\nname: %s\n", name.getPtr());
     auto&  fs  = FileSystem::getInstance();
     auto&  sdl = SDLModule::getInstance();
     string filepath = fs.getAssetsPath().getStr() + name.getStr();
