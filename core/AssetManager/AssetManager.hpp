@@ -43,5 +43,7 @@ public:
     static AssetManager& getInstance();
     int      startUP(const StringID& assetsPath_);
     int      shutDown();
+    template <typename T>
+    T*      loadAssetAs(const StringID& name);
     Asset*   getAsset(const StringID& name);
 };

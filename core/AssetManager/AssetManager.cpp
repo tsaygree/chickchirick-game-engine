@@ -43,3 +43,14 @@ void AssetManager::loadAssetAsType<Texture>(Texture* asset, const StringID& name
     asset->texture = SDLtexture;
     asset->id = name;
 }
+
+template <>
+Texture* AssetManager::loadAssetAs<Texture>(const StringID& name) {
+    Texture* result = nullptr;
+    if (resRegistry.count(name) == 0) {
+        result = CAST(Texture*, mem.stalloc(sizeof(Texture)));
+        this->loadAssetAsType<Texture>(result, name);
+        resRegistry[name] = STCAST(Asset*, result);
+    }
+    return result;
+}
