@@ -54,3 +54,15 @@ Texture* AssetManager::loadAssetAs<Texture>(const StringID& name) {
     }
     return result;
 }
+
+template <>
+Texture* AssetManager::loadConstantAssetAs<Texture>(const StringID& name) {
+    printf("loadConstantAssetAs<Texture>\nname: %s\n", name.getPtr());
+    Texture* result = nullptr;
+    if (resRegistry.count(name) == 0) {
+        result = CAST(Texture*, mem.allocLSR(sizeof(Texture)));
+        this->loadAssetAsType<Texture>(result, name);
+        resRegistry[name] = STCAST(Asset*, result);
+    }
+    return result;
+}
