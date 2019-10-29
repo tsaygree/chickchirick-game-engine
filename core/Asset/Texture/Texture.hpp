@@ -14,12 +14,10 @@
 #include "Asset.hpp"
 
 class Texture : public Asset {
-private:
-    SDL_Texture* texture;
 public:
-    Texture(SDL_Texture* tex, const StringID& id);
-    ~Texture();
+    SDL_Texture* texture;
+    Texture() {}
+    ~Texture() {}
     inline void destroy() { SDL_DestroyTexture(texture); }
-    inline SDL_Texture* getSDLTexture() const { return texture; }
     inline Type getType() const override { return Asset::Type::Texture; }
 };
