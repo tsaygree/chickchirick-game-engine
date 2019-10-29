@@ -12,7 +12,6 @@ add_executable(
 	AssetManager/AssetManager.cpp
 	MemorySystem/MemorySystem.cpp
 	SDLModule/SDLModule.cpp
-	Asset/Texture/Texture.cpp
 	Asset/Map/Map.cpp
 )
 

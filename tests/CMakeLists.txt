@@ -17,7 +17,6 @@ add_executable(
 	${CORE_DIR}/MemorySystem/MemorySystem.cpp
 	${CORE_DIR}/ConfigManager/ConfigManager.cpp
 	${CORE_DIR}/SDLModule/SDLModule.cpp
-	${CORE_DIR}/Asset/Texture/Texture.cpp
 	${CORE_DIR}/Asset/Map/Map.cpp
 )
 
