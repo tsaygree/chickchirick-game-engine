@@ -1,8 +1,8 @@
 {
     "MemorySystem":{
         "LSRSize"                           :50,
-        "StackPoolSize"                     :150,
-        "BlockAllocPoolSize"                :207,
+        "StackPoolSize"                     :100,
+        "BlockAllocPoolSize"                :10,
         "BlockAllocBlockSizes"              :[8, 16, 32, 64, 128, 256, 512, 1024, 2048]
     }
 }
