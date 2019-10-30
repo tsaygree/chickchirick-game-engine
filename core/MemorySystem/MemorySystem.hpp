@@ -67,5 +67,5 @@ public:
     void     free(void* ptr);                                           /*  free memory from pool or heap           */
     void*    stalloc(uint32_t size);                                    /*  allocation from stack pool              */
     void     stfree();                                                  /*  free memory from stack pool             */
-    void*    allocLSR(uint32_t size);                                   /*  allocation from resident pool           */
+    void*    galloc(uint32_t size);                                     /*  allocation from global pool             */
 };

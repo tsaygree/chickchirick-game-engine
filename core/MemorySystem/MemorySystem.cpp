@@ -89,6 +89,6 @@ void MemorySystem::stfree() {
     stackPool.free();
 }
 
-void* MemorySystem::allocLSR(uint32_t size) {
+void* MemorySystem::galloc(uint32_t size) {
     return stackPool.LSRalloc(size);
 }

@@ -59,7 +59,7 @@ template <>
 Texture* AssetManager::loadGlobalAssetAs<Texture>(const StringID& name) {
     Texture* result = nullptr;
     if (resRegistry.count(name) == 0) {
-        result = CAST(Texture*, mem.allocLSR(sizeof(Texture)));
+        result = CAST(Texture*, mem.galloc(sizeof(Texture)));
         this->loadAssetAsType<Texture>(result, name);
         resRegistry[name] = STCAST(Asset*, result);
     }
