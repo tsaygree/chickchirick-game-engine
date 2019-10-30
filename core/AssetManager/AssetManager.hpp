@@ -44,8 +44,24 @@ public:
     int     startUP(const StringID& assetsPath_);
     int     shutDown();
     template <typename T>
-    T*      loadAssetAs(const StringID& name);
+    T* loadAssetAs(const StringID& name) {
+        T* result = nullptr;
+        if (resRegistry.count(name) == 0) {
+            result = CAST(T*, mem.stalloc(sizeof(T)));
+            this->loadAssetAsType<T>(result, name);
+            resRegistry[name] = STCAST(Asset*, result);
+        }
+        return result;
+    }
     template <typename T>
-    T*      loadGlobalAssetAs(const StringID& name);
+    T* loadGlobalAssetAs(const StringID& name) {
+        T* result = nullptr;
+        if (resRegistry.count(name) == 0) {
+            result = CAST(T*, mem.galloc(sizeof(T)));
+            this->loadAssetAsType<T>(result, name);
+            resRegistry[name] = STCAST(Asset*, result);
+        }
+        return result;
+    }
     Asset*  getAsset(const StringID& name);
 };
