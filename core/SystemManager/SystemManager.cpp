@@ -24,6 +24,7 @@ uint32_t SystemManager::BigInit() {
     memSys.startUP(engineconfig.get_child("MemorySystem"));
     sdl.startUP(engineconfig.get_child("SDLConfig"));
     assMan.startUP(fileSys.getAssetsPath());
+    gloop.startUP(engineconfig.get_child("GameLoop"));
     return 0;
 }
 
