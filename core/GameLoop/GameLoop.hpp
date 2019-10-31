@@ -11,17 +11,21 @@
 
 #pragma once
 #include "PropertyTree.hpp"
+#include "SDLModule.hpp"
 #include <cstdio>
 
 class GameLoop {
 private:
-    double msPerUpdate = 0.0f;
+    double      msPerUpdate = 0.0f;
+    bool        isRunning   = false;
+    SDL_Event   event;
     GameLoop();
 public:
     GameLoop(GameLoop const&)            = delete;
     GameLoop& operator=(GameLoop const&) = delete;
     static GameLoop& getInstance();
     uint32_t startUP(bpt::ptree& config);
+    void     run();
     uint32_t shutDown();
     ~GameLoop();
 };
