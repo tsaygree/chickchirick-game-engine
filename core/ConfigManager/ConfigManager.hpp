@@ -27,5 +27,5 @@ public:
     ConfigManager& operator=(ConfigManager const&) = delete;
     static ConfigManager& getInstance();                                    /*  get singleton object            */
     uint32_t startUP();                                                     /*  start up                        */
-    const bpt::ptree& loadGlobalConfig(const char* filename);               /*  load and parse config file      */
+    const bpt::ptree& loadGlobalConfig(const StringID& filename);           /*  load and parse config file      */
 };
