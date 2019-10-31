@@ -36,6 +36,7 @@ include_directories(
 	Includes
 	Containers/HashTable
 	Containers/Vector
+	Containers/PropertyTree
 	MemorySystem
 	SDLModule
 	Asset

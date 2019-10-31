@@ -38,6 +38,7 @@ include_directories(
 	${CORE_DIR}/AssetManager
 	${CORE_DIR}/Containers/HashTable
 	${CORE_DIR}/Containers/Vector
+	${CORE_DIR}/Containers/PropertyTree
 	${CORE_DIR}/FileSystem
 	${CORE_DIR}/Includes
 	${CORE_DIR}/StringID
