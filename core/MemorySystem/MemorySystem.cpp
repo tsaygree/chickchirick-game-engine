@@ -16,11 +16,8 @@ MemorySystem& MemorySystem::getInstance() {
     return instance;
 }
 
-uint32_t MemorySystem::startUP(const char* filename) {
+uint32_t MemorySystem::startUP(bpt::ptree& config) {
     assert(isInit == false);
-    bpt::ptree config =
-        (ConfigManager::getInstance().loadGlobalConfig(filename)).get_child("MemorySystem");
-
     /*  StackAlloc initialization   */
     /*  config stores size in MiB, so conversion to bytes needed    */
     uint32_t LSRSize  = MiBtoB(config.get<uint32_t>("LSRSize"));
