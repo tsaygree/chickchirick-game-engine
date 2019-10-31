@@ -10,10 +10,11 @@
 */
 
 #pragma once
-#include <SDL.h>
-#include <SDL_image.h>
+#include "SDLInclude.hpp"
 #include "Initializers.hpp"
-#include "ConfigManager.hpp"
+#include "PropertyTree.hpp"
+#include "StringID.hpp"
+#include <cstdio>
 #include <iostream>
 
 class SDLModule {
@@ -26,7 +27,7 @@ public:
     SDLModule(SDLModule const&)            = delete;
     SDLModule& operator=(SDLModule const&) = delete;
     static SDLModule& getInstance();
-    uint32_t startUP(const char* filename);
+    uint32_t startUP(bpt::ptree& config);
     uint32_t shutDown();
     inline SDL_Window*   getWindow()        const { return window;                       }
     inline SDL_Renderer* getRenderer()      const { return renderer;                     }

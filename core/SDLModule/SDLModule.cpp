@@ -16,9 +16,7 @@ SDLModule& SDLModule::getInstance() {
     return instance;
 }
 
-uint32_t SDLModule::startUP(const char* filename) {
-    bpt::ptree sdlFlags = ConfigManager::getInstance().loadGlobalConfig(filename);
-
+uint32_t SDLModule::startUP(bpt::ptree& config) {
     /*  lambda to retrieve SDL flags from property tree data structure  */
     auto getFlags = [&](const auto& flags) {
         uint32_t result = 0;
@@ -32,20 +30,20 @@ uint32_t SDLModule::startUP(const char* filename) {
         return result;
     };
 
-    uint32_t flags = getFlags(sdlFlags.get_child("sdl_init.flags"));
+    uint32_t flags = getFlags(config.get_child("sdl_init.flags"));
     if (SDL_Init(flags)) {
         std::cerr << SDL_GetError() << std::endl;
         return 1;
     }
 
-    flags = getFlags(sdlFlags.get_child("img_init.flags"));
+    flags = getFlags(config.get_child("img_init.flags"));
     if((IMG_Init(flags)&flags) != flags) {
         std::cerr << SDL_GetError() << std::endl;
         SDL_Quit();
         return 1;
     }
 
-    bpt::ptree& sdlSubSysFlags = sdlFlags.get_child("window");
+    bpt::ptree& sdlSubSysFlags = config.get_child("window");
     window = SDL_CreateWindow(
         sdlSubSysFlags.get<std::string>("title").c_str(),
         sdlSubSysFlags.get<int32_t>("xpos"),
@@ -61,7 +59,7 @@ uint32_t SDLModule::startUP(const char* filename) {
         return 1;
     }
 
-    sdlSubSysFlags = sdlFlags.get_child("renderer");
+    sdlSubSysFlags = config.get_child("renderer");
     renderer = SDL_CreateRenderer(
         window,
         sdlSubSysFlags.get<int32_t>("index"),
@@ -75,7 +73,7 @@ uint32_t SDLModule::startUP(const char* filename) {
         return 1;
     }
 
-    sdlSubSysFlags = sdlFlags.get_child("rendererdrawcolor");
+    sdlSubSysFlags = config.get_child("rendererdrawcolor");
     SDL_SetRenderDrawColor(
         renderer,
         sdlSubSysFlags.get<uint32_t>("red"),
