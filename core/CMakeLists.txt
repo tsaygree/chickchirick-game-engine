@@ -13,6 +13,7 @@ add_executable(
 	MemorySystem/MemorySystem.cpp
 	SDLModule/SDLModule.cpp
 	Asset/Map/Map.cpp
+	GameLoop/GameLoop.cpp
 )
 
 target_link_libraries(
@@ -40,4 +41,5 @@ include_directories(
 	Asset
 	Asset/Texture
 	Asset/Map
+	GameLoop
 )

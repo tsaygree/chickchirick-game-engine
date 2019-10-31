@@ -18,6 +18,7 @@ add_executable(
 	${CORE_DIR}/ConfigManager/ConfigManager.cpp
 	${CORE_DIR}/SDLModule/SDLModule.cpp
 	${CORE_DIR}/Asset/Map/Map.cpp
+	${CORE_DIR}/GameLoop/GameLoop.cpp
 )
 
 target_link_libraries(
@@ -47,5 +48,6 @@ include_directories(
 	${CORE_DIR}/Asset
 	${CORE_DIR}/Asset/Texture
 	${CORE_DIR}/Asset/Map
+	${CORE_DIR}/GameLoop
 	cases
 )
