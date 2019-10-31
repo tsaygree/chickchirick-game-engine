@@ -11,10 +11,12 @@
 
 #pragma once
 
-
 class GameLoop {
 private:
-public:
     GameLoop();
+public:
+    GameLoop(GameLoop const&)            = delete;
+    GameLoop& operator=(GameLoop const&) = delete;
+    static GameLoop& getInstance();
     ~GameLoop();
 };

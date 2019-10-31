@@ -10,4 +10,10 @@
 #include "GameLoop.hpp"
 
 GameLoop::GameLoop()  {}
+
 GameLoop::~GameLoop() {}
+
+GameLoop& GameLoop::getInstance() {
+    static GameLoop instance;
+    return instance;
+}
