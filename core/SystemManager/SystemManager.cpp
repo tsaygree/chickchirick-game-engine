@@ -18,20 +18,20 @@ SystemManager& SystemManager::getInstance() {
 
 uint32_t SystemManager::BigInit() {
     /*  brute force start up ordering */
-    fileSys.startUP();
-    conMan.startUP();
-    memSys.startUP("engineconfig.json");
-    sdl.startUP("sdlconfig.json");
-    assMan.startUP(fileSys.getAssetsPath());
+    // fileSys.startUP();
+    // conMan.startUP();
+    // memSys.startUP("engineconfig.json");
+    // sdl.startUP("sdlconfig.json");
+    // assMan.startUP(fileSys.getAssetsPath());
     return 0;
 }
 
 uint32_t SystemManager::BigShutDown() {
     /*  brute force start down ordering is strictly */
     /*  the reverse of BigInit ordering             */
-    assMan.shutDown();
-    sdl.shutDown();
-    memSys.shutDown();
-    fileSys.shutDown();
+    // assMan.shutDown();
+    // sdl.shutDown();
+    // memSys.shutDown();
+    // fileSys.shutDown();
     return 0;
 }
