@@ -40,7 +40,7 @@ public:
     static FileSystem& getInstance();                           /*  get singleton object                        */
     uint32_t startUP();                                         /*  start up the subsystem                      */
     uint32_t shutDown();                                        /*  shut down the subsystem                     */
-    inline const bpt::ptree& readJSON(const char* filepath) {   /*  load and parse JSON file                    */
+    inline bpt::ptree& readJSON(const char* filepath) {         /*  load and parse JSON file                    */
         bpt::read_json(filepath, pt);
         return pt;
     }
