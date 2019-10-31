@@ -32,6 +32,10 @@ void GameLoop::run() {
     double lag = 0.0f;
     double interpolation;
 
+    /*  for demonstration purposes only, might delete later :P */
+    SDL_Renderer* renderer = SDLModule::getInstance().getRenderer();
+    Texture* logoTex = AssetManager::getInstance().loadAssetAs<Texture>(SID("logo.png"));
+
     while (isRunning) {
         currentTime  = SDL_GetTicks();
         elapsedTime  = currentTime - previousTime;
@@ -50,6 +54,9 @@ void GameLoop::run() {
         }
         interpolation = lag / msPerUpdate;
         /*  render handling         */
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer, logoTex->texture, NULL, NULL);
+        SDL_RenderPresent(renderer);
     }
 }
 

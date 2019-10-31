@@ -11,7 +11,9 @@
 
 int main(int argc, char const *argv[]) {
     SystemManager& systemManager = SystemManager::getInstance();
+    GameLoop& gloop = GameLoop::getInstance();
     systemManager.BigInit();
+    gloop.run();
     systemManager.BigShutDown();
     return 0;
 }

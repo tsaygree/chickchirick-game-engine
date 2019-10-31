@@ -12,6 +12,7 @@
 #pragma once
 #include "PropertyTree.hpp"
 #include "SDLModule.hpp"
+#include "AssetManager.hpp"
 #include <cstdio>
 
 class GameLoop {
