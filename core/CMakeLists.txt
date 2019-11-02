@@ -14,6 +14,7 @@ add_executable(
 	SDLModule/SDLModule.cpp
 	Asset/Map/Map.cpp
 	GameLoop/GameLoop.cpp
+	GameObject/GameObject.cpp
 )
 
 target_link_libraries(
@@ -43,4 +44,5 @@ include_directories(
 	Asset/Texture
 	Asset/Map
 	GameLoop
+	GameObject
 )
