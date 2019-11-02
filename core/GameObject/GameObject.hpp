@@ -10,11 +10,12 @@
 */
 
 #pragma once
-
+#include "StringID.hpp"
 
 class GameObject {
 private:
 public:
-    GameObject();
+    StringID id;
+    GameObject(const StringID& name);
     ~GameObject();
 };

@@ -9,5 +9,5 @@
 
 #include "GameObject.hpp"
 
-GameObject::GameObject()  {}
+GameObject::GameObject(const StringID& name) : id(name) {}
 GameObject::~GameObject() {}
