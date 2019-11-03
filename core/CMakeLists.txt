@@ -15,6 +15,8 @@ add_executable(
 	Asset/Map/Map.cpp
 	GameLoop/GameLoop.cpp
 	GameObject/GameObject.cpp
+	InputModule/Command/Command.cpp
+	InputModule/InputHandler/InputHandler.cpp
 )
 
 target_link_libraries(
@@ -45,4 +47,6 @@ include_directories(
 	Asset/Map
 	GameLoop
 	GameObject
+	InputModule/Command
+	InputModule/InputHandler
 )
