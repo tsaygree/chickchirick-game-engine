@@ -1,0 +1,13 @@
+/*
+
+    InputHandler.cpp
+    chickchirick-game-engine
+
+    Created by <chickchirik> on 03/11/2019.
+
+*/
+
+#include "InputHandler.hpp"
+
+InputHandler::InputHandler()  {}
+InputHandler::~InputHandler() {}
