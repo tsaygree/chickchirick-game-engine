@@ -43,11 +43,7 @@ void GameLoop::run() {
         lag += elapsedTime;
 
         /*  input handling          */
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE) {
-                isRunning = false;
-            }
-        }
+        
         /*  update handling         */
         while (lag >= msPerUpdate) {
             lag -= msPerUpdate;

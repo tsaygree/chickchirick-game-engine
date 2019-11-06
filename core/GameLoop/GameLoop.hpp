@@ -11,7 +11,6 @@
 
 #pragma once
 #include "PropertyTree.hpp"
-#include "SDLModule.hpp"
 #include "AssetManager.hpp"
 #include <cstdio>
 
@@ -19,7 +18,6 @@ class GameLoop {
 private:
     double      msPerUpdate = 0.0f;
     bool        isRunning   = false;
-    SDL_Event   event;
     GameLoop();
 public:
     GameLoop(GameLoop const&)            = delete;
