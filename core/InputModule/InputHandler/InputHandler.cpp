@@ -9,5 +9,11 @@
 
 #include "InputHandler.hpp"
 
-InputHandler::InputHandler()  {}
+InputHandler::InputHandler() {}
+
 InputHandler::~InputHandler() {}
+
+InputHandler& InputHandler::getInstance() {
+    static InputHandler instance;
+    return instance;
+}

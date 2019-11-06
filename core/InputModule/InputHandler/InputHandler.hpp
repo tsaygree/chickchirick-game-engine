@@ -14,7 +14,10 @@
 
 class InputHandler {
 private:
-public:
     InputHandler();
+public:
+    InputHandler(InputHandler const&)            = delete;
+    InputHandler& operator=(InputHandler const&) = delete;
+    static InputHandler& getInstance();
     ~InputHandler();
 };
