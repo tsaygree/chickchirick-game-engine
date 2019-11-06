@@ -19,6 +19,7 @@
 #include "ConfigManager.hpp"
 #include "MemorySystem.hpp"
 #include "AssetManager.hpp"
+#include "InputHandler.hpp"
 #include "GameLoop.hpp"
 #include <iostream>
 #include <cstdio>
@@ -31,6 +32,7 @@ private:
     MemorySystem&   memSys  = MemorySystem::getInstance();
     AssetManager&   assMan  = AssetManager::getInstance();
     SDLModule&      sdl     = SDLModule::getInstance();
+    InputHandler&   inputHandler = InputHandler::getInstance();
     GameLoop&       gloop   = GameLoop::getInstance();
     SystemManager();
 public:

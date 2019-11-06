@@ -24,6 +24,7 @@ uint32_t SystemManager::BigInit() {
     memSys.startUP(engineconfig.get_child("MemorySystem"));
     sdl.startUP(engineconfig.get_child("SDLConfig"));
     assMan.startUP(fileSys.getAssetsPath());
+    inputHandler.startUP(engineconfig.get_child("InputHandler"));
     gloop.startUP(engineconfig.get_child("GameLoop"));
     return 0;
 }
@@ -31,6 +32,7 @@ uint32_t SystemManager::BigInit() {
 uint32_t SystemManager::BigShutDown() {
     /*  brute force start down ordering is strictly */
     /*  the reverse of BigInit ordering             */
+    inputHandler.shutDown();
     assMan.shutDown();
     sdl.shutDown();
     memSys.shutDown();
