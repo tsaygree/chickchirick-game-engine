@@ -22,6 +22,7 @@ add_executable(
 	${CORE_DIR}/GameObject/GameObject.cpp
 	${CORE_DIR}/InputModule/Command/Command.cpp
 	${CORE_DIR}/InputModule/InputHandler/InputHandler.cpp
+	${CORE_DIR}/InputModule/Gamepad/Gamepad.cpp
 )
 
 target_link_libraries(
@@ -56,5 +57,6 @@ include_directories(
 	${CORE_DIR}/GameObject
 	${CORE_DIR}/InputModule/Command
 	${CORE_DIR}/InputModule/InputHandler
+	${CORE_DIR}/InputModule/Gamepad
 	cases
 )
