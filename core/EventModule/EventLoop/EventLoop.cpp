@@ -10,4 +10,10 @@
 #include "EventLoop.hpp"
 
 EventLoop::EventLoop()  {}
+
 EventLoop::~EventLoop() {}
+
+EventLoop& EventLoop::getInstance() {
+    static EventLoop instance;
+    return instance;
+}

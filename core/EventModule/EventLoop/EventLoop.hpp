@@ -14,7 +14,10 @@
 
 class EventLoop {
 private:
-public:
     EventLoop();
+public:
+    EventLoop(EventLoop const&)            = delete;
+    EventLoop& operator=(EventLoop const&) = delete;
+    static EventLoop& getInstance();
     ~EventLoop();
 };
