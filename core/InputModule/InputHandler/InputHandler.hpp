@@ -22,7 +22,6 @@ class InputHandler {
 private:
     MemorySystem&       mem = MemorySystem::getInstance();
     Vector<Gamepad*>    deviceRegistry;
-    SDL_Event           event;
     InputHandler();
 public:
     InputHandler(InputHandler const&)            = delete;
