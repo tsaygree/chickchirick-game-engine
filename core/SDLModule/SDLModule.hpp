@@ -23,7 +23,6 @@ private:
     const SIDTable<uint32_t> SDLFlagLookUp = SDLFLG;                /*  SDL flags lookup table          */
     SDL_Window*              window;
     SDL_Renderer*            renderer;
-    SDL_Event                event;
 public:
     SDLModule(SDLModule const&)            = delete;
     SDLModule& operator=(SDLModule const&) = delete;
@@ -32,6 +31,5 @@ public:
     uint32_t shutDown();
     inline SDL_Window*   getWindow()        const { return window;                       }
     inline SDL_Renderer* getRenderer()      const { return renderer;                     }
-    inline const SDL_Event&     getEvent()         const { return event;                        }
     inline SDL_Surface*  getWindowSurface() const { return SDL_GetWindowSurface(window); }
 };
