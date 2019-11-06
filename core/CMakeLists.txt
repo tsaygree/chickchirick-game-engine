@@ -18,6 +18,7 @@ add_executable(
 	InputModule/Command/Command.cpp
 	InputModule/InputHandler/InputHandler.cpp
 	InputModule/Gamepad/Gamepad.cpp
+	EventModule/EventLoop/EventLoop.cpp
 )
 
 target_link_libraries(
@@ -51,4 +52,5 @@ include_directories(
 	InputModule/Command
 	InputModule/InputHandler
 	InputModule/Gamepad
+	EventModule/EventLoop
 )
