@@ -34,8 +34,10 @@ uint32_t InputHandler::startUP(bpt::ptree& config) {
 
 uint32_t InputHandler::shutDown() {
     for (Gamepad* pad : deviceRegistry) {
-        pad->disconnect();
-        mem.free(pad);
+        if (pad) {
+            pad->disconnect();
+            mem.free(pad);
+        }
     }
     deviceRegistry.clear();
 }
