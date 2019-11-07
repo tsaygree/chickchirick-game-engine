@@ -19,6 +19,7 @@ add_executable(
 	InputModule/InputHandler/InputHandler.cpp
 	InputModule/Gamepad/Gamepad.cpp
 	EventModule/EventLoop/EventLoop.cpp
+	Timer/Timer.cpp
 )
 
 target_link_libraries(
@@ -53,4 +54,5 @@ include_directories(
 	InputModule/InputHandler
 	InputModule/Gamepad
 	EventModule/EventLoop
+	Timer
 )
