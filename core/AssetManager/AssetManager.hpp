@@ -27,7 +27,6 @@
 #include "HashTable.hpp"
 #include <cstdint>
 
-#define STCAST(type, expr) static_cast<type>(expr)
 
 class AssetManager {
 private:

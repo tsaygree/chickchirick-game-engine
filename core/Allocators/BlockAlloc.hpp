@@ -29,6 +29,7 @@
 #include <cassert>
 
 #define CAST(type, expr) reinterpret_cast<type>(expr)
+#define STCAST(type, expr) static_cast<type>(expr)
 #define cpyptr(dest, src) std::memcpy(dest, src, sizeof(uintptr_t))
 
 class BlockAlloc {
