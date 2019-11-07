@@ -10,7 +10,7 @@
 */
 
 #pragma once
-#include "SDLInclude.cpp"
+#include "SDLInclude.hpp"
 #include <cstdint>
 
 class Timer {
