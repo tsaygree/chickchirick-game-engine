@@ -24,6 +24,7 @@ add_executable(
 	${CORE_DIR}/InputModule/InputHandler/InputHandler.cpp
 	${CORE_DIR}/InputModule/Gamepad/Gamepad.cpp
 	${CORE_DIR}/EventModule/EventLoop/EventLoop.cpp
+	${CORE_DIR}/EventModule/Event/Event.cpp
 	${CORE_DIR}/Timer/Timer.cpp
 )
 
@@ -61,6 +62,7 @@ include_directories(
 	${CORE_DIR}/InputModule/InputHandler
 	${CORE_DIR}/InputModule/Gamepad
 	${CORE_DIR}/EventModule/EventLoop
+	${CORE_DIR}/EventModule/Event
 	${CORE_DIR}/Timer
 	cases
 )
