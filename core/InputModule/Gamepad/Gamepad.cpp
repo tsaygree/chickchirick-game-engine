@@ -18,7 +18,7 @@ uint32_t Gamepad::connect(uint32_t deviceID) {
     if (SDL_IsGameController(deviceID)) {
         controller = SDL_GameControllerOpen(deviceID);
         SDL_Joystick* joyStick = SDL_GameControllerGetJoystick(controller);
-        id = SDL_JoystickInstanceID(joyStick);
+        instanceID = SDL_JoystickInstanceID(joyStick);
         connected = true;
     }
 }
