@@ -26,21 +26,18 @@ uint32_t GameLoop::startUP(bpt::ptree& config) {
 }
 
 void GameLoop::run() {
-    uint32_t currentTime  = SDL_GetTicks();
-    uint32_t previousTime = currentTime;
-    uint32_t elapsedTime  = currentTime - previousTime;
+    timer.reset();
     double lag = 0.0f;
     double interpolation;
 
     /*  for demonstration purposes only, might delete later :P */
     SDL_Renderer* renderer = SDLModule::getInstance().getRenderer();
     Texture* logoTex = AssetManager::getInstance().loadAssetAs<Texture>(SID("logo.png"));
+    SDL_Event event;
 
     while (isRunning) {
-        currentTime  = SDL_GetTicks();
-        elapsedTime  = currentTime - previousTime;
-        previousTime = currentTime;
-        lag += elapsedTime;
+        lag += timer.timePassed();
+        timer.reset();
 
         /*  input handling          */
         

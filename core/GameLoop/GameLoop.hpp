@@ -12,10 +12,12 @@
 #pragma once
 #include "PropertyTree.hpp"
 #include "AssetManager.hpp"
+#include "Timer.hpp"
 #include <cstdio>
 
 class GameLoop {
 private:
+    Timer       timer;
     double      msPerUpdate = 0.0f;
     bool        isRunning   = false;
     GameLoop();
