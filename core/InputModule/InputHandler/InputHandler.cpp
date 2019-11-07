@@ -18,13 +18,11 @@ InputHandler& InputHandler::getInstance() {
     return instance;
 }
 
-uint32_t InputHandler::startUP(bpt::ptree& config) {
-    uint32_t maxDevice = config.get<uint32_t>("MaxDeviceCount");
-    // deviceRegistry.resize(maxDevice);
+uint32_t InputHandler::startUP() {
     uint32_t numOfJoysticks = SDL_NumJoysticks();
     uint32_t deviceID = 0;
 
-    while (deviceID < numOfJoysticks && deviceID < maxDevice) {
+    while (deviceID < numOfJoysticks) {
         Gamepad* newController = CAST(Gamepad*, mem.alloc(sizeof(Gamepad)));
         newController->connect(deviceID);
         deviceRegistry[newController->getInstanceID()] = newController;

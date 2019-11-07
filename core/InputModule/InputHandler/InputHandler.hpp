@@ -28,6 +28,6 @@ public:
     InputHandler& operator=(InputHandler const&) = delete;
     static InputHandler& getInstance();
     ~InputHandler();
-    uint32_t startUP(bpt::ptree& config);
+    uint32_t startUP();
     uint32_t shutDown();
 };

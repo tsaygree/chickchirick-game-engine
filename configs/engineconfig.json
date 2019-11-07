@@ -8,9 +8,6 @@
     "GameLoop":{
         "FPS"                               :60
     },
-    "InputHandler":{
-        "MaxDeviceCount"                    :4
-    },
     "SDLConfig":{
         "sdl_init":{
             "flags":{
