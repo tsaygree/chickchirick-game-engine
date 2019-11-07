@@ -16,12 +16,13 @@
 class Gamepad {
 private:
     SDL_GameController* controller  = nullptr;
-    SDL_JoystickID      id;
+    SDL_JoystickID      instanceID;
     bool                connected   = false;
 public:
     Gamepad();
     ~Gamepad();
     inline bool isConnected() const { return connected; }
+    inline SDL_JoystickID getInstanceID() const { return instanceID; }
     uint32_t connect(uint32_t deviceID);
     uint32_t disconnect();
 };
