@@ -14,14 +14,14 @@
 #include "PropertyTree.hpp"
 #include "SDLModule.hpp"
 #include "Gamepad.hpp"
-#include "Vector.hpp"
+#include "HashTable.hpp"
 #include <cstdint>
 #include <cstdio>
 
 class InputHandler {
 private:
     MemorySystem&       mem = MemorySystem::getInstance();
-    Vector<Gamepad*>    deviceRegistry;
+    HashTable<SDL_JoystickID, Gamepad*> deviceRegistry;
     InputHandler();
 public:
     InputHandler(InputHandler const&)            = delete;
