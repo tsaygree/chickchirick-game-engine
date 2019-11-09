@@ -18,14 +18,27 @@ InputHandler& InputHandler::getInstance() {
     return instance;
 }
 
+void InputHandler::addDevice(int32_t deviceID) {
+    /*  not very happy with the solution, but gets the job done :D  */
+    bool isFound = false;
+    for (auto& device : deviceRegistry) {
+        if (device.second->getHardwareID() == deviceID) {
+            isFound = true;
+        }
+    }
+    if (isFound == false) {
+        Gamepad* newController = CAST(Gamepad*, mem.alloc(sizeof(Gamepad)));
+        newController->connect(deviceID);
+        deviceRegistry[newController->getInstanceID()] = newController;
+    }
+}
+
 uint32_t InputHandler::startUP() {
     uint32_t numOfJoysticks = SDL_NumJoysticks();
     uint32_t deviceID = 0;
 
     while (deviceID < numOfJoysticks) {
-        Gamepad* newController = CAST(Gamepad*, mem.alloc(sizeof(Gamepad)));
-        newController->connect(deviceID);
-        deviceRegistry[newController->getInstanceID()] = newController;
+        this->addDevice(deviceID);
         deviceID++;
     }
 }

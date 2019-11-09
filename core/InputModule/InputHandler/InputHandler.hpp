@@ -15,6 +15,7 @@
 #include "SDLModule.hpp"
 #include "Gamepad.hpp"
 #include "HashTable.hpp"
+#include <unordered_set>
 #include <cstdint>
 #include <cstdio>
 
@@ -22,6 +23,7 @@ class InputHandler {
 private:
     MemorySystem&       mem = MemorySystem::getInstance();
     HashTable<SDL_JoystickID, Gamepad*> deviceRegistry;
+    void addDevice(int32_t deviceID);
     InputHandler();
 public:
     InputHandler(InputHandler const&)            = delete;
