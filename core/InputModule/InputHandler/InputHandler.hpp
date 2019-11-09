@@ -32,4 +32,5 @@ public:
     ~InputHandler();
     uint32_t startUP();
     uint32_t shutDown();
+    void processInput(SDL_Event& event);
 };

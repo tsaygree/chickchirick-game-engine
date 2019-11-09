@@ -54,3 +54,15 @@ uint32_t InputHandler::shutDown() {
     }
     deviceRegistry.clear();
 }
+
+void InputHandler::processInput(SDL_Event& event) {
+    switch (event.type) {
+        case SDL_CONTROLLERDEVICEADDED: {
+            this->addDevice(event.cdevice.which);
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+}
