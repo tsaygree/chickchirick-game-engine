@@ -69,6 +69,10 @@ void InputHandler::processInput(SDL_Event& event) {
             this->addDevice(event.cdevice.which);
             break;
         }
+        case SDL_CONTROLLERDEVICEREMOVED: {
+            this->removeDevice(event.cdevice.which);
+            break;
+        }
         default: {
             break;
         }
