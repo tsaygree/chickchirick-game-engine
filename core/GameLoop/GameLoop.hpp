@@ -12,11 +12,13 @@
 #pragma once
 #include "PropertyTree.hpp"
 #include "AssetManager.hpp"
+#include "InputHandler.hpp"
 #include "Timer.hpp"
 #include <cstdio>
 
 class GameLoop {
 private:
+    InputHandler& inputHandler = InputHandler::getInstance();
     Timer       timer;
     double      msPerUpdate = 0.0f;
     bool        isRunning   = false;
