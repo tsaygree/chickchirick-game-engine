@@ -33,6 +33,14 @@ void InputHandler::addDevice(int32_t deviceID) {
     }
 }
 
+void InputHandler::removeDevice(SDL_JoystickID instanceID) {
+    auto controllerIt = deviceRegistry.find(instanceID);
+    if (controllerIt != deviceRegistry.end()) {
+        controllerIt->second->disconnect();
+        deviceRegistry.erase(controllerIt);
+    }
+}
+
 uint32_t InputHandler::startUP() {
     uint32_t numOfJoysticks = SDL_NumJoysticks();
     uint32_t deviceID = 0;
