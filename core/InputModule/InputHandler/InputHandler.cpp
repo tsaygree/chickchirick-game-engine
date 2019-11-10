@@ -44,11 +44,11 @@ void InputHandler::removeDevice(SDL_JoystickID instanceID) {
 uint32_t InputHandler::startUP() {
     uint32_t numOfJoysticks = SDL_NumJoysticks();
     uint32_t deviceID = 0;
-
     while (deviceID < numOfJoysticks) {
         this->addDevice(deviceID);
         deviceID++;
     }
+    return 0;
 }
 
 uint32_t InputHandler::shutDown() {
@@ -61,6 +61,7 @@ uint32_t InputHandler::shutDown() {
         }
     }
     deviceRegistry.clear();
+    return 0;
 }
 
 void InputHandler::processInput(SDL_Event& event) {

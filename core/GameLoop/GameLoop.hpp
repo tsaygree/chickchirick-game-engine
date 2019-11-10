@@ -22,9 +22,9 @@
 class GameLoop {
 private:
     InputHandler& inputHandler = InputHandler::getInstance();
-    Timer       timer;
-    double      msPerUpdate = 0.0f;
-    bool        isRunning   = false;
+    Timer         timer;
+    double        msPerUpdate  = 0.0f;
+    bool          isRunning    = false;
     GameLoop();
 public:
     GameLoop(GameLoop const&)            = delete;

@@ -22,10 +22,12 @@ uint32_t Gamepad::connect(uint32_t deviceID) {
         hardwareID = deviceID;
         connected = true;
     }
+    return 0;
 }
 
 uint32_t Gamepad::disconnect() {
     assert(connected == true);
     SDL_GameControllerClose(controller);
     connected = false;
+    return 0;
 }
