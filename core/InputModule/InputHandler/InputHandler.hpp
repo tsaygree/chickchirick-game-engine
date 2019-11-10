@@ -6,6 +6,11 @@
     Created by <chickchirik> on 03/11/2019.
 
     DESCRIPTION:
+    InputHandler is a singleton class that manages
+    all the input coming to the game engine, detects
+    conytiller connections and disconnections,
+    registers and initializes them.
+    NOTE: This class is not thread safe.
 
 */
 

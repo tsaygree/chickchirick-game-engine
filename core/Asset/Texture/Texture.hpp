@@ -7,6 +7,8 @@
 
     DESCRIPTION:
     Custom wrapper for SDL_Texture.
+    NOTE: This class is not thread safe.
+    
 */
 
 #pragma once

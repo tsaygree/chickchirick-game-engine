@@ -6,6 +6,9 @@
     Created by <chickchirik> on 31/10/2019.
 
     DESCRIPTION:
+    GameLoop is a singleton class that implements
+    game loop design pattern.
+    NOTE: This class is not thread safe.
 
 */
 

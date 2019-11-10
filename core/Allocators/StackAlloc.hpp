@@ -21,6 +21,7 @@
     supposed to be in memory during all lifetime of the StackAlloc.
     The second one is used for different dynamic allocations and can
     return a special marker that later is used for deallocation.
+    NOTE: This class is not thread safe.
 
 */
 

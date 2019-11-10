@@ -7,6 +7,7 @@
 
     DESCRIPTION:
     Map class to handle level/chunk/sequence in-game layout.
+    NOTE: This class is not thread safe.
 
 */
 

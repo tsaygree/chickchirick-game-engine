@@ -9,6 +9,7 @@
     System Manager is a singleton object that
     starts up, controlls and shuts down
     every chickchirik game engine subsystem.
+    NOTE: This class is not thread safe.
 
 */
 

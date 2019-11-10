@@ -9,6 +9,7 @@
     Tiny singleton module to operate on configuration files.
     It uses FileSystem module to resolve a full filepath,
     load config file and parse it.
+    NOTE: This class is not thread safe.
 
 */
 

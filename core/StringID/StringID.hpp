@@ -15,6 +15,7 @@
     StringID also registers every string to special
     lookup table, so it is possible to retrieve a
     string later.
+    NOTE: This class is not thread safe.
 
 */
 

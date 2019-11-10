@@ -15,6 +15,7 @@
     its core. Moreover, FileSystem module is
     depended on some of the Boost C++ Libraries.
     This may change to custom libraties in the future.
+    NOTE: This class is not thread safe.
 
 */
 

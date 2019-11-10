@@ -20,6 +20,7 @@
     on the caller. BlockAlloc only clears memory that was
     allocated by itself.
     It is also not thread safe in its current state.
+    NOTE: This class is not thread safe.
 
 */
 

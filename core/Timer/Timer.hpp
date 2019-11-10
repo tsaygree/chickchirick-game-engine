@@ -6,6 +6,7 @@
     Created by <chickchirik> on 07/11/2019.
 
     DESCRIPTION:
+    NOTE: This class is not thread safe.
 
 */
 
