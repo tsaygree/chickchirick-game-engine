@@ -17,7 +17,6 @@ add_executable(
 	GameObject/GameObject.cpp
 	InputModule/Command/Command.cpp
 	InputModule/InputHandler/InputHandler.cpp
-	InputModule/InputDevice/InputDevice.cpp
 	InputModule/Gamepad/Gamepad.cpp
 	EventModule/EventLoop/EventLoop.cpp
 	EventModule/Event/Event.cpp

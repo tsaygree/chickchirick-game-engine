@@ -22,7 +22,6 @@ add_executable(
 	${CORE_DIR}/GameObject/GameObject.cpp
 	${CORE_DIR}/InputModule/Command/Command.cpp
 	${CORE_DIR}/InputModule/InputHandler/InputHandler.cpp
-	${CORE_DIR}/InputModule/InputDevice/InputDevice.cpp
 	${CORE_DIR}/InputModule/Gamepad/Gamepad.cpp
 	${CORE_DIR}/EventModule/EventLoop/EventLoop.cpp
 	${CORE_DIR}/EventModule/Event/Event.cpp
