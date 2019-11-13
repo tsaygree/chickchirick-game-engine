@@ -32,7 +32,7 @@ void GameLoop::run() {
 
     /*  for demonstration purposes only, might delete later :P */
     SDL_Renderer* renderer = SDLModule::getInstance().getRenderer();
-    Texture* logoTex = AssetManager::getInstance().loadAssetAs<Texture>(SID("logo.png"));
+    Texture* logoTex = AssetManager::getInstance().loadAssetAs<Texture>(SID("logoBlack.png"));
     SDL_Event event;
 
     while (isRunning) {
