@@ -15,6 +15,12 @@
 class InputDevice {
 private:
 public:
-    InputDevice();
-    ~InputDevice();
+    enum class DeviceType {
+        GAMEPAD,
+        JOYSTICK,
+        KEYBOARD,
+        MOUSE
+        //MICRO ???
+    };
+    virtual inline DeviceType getType() const = 0;
 };
