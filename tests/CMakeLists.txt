@@ -60,7 +60,7 @@ include_directories(
 	${CORE_DIR}/GameObject
 	${CORE_DIR}/InputModule/Command
 	${CORE_DIR}/InputModule/InputHandler
-	${CORE_DIR}/InputDevice/InputDevice
+	${CORE_DIR}/InputModule/InputDevice
 	${CORE_DIR}/InputModule/Gamepad
 	${CORE_DIR}/EventModule/EventLoop
 	${CORE_DIR}/EventModule/Event
