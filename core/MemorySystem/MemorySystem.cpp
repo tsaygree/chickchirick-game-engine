@@ -73,7 +73,7 @@ void MemorySystem::free(void* ptr) {
             break;
         }
     }
-    if (!blockFound) {  delete ptr; }                   /*  if not found - free from heap               */
+    if (!blockFound) { delete[] ptr; }                  /*  if not found - free from heap               */
 }
 
 void* MemorySystem::stalloc(uint32_t size) {
