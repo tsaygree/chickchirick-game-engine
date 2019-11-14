@@ -13,10 +13,11 @@
 */
 
 #pragma once
+#include "InputDevice.hpp"
 #include "SDLModule.hpp"
 #include <cstdint>
 
-class Gamepad {
+class Gamepad : public InputDevice {
 private:
     SDL_GameController* controller  = nullptr;
     SDL_JoystickID      instanceID;
@@ -25,6 +26,7 @@ private:
 public:
     Gamepad();
     ~Gamepad();
+    virtual inline DeviceType getType() const { return DeviceType::GAMEPAD; }
     inline bool isConnected() const { return connected; }                   /*  returns connection status               */
     inline int32_t getHardwareID() const { return hardwareID; }             /*  returns hardware pad id                 */
     inline SDL_JoystickID getInstanceID() const { return instanceID; }      /*  returns virtual engine pad id           */
