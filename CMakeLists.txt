@@ -50,8 +50,7 @@ set(CORE_DIR ${chickchirik-game-engine_SOURCE_DIR}/core)
 set(TEST_DIR ${chickchirik-game-engine_SOURCE_DIR}/tests)
 
 # Look for all source files in core subproject and save them
-file(GLOB_RECURSE CORESRC ${CORE_DIR}/*.cpp)
-set(CORE_SOURCES ${CORESRC})
+file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
 
 # Look in the subdirectories to find its CMakeLists.txt so we can build the executable
 add_subdirectory(core)

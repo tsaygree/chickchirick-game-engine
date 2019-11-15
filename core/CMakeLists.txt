@@ -2,7 +2,7 @@ project(core)
 
 add_executable(
 	core
-	${CORE_SOURCES}
+	${CORE_CPP}
 )
 
 target_link_libraries(
