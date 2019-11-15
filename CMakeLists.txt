@@ -1,11 +1,16 @@
 cmake_minimum_required(VERSION 2.6)
 project(chickchirik-game-engine)
 
+# Set root directory alias
+set(ROOT_DIR "${chickchirik-game-engine_SOURCE_DIR}")
+
+message(${ROOT_DIR})
+
 # Using modified FindSDL2* modules
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${chickchirik-game-engine_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${ROOT_DIR}/cmake")
 
 # Set an output directory for our binaries
-set(BIN_DIR ${chickchirik-game-engine_SOURCE_DIR}/bin)
+set(BIN_DIR ${ROOT_DIR}/bin)
 
 # Set compilation flags based on compiler
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
@@ -22,11 +27,11 @@ endif()
 
 # Set preprocessor definition MACROS
 	# set project source path macro
-add_compile_definitions(__SOURCEPATH__="${chickchirik-game-engine_SOURCE_DIR}/")
+add_compile_definitions(__SOURCEPATH__="${ROOT_DIR}/")
  	# set project config path macro
-add_compile_definitions(__CONFIGPATH__="${chickchirik-game-engine_SOURCE_DIR}/configs/")
+add_compile_definitions(__CONFIGPATH__="${ROOT_DIR}/configs/")
 	# set project assets path macro
-add_compile_definitions(__ASSETSPATH__="${chickchirik-game-engine_SOURCE_DIR}/assets/")
+add_compile_definitions(__ASSETSPATH__="${ROOT_DIR}/assets/")
 
 # Look up SDL2 and add the include directory to our include path
 find_package(SDL2 REQUIRED)
@@ -46,8 +51,8 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
 # Set variables to hold paths to project directories
-set(CORE_DIR ${chickchirik-game-engine_SOURCE_DIR}/core)
-set(TEST_DIR ${chickchirik-game-engine_SOURCE_DIR}/tests)
+set(CORE_DIR ${ROOT_DIR}/core)
+set(TEST_DIR ${ROOT_DIR}/tests)
 
 # Look for all source files in core subproject and save them
 file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
