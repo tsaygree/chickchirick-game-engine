@@ -2,25 +2,7 @@ project(core)
 
 add_executable(
 	core
-    main.cpp
-	SystemManager/SystemManager.cpp
-	FileSystem/FileSystem.cpp
-	StringID/StringID.cpp
-	ConfigManager/ConfigManager.cpp
-	Allocators/BlockAlloc.cpp
-	Allocators/StackAlloc.cpp
-	AssetManager/AssetManager.cpp
-	MemorySystem/MemorySystem.cpp
-	SDLModule/SDLModule.cpp
-	Asset/Map/Map.cpp
-	GameLoop/GameLoop.cpp
-	GameObject/GameObject.cpp
-	InputModule/Command/Command.cpp
-	InputModule/InputHandler/InputHandler.cpp
-	InputModule/Gamepad/Gamepad.cpp
-	EventModule/EventLoop/EventLoop.cpp
-	EventModule/Event/Event.cpp
-	Timer/Timer.cpp
+	${CORE_SOURCES}
 )
 
 target_link_libraries(

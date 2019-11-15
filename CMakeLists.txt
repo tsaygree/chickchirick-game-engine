@@ -49,6 +49,10 @@ link_directories(${Boost_LIBRARY_DIR})
 set(CORE_DIR ${chickchirik-game-engine_SOURCE_DIR}/core)
 set(TEST_DIR ${chickchirik-game-engine_SOURCE_DIR}/tests)
 
+# Look for all source files in core subproject and save them
+file(GLOB_RECURSE CORESRC ${CORE_DIR}/*.cpp)
+set(CORE_SOURCES ${CORESRC})
+
 # Look in the subdirectories to find its CMakeLists.txt so we can build the executable
 add_subdirectory(core)
 add_subdirectory(tests)
