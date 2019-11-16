@@ -1,31 +1,13 @@
 project(tests)
 
+# Remove main.cpp from CORE_CPP source list to resolve duplicate main problem
+set(CORE_CPP_NO_MAIN ${CORE_CPP})
+list(REMOVE_ITEM CORE_CPP_NO_MAIN "${CORE_DIR}/main.cpp")
+
 add_executable(
 	tests
-    tests.cpp
-	cases/BlockAllocTests.cpp
-	cases/StackAllocTests.cpp
-	cases/MemoryUnitsTests.cpp
-	cases/StringIDTests.cpp
-	cases/MemorySystemTests.cpp
-	${CORE_DIR}/Allocators/BlockAlloc.cpp
-	${CORE_DIR}/Allocators/StackAlloc.cpp
-	${CORE_DIR}/AssetManager/AssetManager.cpp
-	${CORE_DIR}/FileSystem/FileSystem.cpp
-	${CORE_DIR}/StringID/StringID.cpp
-	${CORE_DIR}/SystemManager/SystemManager.cpp
-	${CORE_DIR}/MemorySystem/MemorySystem.cpp
-	${CORE_DIR}/ConfigManager/ConfigManager.cpp
-	${CORE_DIR}/SDLModule/SDLModule.cpp
-	${CORE_DIR}/Asset/Map/Map.cpp
-	${CORE_DIR}/GameLoop/GameLoop.cpp
-	${CORE_DIR}/GameObject/GameObject.cpp
-	${CORE_DIR}/InputModule/Command/Command.cpp
-	${CORE_DIR}/InputModule/InputHandler/InputHandler.cpp
-	${CORE_DIR}/InputModule/Gamepad/Gamepad.cpp
-	${CORE_DIR}/EventModule/EventLoop/EventLoop.cpp
-	${CORE_DIR}/EventModule/Event/Event.cpp
-	${CORE_DIR}/Timer/Timer.cpp
+    ${TESTS_CPP}
+	${CORE_CPP_NO_MAIN}
 )
 
 target_link_libraries(

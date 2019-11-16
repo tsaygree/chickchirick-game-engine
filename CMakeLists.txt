@@ -52,7 +52,7 @@ link_directories(${Boost_LIBRARY_DIR})
 
 # Set variables to hold paths to project directories
 set(CORE_DIR ${ROOT_DIR}/core)
-set(TEST_DIR ${ROOT_DIR}/tests)
+set(TESTS_DIR ${ROOT_DIR}/tests)
 
 
 # Function recursively iterates through provided directories and creates a
@@ -78,6 +78,9 @@ endfunction()
 
 # Look for all source files in core subproject and save them
 file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
+
+# Look for all source files in tests subproject and save them
+file(GLOB_RECURSE TESTS_CPP ${TESTS_DIR}/*.cpp ${TESTS_DIR}/*.c)
 
 # Look for all include paths in core, tests and Dependencies and include them
 make_include_directories_list(${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/Dependencies)
