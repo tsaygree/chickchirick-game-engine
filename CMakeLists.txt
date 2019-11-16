@@ -33,18 +33,6 @@ add_compile_definitions(__CONFIGPATH__="${ROOT_DIR}/configs/")
 	# set project assets path macro
 add_compile_definitions(__ASSETSPATH__="${ROOT_DIR}/assets/")
 
-# Look up SDL2 and add the include directory to our include path
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIR})
-find_package(SDL2_image REQUIRED)
-include_directories(${SDL2_IMAGE_INCLUDE_DIR})
-find_package(SDL2_ttf REQUIRED)
-include_directories(${SDL2_TTF_INCLUDE_DIR})
-
-# Look up TMXLITE and add the include directory to our include path
-find_package(TMXLITE REQUIRED)
-include_directories(${TMXLITE_INCLUDE_DIR})
-
 # Look up Boost C++ Libraries
 find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
@@ -53,6 +41,7 @@ link_directories(${Boost_LIBRARY_DIR})
 # Set variables to hold paths to project directories
 set(CORE_DIR ${ROOT_DIR}/core)
 set(TESTS_DIR ${ROOT_DIR}/tests)
+set(DEP_DIR ${ROOT_DIR}/dependencies)
 
 
 # Function recursively iterates through provided directories and creates a
@@ -81,6 +70,9 @@ file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
 
 # Look for all source files in tests subproject and save them
 file(GLOB_RECURSE TESTS_CPP ${TESTS_DIR}/*.cpp ${TESTS_DIR}/*.c)
+
+# Look for all dynamic libraries in dependencies and save them in the list
+file(GLOB_RECURSE DEP_LIBS ${DEP_DIR}/*.dylib)
 
 # Look for all include paths in core, tests and Dependencies and include them
 make_include_directories_list(${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/Dependencies)

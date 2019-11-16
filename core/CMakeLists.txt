@@ -7,10 +7,7 @@ add_executable(
 
 target_link_libraries(
 	core
-    ${SDL2_LIBRARY}
-    ${SDL2_IMAGE_LIBRARY}
-    ${SDL2_TTF_LIBRARY}
-    ${TMXLITE_LIBRARY}
+    ${DEP_LIBS}
 )
 
 install(TARGETS core RUNTIME DESTINATION ${BIN_DIR})
