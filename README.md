@@ -28,7 +28,8 @@ $ mkdir bin; mkdir build; cd build; cmake -DCMAKE_BUILD_TYPE=Debug ../; make ;ma
 ### Running
 
 ```bash
-$ ./bin/SUBPROJECT
+$ ./bin/tests
+$ ./bin/core
 ```
 
 ### Links
