@@ -54,6 +54,28 @@ link_directories(${Boost_LIBRARY_DIR})
 set(CORE_DIR ${ROOT_DIR}/core)
 set(TEST_DIR ${ROOT_DIR}/tests)
 
+
+# Function recursively iterates through provided directories and creates a
+# global INCLUDE_LIST variable string.
+# Big thanks to Gonzalo Garramuno (https://cmake.org/pipermail/cmake/2017-October/066495.html)
+function(make_include_directories_list)
+	if((ARGC EQUAL 2) OR (ARGC GREATER 2))
+		foreach(dir IN LISTS ARGN)
+			file(GLOB_RECURSE new_list ${dir}/*.h ${dir}/*.hpp)
+			set(dir_list "")
+			foreach(file_path ${new_list})
+				get_filename_component(dir_path ${file_path} PATH)
+				set(dir_list ${dir_list} ${dir_path})
+			endforeach()
+			list(REMOVE_DUPLICATES dir_list)
+			list(APPEND RESULT_LIST ${dir_list})
+		endforeach()
+		set(INCLUDE_LIST ${RESULT_LIST} PARENT_SCOPE)
+	else()
+		message("wrong function usage: make_include_directories_list recuires at least one argument and only one return value")
+	endif()
+endfunction()
+
 # Look for all source files in core subproject and save them
 file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
 
