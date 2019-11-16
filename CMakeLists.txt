@@ -79,6 +79,10 @@ endfunction()
 # Look for all source files in core subproject and save them
 file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
 
+# Look for all include paths in core, tests and Dependencies and include them
+make_include_directories_list(${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/Dependencies)
+include_directories(${INCLUDE_LIST})
+
 # Look in the subdirectories to find its CMakeLists.txt so we can build the executable
 add_subdirectory(core)
 add_subdirectory(tests)

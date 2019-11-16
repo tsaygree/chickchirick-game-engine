@@ -14,30 +14,3 @@ target_link_libraries(
 )
 
 install(TARGETS core RUNTIME DESTINATION ${BIN_DIR})
-
-include_directories(
-	Allocators
-	AssetManager
-	SystemManager
-	StringID
-	FileSystem
-	ConfigManager
-	Includes
-	Containers/HashTable
-	Containers/Vector
-	Containers/PropertyTree
-	MemorySystem
-	SDLModule
-	Asset
-	Asset/Texture
-	Asset/Map
-	GameLoop
-	GameObject
-	InputModule/Command
-	InputModule/InputHandler
-	InputModule/InputDevice
-	InputModule/Gamepad
-	EventModule/EventLoop
-	EventModule/Event
-	Timer
-)

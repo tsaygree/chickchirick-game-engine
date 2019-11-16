@@ -37,33 +37,3 @@ target_link_libraries(
 )
 
 install(TARGETS tests RUNTIME DESTINATION ${BIN_DIR})
-
-include_directories(
-	${TEST_DIR}
-	${CORE_DIR}
-	${CORE_DIR}/Allocators
-	${CORE_DIR}/AssetManager
-	${CORE_DIR}/Containers/HashTable
-	${CORE_DIR}/Containers/Vector
-	${CORE_DIR}/Containers/PropertyTree
-	${CORE_DIR}/FileSystem
-	${CORE_DIR}/Includes
-	${CORE_DIR}/StringID
-	${CORE_DIR}/SystemManager
-	${CORE_DIR}/MemorySystem
-	${CORE_DIR}/ConfigManager
-	${CORE_DIR}/SDLModule
-	${CORE_DIR}/Asset
-	${CORE_DIR}/Asset/Texture
-	${CORE_DIR}/Asset/Map
-	${CORE_DIR}/GameLoop
-	${CORE_DIR}/GameObject
-	${CORE_DIR}/InputModule/Command
-	${CORE_DIR}/InputModule/InputHandler
-	${CORE_DIR}/InputModule/InputDevice
-	${CORE_DIR}/InputModule/Gamepad
-	${CORE_DIR}/EventModule/EventLoop
-	${CORE_DIR}/EventModule/Event
-	${CORE_DIR}/Timer
-	cases
-)
