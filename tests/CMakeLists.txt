@@ -13,6 +13,7 @@ add_executable(
 target_link_libraries(
 	tests
     ${DEP_LIBS}
+	${Boost_LIBRARIES}
 )
 
 install(TARGETS tests RUNTIME DESTINATION ${BIN_DIR})
