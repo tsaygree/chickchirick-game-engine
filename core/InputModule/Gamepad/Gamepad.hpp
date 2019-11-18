@@ -8,7 +8,8 @@
     DESCRIPTION:
     Gamepad module represents single hardware device
     that is connected to the system and detected by
-    the game engine.
+    the game engine. Gamepad class implements InputDevice
+    interface.
 
 */
 
