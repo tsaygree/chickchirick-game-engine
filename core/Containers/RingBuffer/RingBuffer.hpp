@@ -25,6 +25,8 @@ public:
     ~RingBuffer();
     void push(T value);
     T    pop();
+    T&   front();
+    T&   back();
 };
 
 template <typename T>
@@ -51,4 +53,14 @@ T RingBuffer<T>::pop() {
     T value = buffer[head];
     head = (head + 1) % bufferSize;
     return value;
+}
+
+template <typename T>
+T& RingBuffer<T>::front() {
+    return buffer[head];
+}
+
+template <typename T>
+T& RingBuffer<T>::back() {
+    return buffer[tail];
 }
