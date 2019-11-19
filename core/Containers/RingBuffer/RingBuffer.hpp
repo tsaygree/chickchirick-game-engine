@@ -23,6 +23,8 @@ private:
 public:
     RingBuffer(uint32_t size);
     ~RingBuffer();
+    void push(T value);
+    T    pop();
 };
 
 template <typename T>
@@ -36,4 +38,17 @@ RingBuffer<T>::RingBuffer(uint32_t size) {
 template <typename T>
 RingBuffer<T>::~RingBuffer() {
     buffer.clear();
+}
+
+template <typename T>
+void RingBuffer<T>::push(T value) {
+    buffer[tail] = value;
+    tail = (tail + 1) % bufferSize;
+}
+
+template <typename T>
+T RingBuffer<T>::pop() {
+    T value = buffer[head];
+    head = (head + 1) % bufferSize;
+    return value;
 }
