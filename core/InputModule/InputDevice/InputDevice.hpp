@@ -16,7 +16,9 @@
 */
 
 #pragma once
-
+#include "SDLInclude.hpp"
+#include "StringID.hpp"
+#include <functional>
 
 class InputDevice {
 private:
@@ -29,4 +31,5 @@ public:
         //MICRO ???
     };
     virtual inline DeviceType getType() const = 0;
+    virtual inline void processInput(SDL_Event& event) = 0;
 };
