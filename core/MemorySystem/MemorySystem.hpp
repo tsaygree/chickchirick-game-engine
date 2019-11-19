@@ -36,8 +36,7 @@
 */
 
 #pragma once
-#include "BlockAlloc.hpp"
-#include "StackAlloc.hpp"
+#include "Allocators.hpp"
 #include "MemoryUnits.hpp"
 #include "PropertyTree.hpp"
 #include "Vector.hpp"
