@@ -28,6 +28,8 @@ public:
     T&   front();
     T&   back();
     void clear();
+    auto begin() const;
+    auto end() const;
 };
 
 template <typename T>
@@ -71,4 +73,14 @@ void RingBuffer<T>::clear() {
     buffer.clear();
     head = 0;
     tail = 0;
+}
+
+template <typename T>
+auto RingBuffer<T>::begin() const {
+    return buffer.begin();
+}
+
+template <typename T>
+auto RingBuffer<T>::end() const {
+    return buffer.end();
 }
