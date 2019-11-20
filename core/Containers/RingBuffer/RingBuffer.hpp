@@ -18,8 +18,8 @@ class RingBuffer {
 private:
     Vector<T>     buffer;
     uint32_t      bufferCapacity = 0;
-    uint32_t      head     = 0;
-    uint32_t      tail     = 0;
+    uint32_t      head = 0;
+    uint32_t      tail = 0;
 public:
     RingBuffer(uint32_t size);
     ~RingBuffer();
