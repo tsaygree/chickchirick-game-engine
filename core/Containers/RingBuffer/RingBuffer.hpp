@@ -59,10 +59,16 @@ T RingBuffer<T>::pop() {
 }
 
 template <typename T>
-T& RingBuffer<T>::front() { return buffer[head]; }
+T& RingBuffer<T>::front() {
+    if (head == 0) { return buffer[head]; }
+    return buffer[head - 1];
+}
 
 template <typename T>
-T& RingBuffer<T>::back()  { return buffer[tail]; }
+T& RingBuffer<T>::back() {
+    if (tail == 0) { return buffer[tail]; }
+    return buffer[tail - 1];
+}
 
 template <typename T>
 void RingBuffer<T>::clear() {
