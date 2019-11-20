@@ -31,6 +31,7 @@ public:
     auto begin() const;
     auto end() const;
     size_t size() const;
+    uint32_t capacity() const;
 };
 
 template <typename T>
@@ -89,4 +90,9 @@ auto RingBuffer<T>::end() const {
 template <typename T>
 size_t RingBuffer<T>::size() const {
     return buffer.size();
+}
+
+template <typename T>
+uint32_t RingBuffer<T>::capacity() const {
+    return capacity;
 }
