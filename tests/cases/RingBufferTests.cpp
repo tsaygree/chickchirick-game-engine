@@ -30,5 +30,23 @@ TEST_CASE("RingBuffer module tests", "[RingBuffer]") {
                 REQUIRE(val == it++);
             }
         }
+        SECTION("RingBuffer overflow") {
+            size_t size = 5;
+            Vector<int> input  = {0, 1, 2, 3, 4};
+            Vector<int> result = {5, 6, 2, 3, 4};
+            RingBuffer<int> queue(size);
+            for (auto val : input) {
+                queue.push(val);
+            }
+            queue.push(5);
+            queue.push(6);
+            size_t it  = 0;
+            auto curVal = queue.begin();
+            while (it != size && curVal != queue.end()) {
+                REQUIRE(*curVal == result[it]);
+                curVal++;
+                it++;
+            }
+        }
     }
 }
