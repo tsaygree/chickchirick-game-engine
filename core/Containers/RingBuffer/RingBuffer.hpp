@@ -66,7 +66,8 @@ T& RingBuffer<T>::back() {
     return buffer[tail];
 }
 
-void clear() {
+template <typename T>
+void RingBuffer<T>::clear() {
     buffer.clear();
     head = 0;
     tail = 0;
