@@ -16,15 +16,17 @@ TEST_CASE("RingBuffer module tests", "[RingBuffer]") {
     SECTION("Constructor test") {
         RingBuffer<int> queue(32);
     }
-    SECTION("Push test") {
-        RingBuffer<int> queue(10);
-        size_t it = 0;
-        for (; it != 10; it++) {
-            queue.push(it);
-        }
-        it = 0;
-        for (const auto val : queue) {
-            REQUIRE(val == it++);
+    SECTION("Push tests") {
+        SECTION("RingBuffer fully loaded") {
+            RingBuffer<int> queue(10);
+            size_t it = 0;
+            for (; it != 10; it++) {
+                queue.push(it);
+            }
+            it = 0;
+            for (const auto val : queue) {
+                REQUIRE(val == it++);
+            }
         }
     }
 }
