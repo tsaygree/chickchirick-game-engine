@@ -18,19 +18,19 @@ class RingBuffer {
 private:
     Vector<T>     buffer;
     uint32_t      capacity = 0;
-    uint32_t      head = 0;
-    uint32_t      tail = 0;
+    uint32_t      head     = 0;
+    uint32_t      tail     = 0;
 public:
     RingBuffer(uint32_t size);
     ~RingBuffer();
-    void push(T value);
-    T    pop();
-    T&   front();
-    T&   back();
-    void clear();
-    auto begin() const;
-    auto end() const;
-    size_t size() const;
+    void     push(T value);
+    T        pop();
+    T&       front();
+    T&       back();
+    void     clear();
+    auto     begin()    const;
+    auto     end()      const;
+    size_t   size()     const;
     uint32_t capacity() const;
 };
 
@@ -43,9 +43,7 @@ RingBuffer<T>::RingBuffer(uint32_t size) {
 }
 
 template <typename T>
-RingBuffer<T>::~RingBuffer() {
-    buffer.clear();
-}
+RingBuffer<T>::~RingBuffer() { buffer.clear(); }
 
 template <typename T>
 void RingBuffer<T>::push(T value) {
@@ -61,14 +59,10 @@ T RingBuffer<T>::pop() {
 }
 
 template <typename T>
-T& RingBuffer<T>::front() {
-    return buffer[head];
-}
+T& RingBuffer<T>::front() { return buffer[head]; }
 
 template <typename T>
-T& RingBuffer<T>::back() {
-    return buffer[tail];
-}
+T& RingBuffer<T>::back()  { return buffer[tail]; }
 
 template <typename T>
 void RingBuffer<T>::clear() {
@@ -78,21 +72,13 @@ void RingBuffer<T>::clear() {
 }
 
 template <typename T>
-auto RingBuffer<T>::begin() const {
-    return buffer.begin();
-}
+auto RingBuffer<T>::begin()         const { return buffer.begin();  }
 
 template <typename T>
-auto RingBuffer<T>::end() const {
-    return buffer.end();
-}
+auto RingBuffer<T>::end()           const { return buffer.end();    }
 
 template <typename T>
-size_t RingBuffer<T>::size() const {
-    return buffer.size();
-}
+size_t RingBuffer<T>::size()        const { return buffer.size();   }
 
 template <typename T>
-uint32_t RingBuffer<T>::capacity() const {
-    return capacity;
-}
+uint32_t RingBuffer<T>::capacity()  const { return capacity;        }
