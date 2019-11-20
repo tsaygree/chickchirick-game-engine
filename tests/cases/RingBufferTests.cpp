@@ -49,4 +49,18 @@ TEST_CASE("RingBuffer module tests", "[RingBuffer]") {
             }
         }
     }
+    SECTION("Pop tests") {
+        SECTION("RingBuffer fully loaded") {
+            size_t size = 10;
+            RingBuffer<int> queue(size);
+            size_t it = 0;
+            for (; it != size; it++) {
+                queue.push(it);
+            }
+            for (it = 0; it != size; it++) {
+                int val = queue.pop();
+                REQUIRE(val == it);
+            }
+        }
+    }
 }
