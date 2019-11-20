@@ -18,11 +18,13 @@ TEST_CASE("RingBuffer module tests", "[RingBuffer]") {
     }
     SECTION("Push tests") {
         SECTION("RingBuffer fully loaded") {
-            RingBuffer<int> queue(10);
+            size_t size = 10;
+            RingBuffer<int> queue(size);
             size_t it = 0;
-            for (; it != 10; it++) {
+            for (; it != size; it++) {
                 queue.push(it);
             }
+            REQUIRE(queue.size() == size);
             it = 0;
             for (const auto val : queue) {
                 REQUIRE(val == it++);
