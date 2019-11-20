@@ -27,6 +27,7 @@ public:
     T    pop();
     T&   front();
     T&   back();
+    void clear();
 };
 
 template <typename T>
@@ -63,4 +64,10 @@ T& RingBuffer<T>::front() {
 template <typename T>
 T& RingBuffer<T>::back() {
     return buffer[tail];
+}
+
+void clear() {
+    buffer.clear();
+    head = 0;
+    tail = 0;
 }
