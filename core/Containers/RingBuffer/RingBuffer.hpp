@@ -30,6 +30,7 @@ public:
     void clear();
     auto begin() const;
     auto end() const;
+    size_t size() const;
 };
 
 template <typename T>
@@ -83,4 +84,9 @@ auto RingBuffer<T>::begin() const {
 template <typename T>
 auto RingBuffer<T>::end() const {
     return buffer.end();
+}
+
+template <typename T>
+size_t RingBuffer<T>::size() const {
+    return buffer.size();
 }
