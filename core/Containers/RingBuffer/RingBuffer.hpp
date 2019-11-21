@@ -51,15 +51,15 @@ void RingBuffer<T>::push(T value) {
     tail = (tail + 1) % bufferSize;
     buffer[tail] = value;
     if (tail == head) { head = (head + 1) % bufferSize; }
+    if (numElements == 0) { head = (head + 1) % bufferSize; }
     numElements++;
 }
 
 template <typename T>
 void RingBuffer<T>::pop() {
-    if (numElements == 0) { return; }
     if (head == tail) { tail = (tail + 1) % bufferSize; }
     head = (head + 1) % bufferSize;
-    numElements--;
+    if (numElements != 0) { numElements--; }
 }
 
 template <typename T>
