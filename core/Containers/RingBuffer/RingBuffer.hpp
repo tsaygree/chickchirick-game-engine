@@ -24,14 +24,14 @@ private:
 public:
     RingBuffer(uint32_t size);
     ~RingBuffer();
-    void     push(T value);
-    void     pop();
-    Vector<T>popAll();
-    T&       front();
-    T&       back();
-    void     clear();
-    uint32_t capacity() const;
-    uint32_t size()     const;
+    void      push(T value);
+    void      pop();
+    Vector<T> popAll();
+    T&        front();
+    T&        back();
+    void      clear();
+    uint32_t  capacity() const;
+    uint32_t  size()     const;
 };
 
 template <typename T>
@@ -50,7 +50,7 @@ template <typename T>
 void RingBuffer<T>::push(T value) {
     tail = (tail + 1) % bufferSize;
     buffer[tail] = value;
-    if (tail == head) { head = (head + 1) % bufferSize; }
+    if (tail == head)     { head = (head + 1) % bufferSize; }
     if (numElements == 0) { head = (head + 1) % bufferSize; }
     if (numElements != bufferSize) { numElements++; }
 }
@@ -87,7 +87,7 @@ void RingBuffer<T>::clear() {
 }
 
 template <typename T>
-uint32_t RingBuffer<T>::capacity()  const { return bufferSize;      }
+uint32_t RingBuffer<T>::capacity()  const { return bufferSize;  }
 
 template <typename T>
-uint32_t RingBuffer<T>::size()      const { return numElements;     }
+uint32_t RingBuffer<T>::size()      const { return numElements; }
