@@ -26,6 +26,7 @@ public:
     ~RingBuffer();
     void     push(T value);
     void     pop();
+    Vector<T>popAll();
     T&       front();
     T&       back();
     void     clear();
@@ -59,6 +60,16 @@ void RingBuffer<T>::pop() {
     if (head == tail) { tail = (tail + 1) % bufferSize; }
     head = (head + 1) % bufferSize;
     numElements--;
+}
+
+template <typename T>
+Vector<T> RingBuffer<T>::popAll() {
+    Vector<T> result;
+    while (numElements > 0) {
+        result.push_back(this->front());
+        this->pop();
+    }
+    return result;
 }
 
 template <typename T>
