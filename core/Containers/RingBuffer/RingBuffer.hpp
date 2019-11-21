@@ -35,8 +35,9 @@ public:
 
 template <typename T>
 RingBuffer<T>::RingBuffer(uint32_t size) {
-    bufferSize = size;
     buffer.resize(size);
+    bufferSize  = size;
+    numElements = 0;
     head = 0;
     tail = 0;
 }
@@ -49,12 +50,14 @@ void RingBuffer<T>::push(T value) {
     tail = (tail + 1) % bufferSize;
     buffer[tail] = value;
     if (tail == head) { head = (head + 1) % bufferSize; }
+    numElements++;
 }
 
 template <typename T>
 void RingBuffer<T>::pop() {
     if (head == tail) { tail = (tail + 1) % bufferSize; }
     head = (head + 1) % bufferSize;
+    numElements--;
 }
 
 template <typename T>
@@ -69,6 +72,7 @@ T& RingBuffer<T>::back() {
 
 template <typename T>
 void RingBuffer<T>::clear() {
+    numElements = 0;
     buffer.clear();
     head = 0;
     tail = 0;
