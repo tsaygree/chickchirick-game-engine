@@ -17,6 +17,7 @@ template <typename T>
 class RingBuffer {
 private:
     Vector<T>     buffer;
+    uint32_t      bufferSize  = 0;
     uint32_t      numElements = 0;
     uint32_t      head = 0;
     uint32_t      tail = 0;
@@ -36,7 +37,7 @@ public:
 
 template <typename T>
 RingBuffer<T>::RingBuffer(uint32_t size) {
-    numElements = size;
+    bufferSize = size;
     buffer.resize(size);
     head = 0;
     tail = 0;
@@ -47,16 +48,16 @@ RingBuffer<T>::~RingBuffer() { buffer.clear(); }
 
 template <typename T>
 void RingBuffer<T>::push(T value) {
-    tail = (tail + 1) % numElements;
+    tail = (tail + 1) % bufferSize;
     buffer[tail] = value;
-    if (tail == head) { head = (head + 1) % numElements; }
+    if (tail == head) { head = (head + 1) % bufferSize; }
 }
 
 template <typename T>
 T RingBuffer<T>::pop() {
-    if (head == tail) { tail = (tail + 1) % numElements; }
+    if (head == tail) { tail = (tail + 1) % bufferSize; }
     T value = buffer[head];
-    head = (head + 1) % numElements;
+    head = (head + 1) % bufferSize;
     return value;
 }
 
