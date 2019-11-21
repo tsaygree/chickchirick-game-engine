@@ -29,8 +29,6 @@ public:
     T&       front();
     T&       back();
     void     clear();
-    auto     begin()    const;
-    auto     end()      const;
     uint32_t capacity() const;
     uint32_t size()     const;
 };
@@ -77,12 +75,6 @@ void RingBuffer<T>::clear() {
     head = 0;
     tail = 0;
 }
-
-template <typename T>
-auto RingBuffer<T>::begin()         const { return buffer.begin();  }
-
-template <typename T>
-auto RingBuffer<T>::end()           const { return buffer.end();    }
 
 template <typename T>
 uint32_t RingBuffer<T>::capacity()  const { return bufferSize;      }
