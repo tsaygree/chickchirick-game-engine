@@ -25,7 +25,7 @@ public:
     RingBuffer(uint32_t size);
     ~RingBuffer();
     void     push(T value);
-    T        pop();
+    void     pop();
     T&       front();
     T&       back();
     void     clear();
@@ -52,11 +52,9 @@ void RingBuffer<T>::push(T value) {
 }
 
 template <typename T>
-T RingBuffer<T>::pop() {
+void RingBuffer<T>::pop() {
     if (head == tail) { tail = (tail + 1) % bufferSize; }
-    T value = buffer[head];
     head = (head + 1) % bufferSize;
-    return value;
 }
 
 template <typename T>
