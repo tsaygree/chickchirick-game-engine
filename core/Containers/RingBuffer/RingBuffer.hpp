@@ -52,7 +52,7 @@ void RingBuffer<T>::push(T value) {
     buffer[tail] = value;
     if (tail == head) { head = (head + 1) % bufferSize; }
     if (numElements == 0) { head = (head + 1) % bufferSize; }
-    numElements++;
+    if (numElements != bufferSize) { numElements++; }
 }
 
 template <typename T>
