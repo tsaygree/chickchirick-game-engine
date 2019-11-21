@@ -16,11 +16,11 @@
 template <typename T>
 class RingBuffer {
 private:
-    Vector<T>     buffer;
-    uint32_t      bufferSize  = 0;
-    uint32_t      numElements = 0;
-    uint32_t      head = 0;
-    uint32_t      tail = 0;
+    Vector<T> buffer;
+    uint32_t  bufferSize  = 0;
+    uint32_t  numElements = 0;
+    uint32_t  head = 0;
+    uint32_t  tail = 0;
 public:
     RingBuffer(uint32_t size);
     ~RingBuffer();
@@ -61,14 +61,10 @@ void RingBuffer<T>::pop() {
 }
 
 template <typename T>
-T& RingBuffer<T>::front() {
-    return buffer[head];
-}
+T& RingBuffer<T>::front() { return buffer[head]; }
 
 template <typename T>
-T& RingBuffer<T>::back() {
-    return buffer[tail];
-}
+T& RingBuffer<T>::back()  { return buffer[tail]; }
 
 template <typename T>
 void RingBuffer<T>::clear() {
