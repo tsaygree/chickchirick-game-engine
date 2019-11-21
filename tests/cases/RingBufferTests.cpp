@@ -66,4 +66,15 @@ TEST_CASE("RingBuffer module tests", "[RingBuffer]") {
             }
         }
     }
+    SECTION("Pop All tests") {
+        SECTION("RingBuffer underflow") {
+            Vector<int> input  = {1, 2, 3};
+            Vector<int> output = {1, 2, 3};
+            RingBuffer<int> q(5);
+            for (auto& val : input) {
+                q.push(val);
+            }
+            REQUIRE(q.popAll() == output);
+        }
+    }
 }
