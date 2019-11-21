@@ -76,5 +76,14 @@ TEST_CASE("RingBuffer module tests", "[RingBuffer]") {
             }
             REQUIRE(q.popAll() == output);
         }
+        SECTION("RingBuffer fully loaded") {
+            Vector<int> input  = {1, 2, 3, 4, 5};
+            Vector<int> output = {1, 2, 3, 4, 5};
+            RingBuffer<int> q(5);
+            for (auto& val : input) {
+                q.push(val);
+            }
+            REQUIRE(q.popAll() == output);
+        }
     }
 }
