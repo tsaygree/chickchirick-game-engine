@@ -47,12 +47,14 @@ RingBuffer<T>::~RingBuffer() { buffer.clear(); }
 
 template <typename T>
 void RingBuffer<T>::push(T value) {
-    buffer[tail] = value;
     tail = (tail + 1) % numElements;
+    buffer[tail] = value;
+    if (tail == head) { head = (head + 1) % numElements; }
 }
 
 template <typename T>
 T RingBuffer<T>::pop() {
+    if (head == tail) { tail = (tail + 1) % numElements; }
     T value = buffer[head];
     head = (head + 1) % numElements;
     return value;
@@ -60,14 +62,12 @@ T RingBuffer<T>::pop() {
 
 template <typename T>
 T& RingBuffer<T>::front() {
-    if (head == 0) { return buffer[head]; }
-    return buffer[head - 1];
+    return buffer[head];
 }
 
 template <typename T>
 T& RingBuffer<T>::back() {
-    if (tail == 0) { return buffer[tail]; }
-    return buffer[tail - 1];
+    return buffer[tail];
 }
 
 template <typename T>
