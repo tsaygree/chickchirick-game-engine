@@ -6,6 +6,12 @@
     Created by <chickchirik> on 19/11/2019.
 
     DESCRIPTION:
+    RingBuffer module is custom-designed queue that
+    circulates entries. Size of the container (number
+    of entries) is set at construction and can't be
+    changed at later time. However, when queue overflows
+    it removes the very first element in the queue in
+    order to write a new one.
 
 */
 

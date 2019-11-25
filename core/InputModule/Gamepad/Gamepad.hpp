@@ -10,6 +10,7 @@
     that is connected to the system and detected by
     the game engine. Gamepad class implements InputDevice
     interface.
+    NOTE: This class is not thread safe.
 
 */
 
