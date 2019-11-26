@@ -31,5 +31,5 @@ public:
         //MICRO ???
     };
     virtual inline DeviceType getType() const = 0;
-    virtual inline void processInput(SDL_Event& event) = 0;
+    virtual void processInput(SDL_Event& event) = 0;
 };
