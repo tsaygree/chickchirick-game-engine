@@ -17,11 +17,13 @@
 
 #pragma once
 #include "SDLInclude.hpp"
+#include "RingBuffer.hpp"
 #include "StringID.hpp"
 #include <functional>
 
 class InputDevice {
 private:
+    RingBuffer<StringID> commands{100};
 public:
     enum class DeviceType {
         GAMEPAD,
@@ -32,4 +34,6 @@ public:
     };
     virtual inline DeviceType getType() const = 0;
     virtual void processInput(SDL_Event& event) = 0;
+    inline  void pushCommand(StringID cmd)   { commands.push(cmd);        }
+    inline  Vector<StringID> popCommands()   { return commands.popAll();  }
 };
