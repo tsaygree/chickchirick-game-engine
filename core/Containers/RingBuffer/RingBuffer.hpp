@@ -12,6 +12,9 @@
     changed at later time. However, when queue overflows
     it removes the very first element in the queue in
     order to write a new one.
+    Internelly it is implemented via Boost C++ Vector
+    class.
+    NOTE: This class is not thread safe.
 
 */
 
