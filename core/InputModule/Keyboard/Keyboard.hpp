@@ -10,11 +10,12 @@
 */
 
 #pragma once
+#include "InputDevice.hpp"
 
-
-class Keyboard {
+class Keyboard : public InputDevice {
 private:
 public:
     Keyboard();
     ~Keyboard();
+    virtual inline DeviceType getType() const { return DeviceType::KEYBOARD; }
 };
