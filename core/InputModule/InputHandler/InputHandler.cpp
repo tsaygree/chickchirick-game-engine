@@ -63,6 +63,10 @@ uint32_t InputHandler::shutDown() {
         }
     }
     padRegistry.clear();
+    if (keyboard) {
+        keyboard->~Keyboard();
+        mem.free(keyboard);
+    }
     return 0;
 }
 
