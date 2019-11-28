@@ -21,7 +21,7 @@ InputHandler& InputHandler::getInstance() {
 void InputHandler::addDevice(int32_t deviceID) {
     /*  not very happy with the solution, but gets the job done :D  */
     bool isFound = false;
-    for (auto& device : deviceRegistry) {
+    for (auto& device : padRegistry) {
         if (device.second->getHardwareID() == deviceID) {
             isFound = true;
         }
@@ -29,16 +29,16 @@ void InputHandler::addDevice(int32_t deviceID) {
     if (isFound == false) {
         Gamepad* newController = new (mem.alloc(sizeof(Gamepad))) Gamepad();
         newController->connect(deviceID);
-        deviceRegistry[newController->getInstanceID()] = newController;
+        padRegistry[newController->getInstanceID()] = newController;
     }
 }
 
 void InputHandler::removeDevice(SDL_JoystickID instanceID) {
-    auto controllerIt = deviceRegistry.find(instanceID);
-    if (controllerIt != deviceRegistry.end()) {
+    auto controllerIt = padRegistry.find(instanceID);
+    if (controllerIt != padRegistry.end()) {
         controllerIt->second->disconnect();
         controllerIt->second->~Gamepad();
-        deviceRegistry.erase(controllerIt);
+        padRegistry.erase(controllerIt);
     }
 }
 
@@ -54,14 +54,14 @@ uint32_t InputHandler::startUP() {
 
 uint32_t InputHandler::shutDown() {
     Gamepad* pad;
-    for (auto& device : deviceRegistry) {
+    for (auto& device : padRegistry) {
         pad = device.second;
         if (pad) {
             pad->disconnect();
             mem.free(pad);
         }
     }
-    deviceRegistry.clear();
+    padRegistry.clear();
     return 0;
 }
 
@@ -76,7 +76,7 @@ void InputHandler::processInput(SDL_Event& event) {
             break;
         }
         case SDL_CONTROLLERBUTTONDOWN: {
-            deviceRegistry[event.cbutton.which]->processInput(event);
+            padRegistry[event.cbutton.which]->processInput(event);
             break;
         }
         default: {

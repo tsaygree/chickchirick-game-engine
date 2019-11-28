@@ -27,7 +27,7 @@
 class InputHandler {
 private:
     MemorySystem& mem = MemorySystem::getInstance();
-    HashTable<SDL_JoystickID, Gamepad*> deviceRegistry;
+    HashTable<SDL_JoystickID, Gamepad*> padRegistry;
     void addDevice(int32_t deviceID);
     void removeDevice(SDL_JoystickID instanceID);
     InputHandler();
