@@ -31,7 +31,7 @@ private:
     uint32_t  head = 0;
     uint32_t  tail = 0;
 public:
-    RingBuffer(uint32_t size);
+    explicit RingBuffer(uint32_t size);
     ~RingBuffer();
     void      push(T value);
     void      pop();
