@@ -23,7 +23,7 @@
 
 class InputDevice {
 private:
-    std::function<StringID(SDL_Event&)> cmdCB;
+    std::function<StringID(SDL_Event&)>  cmdCB;
     RingBuffer<StringID> commands{100};
 public:
     enum class DeviceType {
@@ -33,9 +33,10 @@ public:
         MOUSE
         //MICRO ???
     };
-    InputDevice() {}
+    InputDevice() { cmdCB = [](SDL_Event& event) { return SID(""); }; }
     ~InputDevice() { commands.clear(); }
     virtual inline DeviceType getType() const = 0;
+    inline void setCmdProcCallBack(std::function<StringID(SDL_Event&)> newCmdCB) { cmdCB = newCmdCB; }
     void processInput(SDL_Event& event) {}
     inline  Vector<StringID> popCommands()   { return commands.popAll();  }
 };
