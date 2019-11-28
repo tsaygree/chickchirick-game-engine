@@ -34,6 +34,5 @@ public:
     };
     virtual inline DeviceType getType() const = 0;
     void processInput(SDL_Event& event) {}
-    inline  void pushCommand(StringID cmd)   { commands.push(cmd);        }
     inline  Vector<StringID> popCommands()   { return commands.popAll();  }
 };
