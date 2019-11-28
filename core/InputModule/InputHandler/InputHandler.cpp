@@ -43,6 +43,7 @@ void InputHandler::removeDevice(SDL_JoystickID instanceID) {
 }
 
 uint32_t InputHandler::startUP() {
+    keyboard = new (mem.alloc(sizeof(Keyboard))) Keyboard();
     uint32_t numOfJoysticks = SDL_NumJoysticks();
     uint32_t deviceID = 0;
     while (deviceID < numOfJoysticks) {
