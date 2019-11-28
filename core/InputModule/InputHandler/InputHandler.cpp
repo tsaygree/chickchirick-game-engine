@@ -27,7 +27,7 @@ void InputHandler::addDevice(int32_t deviceID) {
         }
     }
     if (isFound == false) {
-        Gamepad* newController = CAST(Gamepad*, mem.alloc(sizeof(Gamepad)));
+        Gamepad* newController = new (mem.alloc(sizeof(Gamepad))) Gamepad();
         newController->connect(deviceID);
         deviceRegistry[newController->getInstanceID()] = newController;
     }
@@ -37,6 +37,7 @@ void InputHandler::removeDevice(SDL_JoystickID instanceID) {
     auto controllerIt = deviceRegistry.find(instanceID);
     if (controllerIt != deviceRegistry.end()) {
         controllerIt->second->disconnect();
+        controllerIt->second->~Gamepad();
         deviceRegistry.erase(controllerIt);
     }
 }
@@ -72,6 +73,10 @@ void InputHandler::processInput(SDL_Event& event) {
         }
         case SDL_CONTROLLERDEVICEREMOVED: {
             this->removeDevice(event.cdevice.which);
+            break;
+        }
+        case SDL_CONTROLLERBUTTONDOWN: {
+            deviceRegistry[event.cbutton.which]->processInput(event);
             break;
         }
         default: {
