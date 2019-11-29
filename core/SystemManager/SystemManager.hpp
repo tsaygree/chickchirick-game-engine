@@ -35,6 +35,7 @@ private:
     SDLModule&      sdl     = SDLModule::getInstance();
     InputHandler&   inputHandler = InputHandler::getInstance();
     GameLoop&       gloop   = GameLoop::getInstance();
+    StringID        globalConfPath;
     SystemManager();
 public:
     SystemManager(SystemManager const&)            = delete;
