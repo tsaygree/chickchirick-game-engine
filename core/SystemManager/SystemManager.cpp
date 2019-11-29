@@ -18,6 +18,7 @@ SystemManager& SystemManager::getInstance() {
 
 uint32_t SystemManager::BigInit() {
     /*  brute force start up ordering */
+    /*
     fileSys.startUP();
     globalConfPath = fileSys.getGlobalConfPath();
     conMan.startUP();
@@ -27,16 +28,19 @@ uint32_t SystemManager::BigInit() {
     assMan.startUP(fileSys.getAssetsPath());
     inputHandler.startUP();
     gloop.startUP(engineconfig.get_child("GameLoop"));
+    */
     return 0;
 }
 
 uint32_t SystemManager::BigShutDown() {
     /*  brute force start down ordering is strictly */
     /*  the reverse of BigInit ordering             */
+    /*
     inputHandler.shutDown();
     assMan.shutDown();
     sdl.shutDown();
     memSys.shutDown();
     fileSys.shutDown();
+    */
     return 0;
 }
