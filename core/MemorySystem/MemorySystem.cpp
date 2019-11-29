@@ -16,23 +16,9 @@ MemorySystem& MemorySystem::getInstance() {
     return instance;
 }
 
-uint32_t MemorySystem::startUP(bpt::ptree& config) {
+uint32_t MemorySystem::startUP(uint32_t LSRSize, uint32_t StackPoolSize) {
     assert(isInit == false);
-    /*  StackAlloc initialization   */
-    /*  config stores size in MiB, so conversion to bytes needed    */
-    uint32_t LSRSize  = MiBtoB(config.get<uint32_t>("LSRSizeMiB"));
-    uint32_t poolSize = MiBtoB(config.get<uint32_t>("StackPoolSizeMiB"));
-    stackPool.startUP(LSRSize, poolSize);
-    /*  BlockAlloc initializations  */
-    poolSize = MiBtoB(config.get<uint32_t>("BlockAllocPoolSizeMiB"));
-    uint32_t blockSize = 0;
-    for (const auto& item : config.get_child("BlockAllocBlockSizesB")) {
-        blockSize      = item.second.get_value<uint32_t>();
-        char* poolBgn  = new char[poolSize];
-        BlockAlloc newPool;
-        newPool.startUP(poolBgn, poolSize, blockSize);
-        blockPoolList.push_back({newPool, poolBgn, poolSize, blockSize});
-    }
+    stackPool.startUP(LSRSize, StackPoolSize);
     isInit = true;
     return 0;
 }

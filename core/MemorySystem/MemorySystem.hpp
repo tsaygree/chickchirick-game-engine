@@ -37,13 +37,12 @@
     NOTEx3:
     possible memory leakage due to deallocation methods
     do not call object's destructor method!
-    
+
 */
 
 #pragma once
 #include "Allocators.hpp"
 #include "MemoryUnits.hpp"
-#include "PropertyTree.hpp"
 #include "Vector.hpp"
 #include <cstdio>
 
@@ -64,7 +63,7 @@ public:
     MemorySystem(MemorySystem const&)            = delete;
     MemorySystem& operator=(MemorySystem const&) = delete;
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
-    uint32_t startUP(bpt::ptree& config);                          /*  start up                                */
+    uint32_t startUP(uint32_t LSRSize, uint32_t StackPoolSize);         /*  start up                                */
     uint32_t shutDown();                                                /*  shut down                               */
     void*    alloc(uint32_t size);                                      /*  allocation from pool or heap            */
     void     free(void* ptr);                                           /*  free memory from pool or heap           */
