@@ -34,6 +34,16 @@ uint32_t MemorySystem::shutDown() {
     return 0;
 }
 
+void MemorySystem::addBlockPool(uint32_t BlockPoolSize, uint32_t blockSize) {
+    for (auto& blockInfo : blockPoolList) {
+        assert(blockSize != blockInfo.blockSize);
+    }
+    char* poolBgn = new char[BlockPoolSize];
+    BlockAlloc newPool;
+    newPool.startUP(poolBgn, BlockPoolSize, blockSize);
+    blockPoolList.push_back({newPool, poolBgn, BlockPoolSize, blockSize});
+}
+
 void* MemorySystem::alloc(uint32_t size) {
     void* result = nullptr;                             /*  prepare result                              */
     for (auto& entry : blockPoolList) {                 /*  search for matching block pool              */

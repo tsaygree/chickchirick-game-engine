@@ -65,6 +65,7 @@ public:
     static MemorySystem& getInstance();                                 /*  get singleton object                    */
     uint32_t startUP(uint32_t LSRSize, uint32_t StackPoolSize);         /*  start up                                */
     uint32_t shutDown();                                                /*  shut down                               */
+    void     addBlockPool(uint32_t BlockPoolSize, uint32_t blockSize);  /* add new block pool */
     void*    alloc(uint32_t size);                                      /*  allocation from pool or heap            */
     void     free(void* ptr);                                           /*  free memory from pool or heap           */
     void*    stalloc(uint32_t size);                                    /*  allocation from stack pool              */
