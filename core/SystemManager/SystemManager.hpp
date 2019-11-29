@@ -37,6 +37,7 @@ private:
     GameLoop&       gloop   = GameLoop::getInstance();
     StringID        globalConfPath;
     SystemManager();
+    uint32_t initMemorySystem(bpt::ptree& config);
 public:
     SystemManager(SystemManager const&)            = delete;
     SystemManager& operator=(SystemManager const&) = delete;
