@@ -33,6 +33,11 @@
     much faster (hopefully) hardcoded solutuion. Please,
     do not stress out if MemorySystem would become
     a bottleneck :)
+
+    NOTEx3:
+    possible memory leakage due to deallocation methods
+    do not call object's destructor method!
+    
 */
 
 #pragma once
