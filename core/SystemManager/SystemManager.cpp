@@ -20,7 +20,6 @@ uint32_t SystemManager::BigInit() {
     /*  brute force start up ordering */
 
     fileSys.startUP();
-    globalConfPath = fileSys.getGlobalConfPath();
     conMan.startUP();
     bpt::ptree engineconfig = conMan.loadGlobalConfig(SID("engineconfig.json"));
     this->initMemorySystem(engineconfig.get_child("MemorySystem"));
