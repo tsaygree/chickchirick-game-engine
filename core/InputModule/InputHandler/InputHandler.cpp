@@ -38,6 +38,7 @@ void InputHandler::removeDevice(SDL_JoystickID instanceID) {
     if (controllerIt != padRegistry.end()) {
         controllerIt->second->disconnect();
         controllerIt->second->~Gamepad();
+        mem.free(controllerIt->second);
         padRegistry.erase(controllerIt);
     }
 }
