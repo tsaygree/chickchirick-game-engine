@@ -30,15 +30,18 @@ void InputHandler::addDevice(int32_t deviceID) {
         Gamepad* newController = new (mem.alloc(sizeof(Gamepad))) Gamepad();
         newController->connect(deviceID);
         padRegistry[newController->getInstanceID()] = newController;
+        if (mainDevice == nullptr) { mainDevice = newController; }
     }
 }
 
 void InputHandler::removeDevice(SDL_JoystickID instanceID) {
     auto controllerIt = padRegistry.find(instanceID);
     if (controllerIt != padRegistry.end()) {
-        controllerIt->second->disconnect();
-        controllerIt->second->~Gamepad();
-        mem.free(controllerIt->second);
+        Gamepad* pad = controllerIt->second;
+        if (pad == mainDevice) { mainDevice = keyboard; }
+        pad->disconnect();
+        pad->~Gamepad();
+        mem.free(pad);
         padRegistry.erase(controllerIt);
     }
 }
@@ -51,6 +54,7 @@ uint32_t InputHandler::startUP() {
         this->addDevice(deviceID);
         deviceID++;
     }
+    if (padRegistry.empty()) { mainDevice = keyboard; }
     return 0;
 }
 
@@ -68,6 +72,7 @@ uint32_t InputHandler::shutDown() {
         keyboard->~Keyboard();
         mem.free(keyboard);
     }
+    mainDevice = nullptr;
     return 0;
 }
 

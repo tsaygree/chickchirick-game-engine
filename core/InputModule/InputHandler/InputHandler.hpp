@@ -18,6 +18,7 @@
 #include "MemorySystem.hpp"
 #include "PropertyTree.hpp"
 #include "SDLModule.hpp"
+#include "InputDevice.hpp"
 #include "Keyboard.hpp"
 #include "Gamepad.hpp"
 #include "HashTable.hpp"
@@ -29,6 +30,7 @@ class InputHandler {
 private:
     MemorySystem& mem = MemorySystem::getInstance();
     HashTable<SDL_JoystickID, Gamepad*> padRegistry;
+    InputDevice* mainDevice = nullptr;
     Keyboard* keyboard = nullptr;
     void addDevice(int32_t deviceID);
     void removeDevice(SDL_JoystickID instanceID);
