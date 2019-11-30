@@ -35,7 +35,6 @@ private:
     SDLModule&      sdl     = SDLModule::getInstance();
     InputHandler&   inputHandler = InputHandler::getInstance();
     GameLoop&       gloop   = GameLoop::getInstance();
-    StringID        globalConfPath;
     SystemManager();
     uint32_t initMemorySystem(bpt::ptree& config);
 public:
