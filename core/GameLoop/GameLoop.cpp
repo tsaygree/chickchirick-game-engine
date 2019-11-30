@@ -18,8 +18,7 @@ GameLoop& GameLoop::getInstance() {
     return instance;
 }
 
-uint32_t GameLoop::startUP(bpt::ptree& config) {
-    uint8_t fps = config.get<uint8_t>("FPS");
+uint32_t GameLoop::startUP(uint8_t fps) {
     msPerUpdate = 1.0f / fps;
     isRunning   = true;
     return 0;

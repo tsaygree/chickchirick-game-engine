@@ -13,7 +13,6 @@
 */
 
 #pragma once
-#include "PropertyTree.hpp"
 #include "AssetManager.hpp"
 #include "InputHandler.hpp"
 #include "Timer.hpp"
@@ -30,7 +29,7 @@ public:
     GameLoop(GameLoop const&)            = delete;
     GameLoop& operator=(GameLoop const&) = delete;
     static GameLoop& getInstance();
-    uint32_t startUP(bpt::ptree& config);
+    uint32_t startUP(uint8_t fps);
     void     run();
     uint32_t shutDown();
     ~GameLoop();
