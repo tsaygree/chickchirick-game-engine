@@ -27,7 +27,7 @@ uint32_t SystemManager::BigInit() {
     sdl.startUP(engineconfig.get_child("SDLConfig"));
     assMan.startUP(fileSys.getAssetsPath());
     inputHandler.startUP();
-    gloop.startUP(engineconfig.get_child("GameLoop"));
+    gloop.startUP(engineconfig.get_child("GameLoop").get<uint8_t>("FPS"));
     */
     return 0;
 }
