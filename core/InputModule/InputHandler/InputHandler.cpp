@@ -90,6 +90,10 @@ void InputHandler::processInput(SDL_Event& event) {
             padRegistry[event.cbutton.which]->processInput(event);
             break;
         }
+        case SDL_KEYDOWN: {
+            keyboard->processInput(event);
+            break;
+        }
         default: {
             break;
         }
