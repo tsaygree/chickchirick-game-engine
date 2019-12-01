@@ -39,4 +39,5 @@ public:
     inline void setCmdProcCallBack(std::function<StringID(SDL_Event&)> newCmdCB) { cmdCB = newCmdCB; }
     inline void processInput(SDL_Event& event) { commands.push(cmdCB(event)); }
     inline  Vector<StringID> popCommands()   { return commands.popAll();  }
+    inline void clearCommands() { commands.clear(); }
 };
