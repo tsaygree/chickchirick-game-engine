@@ -30,7 +30,7 @@ void InputHandler::addDevice(int32_t deviceID) {
         Gamepad* newController = new (mem.alloc(sizeof(Gamepad))) Gamepad();
         newController->connect(deviceID);
         padRegistry[newController->getInstanceID()] = newController;
-        if (mainDevice == nullptr) { mainDevice = newController; }
+        if (mainDevice == keyboard) { mainDevice = newController; }
     }
 }
 
