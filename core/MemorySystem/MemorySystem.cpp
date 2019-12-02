@@ -52,9 +52,8 @@ void* MemorySystem::alloc(uint32_t size) {
             break;
         }
     }
-    if (!result) {                                      /*  if size request is too big => deligate      */
-        result = new char[size];                        /*  allocation to general purpose allocator     */
-    }
+    /*  if size request is too big => deligate      */
+    if (!result) { result = new char[size]; }           /*  allocation to general purpose allocator     */
     return result;
 }
 
@@ -78,10 +77,6 @@ void* MemorySystem::stalloc(uint32_t size) {
     return result;
 }
 
-void MemorySystem::stfree() {
-    stackPool.free();
-}
+void MemorySystem::stfree() { stackPool.free(); }
 
-void* MemorySystem::galloc(uint32_t size) {
-    return stackPool.LSRalloc(size);
-}
+void* MemorySystem::galloc(uint32_t size) { return stackPool.LSRalloc(size); }
