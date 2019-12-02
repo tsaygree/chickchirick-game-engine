@@ -6,7 +6,7 @@
     Created by <chickchirik> on 13/10/2019.
 
     DESCRIPTION:
-    Vector definition
+    Boost C++ Vector definition
 
 */
 
