@@ -45,7 +45,9 @@ public:
     T* loadAssetAs(const StringID& name) {
         T* result = nullptr;
         if (resRegistry.count(name) == 0) {
-            result = CAST(T*, mem.stalloc(sizeof(T)));
+            // result = CAST(T*, mem.stalloc(sizeof(T)));
+            /* don't forget to call for destructor */
+            result = new (mem.stalloc(sizeof(T))) T();
             this->loadAssetAsType<T>(result, name);
             resRegistry[name] = STCAST(Asset*, result);
         }
@@ -55,7 +57,9 @@ public:
     T* loadGlobalAssetAs(const StringID& name) {
         T* result = nullptr;
         if (resRegistry.count(name) == 0) {
-            result = CAST(T*, mem.galloc(sizeof(T)));
+            // result = CAST(T*, mem.galloc(sizeof(T)));
+            /* don't forget to call for destructor */
+            result = new (mem.galloc(sizeof(T))) T();
             this->loadAssetAsType<T>(result, name);
             resRegistry[name] = STCAST(Asset*, result);
         }
