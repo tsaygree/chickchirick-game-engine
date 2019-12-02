@@ -20,11 +20,9 @@
 */
 
 #pragma once
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/json_parser.hpp>
-#include "StringID.hpp"
+#include "PropertyTree.hpp"
 #include "SDLInclude.hpp"
-namespace bpt = boost::property_tree;
+#include "StringID.hpp"
 
 
 class FileSystem {
@@ -48,9 +46,9 @@ public:
     inline SDL_Surface* loadIMG(const char* filepath) {         /*  load image and return sdl surface           */
         return IMG_Load(filepath);
     }
-    const StringID& getBasePath() const;                        /*  get engine base dir path                    */
-    // const StringID& getLocalPath() const;                       /*  get hidden appdata path                     */
-    const StringID& getGlobalConfPath() const;                  /*  get global config path                      */
-    // const StringID& getLocalConfPath() const;                   /*  get local config path                       */
-    const StringID& getAssetsPath() const;                      /*  get assets path                             */
+    const StringID& getGlobalConfPath() const { return globalConfPath;  } /*  get global config path            */
+    const StringID& getLocalConfPath()  const { return localConfPath;   } /*  get local config path             */
+    const StringID& getAssetsPath()     const { return assetsPath;      } /*  get assets path                   */
+    const StringID& getLocalPath()      const { return localPath;       } /*  get hidden appdata path           */
+    const StringID& getBasePath()       const { return basePath;        } /*  get engine base dir path          */
 };

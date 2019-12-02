@@ -24,13 +24,3 @@ uint32_t FileSystem::startUP() {
 }
 
 uint32_t FileSystem::shutDown() {   return 0;  }
-
-const StringID& FileSystem::getBasePath()       const   {   return basePath;        }
-
-// const StringID& FileSystem::getLocalPath()      const   {   return localPath;       }
-
-const StringID& FileSystem::getGlobalConfPath() const   {   return globalConfPath;  }
-
-// const StringID& FileSystem::getLocalConfPath()  const   {   return localConfPath;   }
-
-const StringID& FileSystem::getAssetsPath()     const   {   return assetsPath;      }
