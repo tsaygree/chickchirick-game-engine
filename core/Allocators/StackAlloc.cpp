@@ -26,7 +26,7 @@ int StackAlloc::startUP(uint32_t LSRSize_, uint32_t poolSize_) {
 
 int StackAlloc::startUP(char* sPool, uint32_t LSRSize_, uint32_t poolSize_) {
     assert(isInit == false);
-    assert(sPool != nullptr);
+    assert(sPool  != nullptr);
     assert(LSRSize_ + poolSize_ > 0);
     LSRSize   = LSRSize_;
     realSize  = LSRSize_ + poolSize_;
@@ -67,8 +67,4 @@ void StackAlloc::freeToMarker(uint32_t newMarker) {
     if (newMarker >= LSRSize && newMarker < marker) {
         marker = newMarker;
     }
-}
-
-void StackAlloc::free() {
-    marker = LSRSize;
 }
