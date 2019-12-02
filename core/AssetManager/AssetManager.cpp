@@ -33,13 +33,12 @@ Asset* AssetManager::getAsset(const StringID& name) {
 
 template <>
 void AssetManager::loadAssetAsType<Texture>(Texture* asset, const StringID& name) {
-    auto&  fs  = FileSystem::getInstance();
-    auto&  sdl = SDLModule::getInstance();
+    auto& fs  = FileSystem::getInstance();
+    auto& sdl = SDLModule::getInstance();
     string filepath = fs.getAssetsPath().getStr() + name.getStr();
     SDL_Surface* SDLsurface = fs.loadIMG(filepath.c_str());
     SDL_Texture* SDLtexture = SDL_CreateTextureFromSurface(sdl.getRenderer(), SDLsurface);
     SDL_FreeSurface(SDLsurface);
-
     asset->texture = SDLtexture;
     asset->id = name;
 }

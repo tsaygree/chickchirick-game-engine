@@ -20,11 +20,10 @@
 #pragma once
 #include "MemorySystem.hpp"
 #include "FileSystem.hpp"
+#include "HashTable.hpp"
 #include "StringID.hpp"
-#include "Asset.hpp"
 #include "Texture.hpp"
 #include "Map.hpp"
-#include "HashTable.hpp"
 #include <cstdint>
 
 
@@ -40,8 +39,8 @@ public:
     AssetManager(AssetManager const&)            = delete;
     AssetManager& operator=(AssetManager const&) = delete;
     static AssetManager& getInstance();
-    int     startUP(const StringID& assetsPath_);
-    int     shutDown();
+    int startUP(const StringID& assetsPath_);
+    int shutDown();
     template <typename T>
     T* loadAssetAs(const StringID& name) {
         T* result = nullptr;
@@ -62,5 +61,5 @@ public:
         }
         return result;
     }
-    Asset*  getAsset(const StringID& name);
+    Asset* getAsset(const StringID& name);
 };
