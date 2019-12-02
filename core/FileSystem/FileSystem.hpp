@@ -47,8 +47,8 @@ public:
         return IMG_Load(filepath);
     }
     const StringID& getGlobalConfPath() const { return globalConfPath;  } /*  get global config path            */
-    const StringID& getLocalConfPath()  const { return localConfPath;   } /*  get local config path             */
+    // const StringID& getLocalConfPath()  const { return localConfPath;   } /*  get local config path             */
     const StringID& getAssetsPath()     const { return assetsPath;      } /*  get assets path                   */
-    const StringID& getLocalPath()      const { return localPath;       } /*  get hidden appdata path           */
+    // const StringID& getLocalPath()      const { return localPath;       } /*  get hidden appdata path           */
     const StringID& getBasePath()       const { return basePath;        } /*  get engine base dir path          */
 };
