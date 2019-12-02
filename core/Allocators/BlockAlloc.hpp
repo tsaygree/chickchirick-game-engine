@@ -29,9 +29,9 @@
 #include <cstdint>
 #include <cassert>
 
-#define CAST(type, expr) reinterpret_cast<type>(expr)
+#define CAST(type, expr)   reinterpret_cast<type>(expr)
 #define STCAST(type, expr) static_cast<type>(expr)
-#define cpyptr(dest, src) std::memcpy(dest, src, sizeof(uintptr_t))
+#define cpyptr(dest, src)  std::memcpy(dest, src, sizeof(uintptr_t))
 
 class BlockAlloc {
 private:
@@ -61,12 +61,12 @@ private:
     }
 public:
     BlockAlloc();
-    void  startUP(uint32_t pSize, uint32_t bSize);              /*  inner pool initialization                   */
-    void  startUP(char* bPool, uint32_t pSize, uint32_t bSize); /*  outer pool initialization                   */
-    void* balloc();                                             /*  block allocation                            */
-    void  free(void* blockptr);                                 /*  free allocated block                        */
-    inline void freeAll() { this->resetPool(); }                /*  free all allocated blocks                   */
-    inline void shutDown() {                                    /*  free allocated memory                       */
+    void   startUP(uint32_t pSize, uint32_t bSize);              /*  inner pool initialization                   */
+    void   startUP(char* bPool, uint32_t pSize, uint32_t bSize); /*  outer pool initialization                   */
+    void*  balloc();                                             /*  block allocation                            */
+    void   free(void* blockptr);                                 /*  free allocated block                        */
+    inline void freeAll()  { this->resetPool(); }                /*  free all allocated blocks                   */
+    inline void shutDown() {                                     /*  free allocated memory                       */
         if (isInnerPool) {
             delete[] pool;
             isInnerPool = false;

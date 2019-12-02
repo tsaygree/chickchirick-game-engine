@@ -26,9 +26,9 @@ void BlockAlloc::startUP(uint32_t pSize, uint32_t bSize) {
         if BlockAlloc will become a bottleneck.
     */
     assert(isInit == false);
-    assert(bSize >= sizeof(char*));
-    assert(pSize >= bSize);
-    assert(pSize % bSize == 0);
+    assert(bSize  >= sizeof(char*));
+    assert(pSize  >= bSize);
+    assert(pSize  %  bSize == 0);
 
     this->initVars(new char[pSize], pSize, bSize);
     this->resetPool();
@@ -44,10 +44,10 @@ void BlockAlloc::startUP(char* bPool, uint32_t pSize, uint32_t bSize) {
         pool and have more control over it.
     */
     assert(isInit == false);
-    assert(bPool != nullptr);
-    assert(bSize >= sizeof(char*));
-    assert(pSize >= bSize);
-    assert(pSize % bSize == 0);
+    assert(bPool  != nullptr);
+    assert(bSize  >= sizeof(char*));
+    assert(pSize  >= bSize);
+    assert(pSize  % bSize == 0);
 
     this->initVars(bPool, pSize, bSize);
     this->resetPool();
