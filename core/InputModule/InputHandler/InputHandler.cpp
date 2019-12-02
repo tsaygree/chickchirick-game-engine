@@ -38,7 +38,10 @@ void InputHandler::removeDevice(SDL_JoystickID instanceID) {
     auto controllerIt = padRegistry.find(instanceID);
     if (controllerIt != padRegistry.end()) {
         Gamepad* pad = controllerIt->second;
-        if (pad == mainDevice) { mainDevice = keyboard; }
+        if (pad == mainDevice) {
+            keyboard->clearCommands();
+            mainDevice = keyboard;
+        }
         pad->disconnect();
         pad->~Gamepad();
         mem.free(pad);
