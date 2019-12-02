@@ -6,7 +6,7 @@
     Created by <chickchirik> on 03/10/2019.
 
     DESCRIPTION:
-    HashTable definition.
+    Boost C++ HashTable definition.
 
 */
 
