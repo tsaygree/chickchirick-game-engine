@@ -14,9 +14,9 @@
 */
 
 #pragma once
-#include <SDL.h>
 #include "FileSystem.hpp"
 #include "StringID.hpp"
+#include <SDL.h>
 
 class ConfigManager {
 private:
@@ -26,7 +26,7 @@ private:
 public:
     ConfigManager(ConfigManager const&)            = delete;
     ConfigManager& operator=(ConfigManager const&) = delete;
-    static ConfigManager& getInstance();                                    /*  get singleton object            */
-    uint32_t startUP();                                                     /*  start up                        */
-    const bpt::ptree& loadGlobalConfig(const StringID& filename);           /*  load and parse config file      */
+    static ConfigManager& getInstance();                              /*  get singleton object            */
+    uint32_t startUP();                                               /*  start up                        */
+    const bpt::ptree& loadGlobalConfig(const StringID& filename);     /*  load and parse config file      */
 };
