@@ -21,17 +21,17 @@
 
 class Gamepad : public InputDevice {
 private:
-    SDL_GameController* controller  = nullptr;
     SDL_JoystickID      instanceID;
+    SDL_GameController* controller  = nullptr;
     int32_t             hardwareID;
     bool                connected   = false;
 public:
     Gamepad();
     ~Gamepad();
-    virtual inline DeviceType getType() const { return DeviceType::GAMEPAD; }
-    inline bool isConnected() const { return connected; }                   /*  returns connection status               */
-    inline int32_t getHardwareID() const { return hardwareID; }             /*  returns hardware pad id                 */
+    inline DeviceType getType()  const override { return DeviceType::GAMEPAD; }
     inline SDL_JoystickID getInstanceID() const { return instanceID; }      /*  returns virtual engine pad id           */
+    inline int32_t getHardwareID()        const { return hardwareID; }      /*  returns hardware pad id                 */
+    inline bool isConnected()             const { return connected;  }      /*  returns connection status               */
     uint32_t connect(uint32_t deviceID);                                    /*  attempts to connect the controller      */
     uint32_t disconnect();                                                  /*  attemts to disconnect the controller    */
 };
