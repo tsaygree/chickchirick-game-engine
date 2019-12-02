@@ -90,7 +90,6 @@ T& RingBuffer<T>::back()  { return buffer[tail]; }
 template <typename T>
 void RingBuffer<T>::clear() {
     numElements = 0;
-    buffer.clear();
     head = 0;
     tail = 0;
 }
