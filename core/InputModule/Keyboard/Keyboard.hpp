@@ -15,7 +15,7 @@
 class Keyboard : public InputDevice {
 private:
 public:
-    Keyboard();
+    Keyboard ();
     ~Keyboard();
-    virtual inline DeviceType getType() const { return DeviceType::KEYBOARD; }
+    inline DeviceType getType() const override { return DeviceType::KEYBOARD; }
 };
