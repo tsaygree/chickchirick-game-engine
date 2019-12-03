@@ -43,4 +43,5 @@ public:
     uint32_t startUP();
     uint32_t shutDown();
     void processInput(SDL_Event& event);
+    inline InputDevice* getMainDevice() const { return mainDevice; }
 };
