@@ -49,6 +49,10 @@ void GameLoop::run() {
 
         /*  update handling         */
         while (lag >= msPerUpdate) {
+            /*  command processing example  */
+            for (auto& cmd : inputHandler.getMainDevice()->popCommands()) {
+                printf("%s\n", cmd.getPtr());
+            }
             lag -= msPerUpdate;
         }
         interpolation = lag / msPerUpdate;

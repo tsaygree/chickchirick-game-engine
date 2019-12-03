@@ -51,6 +51,19 @@ void InputHandler::removeDevice(SDL_JoystickID instanceID) {
 
 uint32_t InputHandler::startUP() {
     keyboard = new (mem.alloc(sizeof(Keyboard))) Keyboard();
+
+    /*  keyboard command processing callback example    */
+    keyboard->setCmdProcCallBack([](SDL_Event& event){
+        auto button = event.key.keysym.sym;
+        switch (button) {
+            case SDLK_w: { return SID("Command w");  }
+            case SDLK_a: { return SID("Command a");  }
+            case SDLK_s: { return SID("Command s");  }
+            case SDLK_d: { return SID("Command d");  }
+            default: { return SID("unknown button"); }
+        }
+    });
+
     uint32_t numOfJoysticks = SDL_NumJoysticks();
     uint32_t deviceID = 0;
     while (deviceID < numOfJoysticks) {
