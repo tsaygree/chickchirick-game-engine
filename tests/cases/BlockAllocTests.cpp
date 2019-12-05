@@ -28,8 +28,8 @@ public:
 
 TEST_CASE("initialize tests", "[BlockAlloc]") {
     BlockAlloc bPool;
-    uint32_t bSize = sizeof(Test);
-    uint32_t pSize = 4 * bSize;
+    const uint32_t bSize = sizeof(Test);
+    const uint32_t pSize = 4 * bSize;
     SECTION("initialize inner pool") {
         bPool.startUP(pSize, bSize);
         Test* tptr = CAST(Test*, bPool.balloc());
