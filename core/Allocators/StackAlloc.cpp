@@ -34,6 +34,7 @@ int StackAlloc::startUP(char* sPool, uint32_t LSRSize_, uint32_t poolSize_) {
     LSRMarker = 0;
     pool      = sPool;
     isInit    = true;
+    return 0;
 }
 
 int StackAlloc::shutDown() {
