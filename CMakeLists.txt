@@ -4,8 +4,6 @@ project(chickchirik-game-engine)
 # Set root directory alias
 set(ROOT_DIR "${chickchirik-game-engine_SOURCE_DIR}")
 
-message(${ROOT_DIR})
-
 # Using modified FindSDL2* modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${ROOT_DIR}/cmake")
 
