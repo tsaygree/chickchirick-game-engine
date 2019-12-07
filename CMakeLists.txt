@@ -64,6 +64,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL
 	# Look for all dynamic libraries in dependencies and save them in the list
 	file(GLOB_RECURSE DEP_LIBS ${DEP_DIR}/*.dylib)
 elseif (${CMAKE_CXX_COMPILER_ID} STREQUAL "MSVC")
+	file(GLOB_RECURSE DEP_LIBS ${DEP_DIR}/*.dll)
     if (CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
         string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     else()
