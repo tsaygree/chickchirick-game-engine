@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.9)
 project(chickchirik-game-engine)
 
 # Function recursively iterates through provided directories and creates a
