@@ -24,6 +24,6 @@
 .DS_Store
 
 # Project build files
-/bin/*
-/build/*
+/*bin*/
+/*build*/
 /.idea/*
