@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 2.9)
 project(chickchirik-game-engine)
 
 # Function recursively iterates through provided directories and creates a
-# global INCLUDE_LIST variable string.
+# variable string with all directories where .h or .hpp files can be found.
 # Big thanks to Gonzalo Garramuno (https://cmake.org/pipermail/cmake/2017-October/066495.html)
-function(make_include_directories_list)
-	if((ARGC EQUAL 2) OR (ARGC GREATER 2))
+function(make_include_directories_list RESULT_VAR)
+	if((ARGC EQUAL 3) OR (ARGC GREATER 3))
 		foreach(dir IN LISTS ARGN)
 			file(GLOB_RECURSE new_list ${dir}/*.h ${dir}/*.hpp)
 			set(dir_list "")
@@ -16,9 +16,9 @@ function(make_include_directories_list)
 			list(REMOVE_DUPLICATES dir_list)
 			list(APPEND RESULT_LIST ${dir_list})
 		endforeach()
-		set(INCLUDE_LIST ${RESULT_LIST} PARENT_SCOPE)
+		set(${RESULT_VAR} ${RESULT_LIST} PARENT_SCOPE)
 	else()
-		message("wrong function usage: make_include_directories_list recuires at least one argument and only one return value")
+		message("wrong function usage: make_include_directories_list recuires at least two arguments, first of which is a return varibale.")
 	endif()
 endfunction()
 
@@ -53,7 +53,7 @@ file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
 file(GLOB_RECURSE TESTS_CPP ${TESTS_DIR}/*.cpp ${TESTS_DIR}/*.c)
 
 # Look for all include paths in core, tests and Dependencies and include them
-make_include_directories_list(${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/Dependencies)
+make_include_directories_list(INCLUDE_LIST ${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/Dependencies)
 include_directories(${INCLUDE_LIST})
 
 # Set compilation flags based on compiler
