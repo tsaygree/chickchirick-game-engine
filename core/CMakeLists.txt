@@ -7,7 +7,7 @@ add_executable(
 
 target_link_libraries(
 	core
-    ${DEP_LIBS}
+  ${DEP_LIBS}
 	${Boost_LIBRARIES}
 )
 

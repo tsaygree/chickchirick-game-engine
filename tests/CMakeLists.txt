@@ -12,7 +12,7 @@ add_executable(
 
 target_link_libraries(
 	tests
-    ${DEP_LIBS}
+  ${DEP_LIBS}
 	${Boost_LIBRARIES}
 )
 
