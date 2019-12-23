@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.9)
+cmake_minimum_required(VERSION 3.1)
 project(chickchirik-game-engine)
 
 # Function recursively iterates through provided directories and creates a
@@ -63,9 +63,11 @@ file(GLOB_RECURSE TESTS_CPP ${TESTS_DIR}/*.cpp ${TESTS_DIR}/*.c)
 make_include_directories_list(INCLUDE_LIST ${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/Dependencies)
 include_directories(${INCLUDE_LIST})
 
+set(CMAKE_CXX_STANDARD 14)
+
 # Set compilation flags based on compiler
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -std=c++14")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG} -g")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_RELEASE} -O2")
 	# Look for all dynamic libraries in dependencies and save them in the list
