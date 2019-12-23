@@ -60,7 +60,7 @@ file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
 file(GLOB_RECURSE TESTS_CPP ${TESTS_DIR}/*.cpp ${TESTS_DIR}/*.c)
 
 # Look for all include paths in core, tests and Dependencies and include them
-make_include_directories_list(INCLUDE_LIST ${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/Dependencies)
+make_include_directories_list(INCLUDE_LIST ${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/dependencies)
 include_directories(${INCLUDE_LIST})
 
 set(CMAKE_CXX_STANDARD 14)
