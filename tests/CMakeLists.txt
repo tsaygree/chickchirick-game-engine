@@ -6,13 +6,16 @@ list(REMOVE_ITEM CORE_CPP_NO_MAIN "${CORE_DIR}/main.cpp")
 
 add_executable(
 	tests
-    ${TESTS_CPP}
+  	${TESTS_CPP}
 	${CORE_CPP_NO_MAIN}
 )
 
 target_link_libraries(
 	tests
-  ${DEP_LIBS}
+  	${DEP_LIBS}
+	${SDL2_LIBS}
+	${SDL2_IMAGE_LIBRARY}
+	${SDL2_TTF_LIBRARY}
 	${Boost_LIBRARIES}
 )
 

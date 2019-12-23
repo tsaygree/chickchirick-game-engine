@@ -41,10 +41,17 @@ add_compile_definitions(__CONFIGPATH__="${ROOT_DIR}/configs/")
 	# set project assets path macro
 add_compile_definitions(__ASSETSPATH__="${ROOT_DIR}/assets/")
 
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
 # Look up Boost C++ Libraries
 find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
+
+# Find SDL2 and OpenGL
+find_package(SDL2 REQUIRED COMPONENTS main)
+find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
 
 # Look for all source files in core subproject and save them
 file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
@@ -62,9 +69,10 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG} -g")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_RELEASE} -O2")
 	# Look for all dynamic libraries in dependencies and save them in the list
-	file(GLOB_RECURSE DEP_LIBS ${DEP_DIR}/*.dylib)
+	# file(GLOB_RECURSE DEP_LIBS ${DEP_DIR}/*.dylib)
+	# link_directories(${ROOT_DIR}/dependencies/sdl2/SDL2-2.0.10-macOS)
 elseif (${CMAKE_CXX_COMPILER_ID} STREQUAL "MSVC")
-	file(GLOB_RECURSE DEP_LIBS ${DEP_DIR}/*.dll)
+	# file(GLOB_RECURSE DEP_LIBS ${DEP_DIR}/*.dll)
     if (CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
         string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     else()
