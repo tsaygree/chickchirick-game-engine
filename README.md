@@ -8,25 +8,23 @@ chickchirik's proprietary video game engine
 - [git](https://git-scm.com/)
 - [cmake](https://cmake.org/)
 - [gcc](https://www.gnu.org/software/gcc/) or [clang](https://clang.llvm.org/) or [msvc](https://visualstudio.microsoft.com/)
+- [boost](https://www.boost.org)
+- [sdl2](https://www.libsdl.org/index.php) and all sub-libraries
 
 ### Building
-Remember to rename project and subproject directories and their references in CMakeLists configurations.
 
 ```bash
 $ mkdir bin
 $ mkdir build && cd build
+$ cmake -G  *your generator*
 $ -DCMAKE_BUILD_TYPE=Debug ../
-$ make
+$ make -j 2
 $ make install
 $ cd..
 ```
-or
-```bash
-$ mkdir bin; mkdir build; cd build; cmake -DCMAKE_BUILD_TYPE=Debug ../; make ;make install; cd..
-```
 
 ### Running
-
+When in project's root directory run:
 ```bash
 $ ./bin/tests
 $ ./bin/core
