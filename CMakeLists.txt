@@ -30,7 +30,6 @@ set(BIN_DIR ${ROOT_DIR}/bin)
 
 # Set variables to hold paths to project directories
 set(CORE_DIR ${ROOT_DIR}/core)
-set(TESTS_DIR ${ROOT_DIR}/tests)
 set(DEP_DIR ${ROOT_DIR}/dependencies)
 
 # Set preprocessor definition MACROS
@@ -56,11 +55,8 @@ find_package(SDL2_ttf REQUIRED)
 # Look for all source files in core subproject and save them
 file(GLOB_RECURSE CORE_CPP ${CORE_DIR}/*.cpp ${CORE_DIR}/*.c)
 
-# Look for all source files in tests subproject and save them
-file(GLOB_RECURSE TESTS_CPP ${TESTS_DIR}/*.cpp ${TESTS_DIR}/*.c)
-
-# Look for all include paths in core, tests and Dependencies and include them
-make_include_directories_list(INCLUDE_LIST ${CORE_DIR} ${TEST_DIR} ${ROOT_DIR}/dependencies)
+# Look for all include paths in core and Dependencies and include them
+make_include_directories_list(INCLUDE_LIST ${CORE_DIR} ${ROOT_DIR}/dependencies)
 include_directories(${INCLUDE_LIST})
 
 set(CMAKE_CXX_STANDARD 14)
@@ -84,4 +80,3 @@ endif()
 
 # Look in the subdirectories to find its CMakeLists.txt so we can build the executable
 add_subdirectory(core)
-add_subdirectory(tests)
